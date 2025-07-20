@@ -7,4 +7,6 @@ class Recipe < ApplicationRecord
   belongs_to :user
   has_many :instructions, dependent: :destroy
   has_and_belongs_to_many :labels
+  has_many :ingredient_lists
+  has_many :ingredients, through: :ingredient_lists
 end
