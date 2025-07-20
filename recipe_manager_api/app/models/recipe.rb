@@ -6,4 +6,5 @@ class Recipe < ApplicationRecord
   # associations
   belongs_to :user
   has_many :instructions, dependent: :destroy
+  has_and_belongs_to_many :labels
 end

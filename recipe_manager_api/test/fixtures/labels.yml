@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  recipe: one
+  vegetarian: false
+  vegan: false
+  gluten_free: false
+  dairy_free: false
+
+two:
+  recipe: two
+  vegetarian: false
+  vegan: false
+  gluten_free: false
+  dairy_free: false
