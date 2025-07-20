@@ -5,4 +5,5 @@ class Recipe < ApplicationRecord
   attribute :favorite, :shopping_list, default: false
   # associations
   belongs_to :user
+  has_many :instructions, dependent: :destroy
 end
