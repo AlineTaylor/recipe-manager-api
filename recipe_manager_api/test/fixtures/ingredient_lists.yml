@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ingredient: one
+  recipe: one
+  metric_qty: 1
+  metric_unit: MyString
+  imperial_qty: 1
+  imperial_unit: MyString
+
+two:
+  ingredient: two
+  recipe: two
+  metric_qty: 1
+  metric_unit: MyString
+  imperial_qty: 1
+  imperial_unit: MyString
