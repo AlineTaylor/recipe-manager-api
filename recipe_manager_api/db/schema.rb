@@ -10,7 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_07_20_012200) do
+ActiveRecord::Schema[8.0].define(version: 2025_07_20_020353) do
+  create_table "ingredient_lists", force: :cascade do |t|
+    t.integer "ingredient_id", null: false
+    t.integer "recipe_id", null: false
+    t.float "metric_qty"
+    t.string "metric_unit"
+    t.float "imperial_qty"
+    t.string "imperial_unit"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ingredient_id"], name: "index_ingredient_lists_on_ingredient_id"
+    t.index ["recipe_id"], name: "index_ingredient_lists_on_recipe_id"
+  end
+
+  create_table "ingredients", force: :cascade do |t|
+    t.string "ingredient"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "instructions", force: :cascade do |t|
     t.integer "recipe_id", null: false
     t.integer "step_number"
@@ -34,6 +53,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_20_012200) do
   create_table "labels_recipes", id: false, force: :cascade do |t|
     t.integer "label_id", null: false
     t.integer "recipe_id", null: false
+    t.index ["label_id", "recipe_id"], name: "index_labels_recipes_on_label_id_and_recipe_id"
+    t.index ["recipe_id", "label_id"], name: "index_labels_recipes_on_recipe_id_and_label_id"
   end
 
   create_table "recipes", force: :cascade do |t|
@@ -60,6 +81,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_20_012200) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "ingredient_lists", "ingredients"
+  add_foreign_key "ingredient_lists", "recipes"
   add_foreign_key "instructions", "recipes"
   add_foreign_key "labels", "recipes"
   add_foreign_key "recipes", "users"

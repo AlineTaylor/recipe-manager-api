@@ -41,3 +41,141 @@ Migrating to CreateJoinTableLabelRecipe (20250720012200)
   [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250720012200') RETURNING "version" /*application='RecipeManagerApi'*/[0m
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='RecipeManagerApi'*/[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RecipeManagerApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RecipeManagerApi'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RecipeManagerApi'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RecipeManagerApi'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[35m (8.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY) /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='RecipeManagerApi'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2025-07-22 00:45:37.753497', '2025-07-22 00:45:37.753501') RETURNING "key" /*application='RecipeManagerApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RecipeManagerApi'*/[0m
+Migrating to CreateUsers (20250718002654)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar, "email_confirmation" varchar, "password" varchar, "password_digest" varchar, "first_name" varchar, "last_name" varchar, "preferred_system" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='RecipeManagerApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250718002654') RETURNING "version" /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='RecipeManagerApi'*/[0m
+Migrating to CreateRecipes (20250718003746)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "recipes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "title" varchar, "servings" integer, "cooking_time" integer, "favorite" boolean, "shopping_list" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_9606fce865"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+) /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE INDEX "index_recipes_on_user_id" ON "recipes" ("user_id") /*application='RecipeManagerApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250718003746') RETURNING "version" /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='RecipeManagerApi'*/[0m
+Migrating to CreateInstructions (20250720010807)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "instructions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "recipe_id" integer NOT NULL, "step_number" integer, "step_content" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_70ae839088"
+FOREIGN KEY ("recipe_id")
+  REFERENCES "recipes" ("id")
+) /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_instructions_on_recipe_id" ON "instructions" ("recipe_id") /*application='RecipeManagerApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250720010807') RETURNING "version" /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='RecipeManagerApi'*/[0m
+Migrating to CreateLabels (20250720011404)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "labels" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "recipe_id" integer NOT NULL, "vegetarian" boolean, "vegan" boolean, "gluten_free" boolean, "dairy_free" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_5dd10ddc5c"
+FOREIGN KEY ("recipe_id")
+  REFERENCES "recipes" ("id")
+) /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_labels_on_recipe_id" ON "labels" ("recipe_id") /*application='RecipeManagerApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250720011404') RETURNING "version" /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='RecipeManagerApi'*/[0m
+Migrating to CreateJoinTableLabelRecipe (20250720012200)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "labels_recipes" ("label_id" integer NOT NULL, "recipe_id" integer NOT NULL) /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_labels_recipes_on_label_id_and_recipe_id" ON "labels_recipes" ("label_id", "recipe_id") /*application='RecipeManagerApi'*/[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE INDEX "index_labels_recipes_on_recipe_id_and_label_id" ON "labels_recipes" ("recipe_id", "label_id") /*application='RecipeManagerApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250720012200') RETURNING "version" /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='RecipeManagerApi'*/[0m
+Migrating to CreateIngredients (20250720015528)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "ingredients" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "ingredient" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='RecipeManagerApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250720015528') RETURNING "version" /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='RecipeManagerApi'*/[0m
+Migrating to CreateIngredientLists (20250720020353)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "ingredient_lists" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "ingredient_id" integer NOT NULL, "recipe_id" integer NOT NULL, "metric_qty" integer, "metric_unit" varchar, "imperial_qty" integer, "imperial_unit" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_e1c582560d"
+FOREIGN KEY ("ingredient_id")
+  REFERENCES "ingredients" ("id")
+, CONSTRAINT "fk_rails_619b35e6d2"
+FOREIGN KEY ("recipe_id")
+  REFERENCES "recipes" ("id")
+) /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_ingredient_lists_on_ingredient_id" ON "ingredient_lists" ("ingredient_id") /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_ingredient_lists_on_recipe_id" ON "ingredient_lists" ("recipe_id") /*application='RecipeManagerApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250720020353') RETURNING "version" /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RecipeManagerApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RecipeManagerApi'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RecipeManagerApi'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RecipeManagerApi'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[35m (7.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY) /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='RecipeManagerApi'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2025-07-22 00:46:28.044819', '2025-07-22 00:46:28.044822') RETURNING "key" /*application='RecipeManagerApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RecipeManagerApi'*/[0m
+Migrating to CreateUsers (20250718002654)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar, "email_confirmation" varchar, "password" varchar, "password_digest" varchar, "first_name" varchar, "last_name" varchar, "preferred_system" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='RecipeManagerApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250718002654') RETURNING "version" /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='RecipeManagerApi'*/[0m
+Migrating to CreateRecipes (20250718003746)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "recipes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "title" varchar, "servings" integer, "cooking_time" integer, "favorite" boolean, "shopping_list" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_9606fce865"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+) /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_recipes_on_user_id" ON "recipes" ("user_id") /*application='RecipeManagerApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250718003746') RETURNING "version" /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='RecipeManagerApi'*/[0m
+Migrating to CreateInstructions (20250720010807)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "instructions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "recipe_id" integer NOT NULL, "step_number" integer, "step_content" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_70ae839088"
+FOREIGN KEY ("recipe_id")
+  REFERENCES "recipes" ("id")
+) /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_instructions_on_recipe_id" ON "instructions" ("recipe_id") /*application='RecipeManagerApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250720010807') RETURNING "version" /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='RecipeManagerApi'*/[0m
+Migrating to CreateLabels (20250720011404)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "labels" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "recipe_id" integer NOT NULL, "vegetarian" boolean, "vegan" boolean, "gluten_free" boolean, "dairy_free" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_5dd10ddc5c"
+FOREIGN KEY ("recipe_id")
+  REFERENCES "recipes" ("id")
+) /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE INDEX "index_labels_on_recipe_id" ON "labels" ("recipe_id") /*application='RecipeManagerApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250720011404') RETURNING "version" /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='RecipeManagerApi'*/[0m
+Migrating to CreateJoinTableLabelRecipe (20250720012200)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "labels_recipes" ("label_id" integer NOT NULL, "recipe_id" integer NOT NULL) /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_labels_recipes_on_label_id_and_recipe_id" ON "labels_recipes" ("label_id", "recipe_id") /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE INDEX "index_labels_recipes_on_recipe_id_and_label_id" ON "labels_recipes" ("recipe_id", "label_id") /*application='RecipeManagerApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250720012200') RETURNING "version" /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='RecipeManagerApi'*/[0m
+Migrating to CreateIngredients (20250720015528)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "ingredients" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "ingredient" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='RecipeManagerApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250720015528') RETURNING "version" /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='RecipeManagerApi'*/[0m
+Migrating to CreateIngredientLists (20250720020353)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "ingredient_lists" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "ingredient_id" integer NOT NULL, "recipe_id" integer NOT NULL, "metric_qty" float, "metric_unit" varchar, "imperial_qty" float, "imperial_unit" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_e1c582560d"
+FOREIGN KEY ("ingredient_id")
+  REFERENCES "ingredients" ("id")
+, CONSTRAINT "fk_rails_619b35e6d2"
+FOREIGN KEY ("recipe_id")
+  REFERENCES "recipes" ("id")
+) /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_ingredient_lists_on_ingredient_id" ON "ingredient_lists" ("ingredient_id") /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_ingredient_lists_on_recipe_id" ON "ingredient_lists" ("recipe_id") /*application='RecipeManagerApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250720020353') RETURNING "version" /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RecipeManagerApi'*/[0m
