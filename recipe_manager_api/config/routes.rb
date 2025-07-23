@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   #recipe-manager API routes
-  resources :users
+  resources :users, only: [:show, :update, :destroy]
+  resources :recipes
 end
