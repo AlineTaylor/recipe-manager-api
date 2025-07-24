@@ -10,5 +10,11 @@ Rails.application.routes.draw do
 
   #recipe-manager API routes
   resources :users, only: [:show, :update, :destroy]
-  resources :recipes
+
+  resources :recipes do
+    resources :instructions, only: [:index, :create, :update, :destroy]
+    resources :ingredient_lists, only: [:index, :create, :update, :destroy]
+    resources :labels, only: [:index, :update]
+  end
 end
+# TODO generate shoppinglist methods - maybe its own controller?
