@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_07_20_020353) do
+ActiveRecord::Schema[8.0].define(version: 2025_07_26_201923) do
   create_table "ingredient_lists", force: :cascade do |t|
     t.integer "ingredient_id", null: false
     t.integer "recipe_id", null: false
@@ -41,10 +41,10 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_20_020353) do
 
   create_table "labels", force: :cascade do |t|
     t.integer "recipe_id", null: false
-    t.boolean "vegetarian"
-    t.boolean "vegan"
-    t.boolean "gluten_free"
-    t.boolean "dairy_free"
+    t.boolean "vegetarian", default: false
+    t.boolean "vegan", default: false
+    t.boolean "gluten_free", default: false
+    t.boolean "dairy_free", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["recipe_id"], name: "index_labels_on_recipe_id"
@@ -62,8 +62,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_20_020353) do
     t.string "title"
     t.integer "servings"
     t.integer "cooking_time"
-    t.boolean "favorite"
-    t.boolean "shopping_list"
+    t.boolean "favorite", default: false
+    t.boolean "shopping_list", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_recipes_on_user_id"

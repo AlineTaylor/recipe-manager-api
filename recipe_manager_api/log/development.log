@@ -182,3 +182,176 @@ FOREIGN KEY ("recipe_id")
   [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='RecipeManagerApi'*/[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RecipeManagerApi'*/[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mUser Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'abc@def.com' LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'abc@def.com' LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'abc@def.com' LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'abc@def.com' LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'abc@def.com' LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'abc@def.com' LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'abc@def.com' LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'abc@def.com' LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'abc@def.com' LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'abc@def.com' LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'abc@def.com' LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'abc@def.com' LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'abc@def.com' LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'abc@def.com' LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'abc@def.com' LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'abc@def.com' LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'abc@def.com' LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mUser Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'abc@def.com' LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'abc@def.com' LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'abc@def.com' LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'abc@def.com' LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'abc@def.com' LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'abc@def.com' LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'abc@def.com' LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'abc@def.com' LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'abc@def.com' LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'abc@def.com' LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'abc@def.com' LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'abc@def.com' LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'abc@def.com' LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'abc@def.com' LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'abc@def.com' LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'abc@def.com' LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'abc@def.com' LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'a@b.com' LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredient Exists? (4.7ms)[0m  [1m[34mSELECT 1 AS one FROM "ingredients" WHERE "ingredients"."ingredient" = 'Flour' LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredient Create (0.7ms)[0m  [1m[32mINSERT INTO "ingredients" ("ingredient", "created_at", "updated_at") VALUES ('Flour', '2025-07-26 20:05:37.951249', '2025-07-26 20:05:37.951249') RETURNING "id" /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (7.4ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mInstruction Create (1.1ms)[0m  [1m[32mINSERT INTO "instructions" ("recipe_id", "step_number", "step_content", "created_at", "updated_at") VALUES (NULL, 1, 'Mix all ingredients.', '2025-07-26 20:07:33.319893', '2025-07-26 20:07:33.319893') RETURNING "id" /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mInstruction Create (0.7ms)[0m  [1m[32mINSERT INTO "instructions" ("recipe_id", "step_number", "step_content", "created_at", "updated_at") VALUES (NULL, 1, 'Mix all ingredients.', '2025-07-26 20:08:06.329539', '2025-07-26 20:08:06.329539') RETURNING "id" /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredientList Create (0.7ms)[0m  [1m[32mINSERT INTO "ingredient_lists" ("ingredient_id", "recipe_id", "metric_qty", "metric_unit", "imperial_qty", "imperial_unit", "created_at", "updated_at") VALUES (1, NULL, 100.0, 'g', 3.5, 'oz', '2025-07-26 20:08:28.522662', '2025-07-26 20:08:28.522662') RETURNING "id" /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RecipeManagerApi'*/[0m
+Migrating to AddDefaultsToLabelsBooleans (20250726201923)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA foreign_keys /*application='RecipeManagerApi'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TEMPORARY TABLE "alabels" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "recipe_id" integer NOT NULL, "vegetarian" boolean, "vegan" boolean, "gluten_free" boolean, "dairy_free" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='RecipeManagerApi'*/[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE INDEX "tindex_alabels_on_recipe_id" ON "alabels" ("recipe_id") /*application='RecipeManagerApi'*/[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "alabels" ("id","recipe_id","vegetarian","vegan","gluten_free","dairy_free","created_at","updated_at")
+                     SELECT "id","recipe_id","vegetarian","vegan","gluten_free","dairy_free","created_at","updated_at" FROM "labels" /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE "labels" /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "labels" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "recipe_id" integer NOT NULL, "vegetarian" boolean DEFAULT 0, "vegan" boolean, "gluten_free" boolean, "dairy_free" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_5dd10ddc5c"
+FOREIGN KEY ("recipe_id")
+  REFERENCES "recipes" ("id")
+) /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_labels_on_recipe_id" ON "labels" ("recipe_id") /*application='RecipeManagerApi'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "labels" ("id","recipe_id","vegetarian","vegan","gluten_free","dairy_free","created_at","updated_at")
+                     SELECT "id","recipe_id","vegetarian","vegan","gluten_free","dairy_free","created_at","updated_at" FROM "alabels" /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE "alabels" /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='RecipeManagerApi'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mPRAGMA foreign_keys /*application='RecipeManagerApi'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "alabels" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "recipe_id" integer NOT NULL, "vegetarian" boolean DEFAULT 0, "vegan" boolean, "gluten_free" boolean, "dairy_free" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_alabels_on_recipe_id" ON "alabels" ("recipe_id") /*application='RecipeManagerApi'*/[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "alabels" ("id","recipe_id","vegetarian","vegan","gluten_free","dairy_free","created_at","updated_at")
+                     SELECT "id","recipe_id","vegetarian","vegan","gluten_free","dairy_free","created_at","updated_at" FROM "labels" /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "labels" /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "labels" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "recipe_id" integer NOT NULL, "vegetarian" boolean DEFAULT 0, "vegan" boolean DEFAULT 0, "gluten_free" boolean, "dairy_free" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_5dd10ddc5c"
+FOREIGN KEY ("recipe_id")
+  REFERENCES "recipes" ("id")
+) /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_labels_on_recipe_id" ON "labels" ("recipe_id") /*application='RecipeManagerApi'*/[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "labels" ("id","recipe_id","vegetarian","vegan","gluten_free","dairy_free","created_at","updated_at")
+                     SELECT "id","recipe_id","vegetarian","vegan","gluten_free","dairy_free","created_at","updated_at" FROM "alabels" /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE "alabels" /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.5ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='RecipeManagerApi'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA foreign_keys /*application='RecipeManagerApi'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "alabels" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "recipe_id" integer NOT NULL, "vegetarian" boolean DEFAULT 0, "vegan" boolean DEFAULT 0, "gluten_free" boolean, "dairy_free" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_alabels_on_recipe_id" ON "alabels" ("recipe_id") /*application='RecipeManagerApi'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "alabels" ("id","recipe_id","vegetarian","vegan","gluten_free","dairy_free","created_at","updated_at")
+                     SELECT "id","recipe_id","vegetarian","vegan","gluten_free","dairy_free","created_at","updated_at" FROM "labels" /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "labels" /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "labels" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "recipe_id" integer NOT NULL, "vegetarian" boolean DEFAULT 0, "vegan" boolean DEFAULT 0, "gluten_free" boolean DEFAULT 0, "dairy_free" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_5dd10ddc5c"
+FOREIGN KEY ("recipe_id")
+  REFERENCES "recipes" ("id")
+) /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_labels_on_recipe_id" ON "labels" ("recipe_id") /*application='RecipeManagerApi'*/[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "labels" ("id","recipe_id","vegetarian","vegan","gluten_free","dairy_free","created_at","updated_at")
+                     SELECT "id","recipe_id","vegetarian","vegan","gluten_free","dairy_free","created_at","updated_at" FROM "alabels" /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE "alabels" /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='RecipeManagerApi'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA foreign_keys /*application='RecipeManagerApi'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "alabels" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "recipe_id" integer NOT NULL, "vegetarian" boolean DEFAULT 0, "vegan" boolean DEFAULT 0, "gluten_free" boolean DEFAULT 0, "dairy_free" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_alabels_on_recipe_id" ON "alabels" ("recipe_id") /*application='RecipeManagerApi'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "alabels" ("id","recipe_id","vegetarian","vegan","gluten_free","dairy_free","created_at","updated_at")
+                     SELECT "id","recipe_id","vegetarian","vegan","gluten_free","dairy_free","created_at","updated_at" FROM "labels" /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "labels" /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "labels" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "recipe_id" integer NOT NULL, "vegetarian" boolean DEFAULT 0, "vegan" boolean DEFAULT 0, "gluten_free" boolean DEFAULT 0, "dairy_free" boolean DEFAULT 0, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_5dd10ddc5c"
+FOREIGN KEY ("recipe_id")
+  REFERENCES "recipes" ("id")
+) /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_labels_on_recipe_id" ON "labels" ("recipe_id") /*application='RecipeManagerApi'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "labels" ("id","recipe_id","vegetarian","vegan","gluten_free","dairy_free","created_at","updated_at")
+                     SELECT "id","recipe_id","vegetarian","vegan","gluten_free","dairy_free","created_at","updated_at" FROM "alabels" /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE "alabels" /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='RecipeManagerApi'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA foreign_keys /*application='RecipeManagerApi'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "arecipes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "title" varchar, "servings" integer, "cooking_time" integer, "favorite" boolean, "shopping_list" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_arecipes_on_user_id" ON "arecipes" ("user_id") /*application='RecipeManagerApi'*/[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "arecipes" ("id","user_id","title","servings","cooking_time","favorite","shopping_list","created_at","updated_at")
+                     SELECT "id","user_id","title","servings","cooking_time","favorite","shopping_list","created_at","updated_at" FROM "recipes" /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "recipes" /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "recipes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "title" varchar, "servings" integer, "cooking_time" integer, "favorite" boolean DEFAULT 0, "shopping_list" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_9606fce865"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+) /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_recipes_on_user_id" ON "recipes" ("user_id") /*application='RecipeManagerApi'*/[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "recipes" ("id","user_id","title","servings","cooking_time","favorite","shopping_list","created_at","updated_at")
+                     SELECT "id","user_id","title","servings","cooking_time","favorite","shopping_list","created_at","updated_at" FROM "arecipes" /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "arecipes" /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='RecipeManagerApi'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA foreign_keys /*application='RecipeManagerApi'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "arecipes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "title" varchar, "servings" integer, "cooking_time" integer, "favorite" boolean DEFAULT 0, "shopping_list" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_arecipes_on_user_id" ON "arecipes" ("user_id") /*application='RecipeManagerApi'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "arecipes" ("id","user_id","title","servings","cooking_time","favorite","shopping_list","created_at","updated_at")
+                     SELECT "id","user_id","title","servings","cooking_time","favorite","shopping_list","created_at","updated_at" FROM "recipes" /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "recipes" /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "recipes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "title" varchar, "servings" integer, "cooking_time" integer, "favorite" boolean DEFAULT 0, "shopping_list" boolean DEFAULT 0, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_9606fce865"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+) /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_recipes_on_user_id" ON "recipes" ("user_id") /*application='RecipeManagerApi'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("id","user_id","title","servings","cooking_time","favorite","shopping_list","created_at","updated_at")
+                     SELECT "id","user_id","title","servings","cooking_time","favorite","shopping_list","created_at","updated_at" FROM "arecipes" /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "arecipes" /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='RecipeManagerApi'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250726201923') RETURNING "version" /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RecipeManagerApi'*/[0m

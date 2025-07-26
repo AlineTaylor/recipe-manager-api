@@ -5,12 +5,8 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { maximum: 255, too_long: "%{count} characters is the maximum allowed" }
   validates :password_digest, presence: true, length: { maximum: 255, too_long: "%{count} characters is the maximum allowed" }
   validates :first_name, :last_name, presence: true, length: { maximum: 255, too_long: "%{count} characters is the maximum allowed" }
-  validates :preferred_system, presence: true, inclusion: { in: ->(user) { user.measurement_systems } }
-
-  def measurement_systems
-    %w(metric imperial)
-  end
+  validates :preferred_system, presence: true, inclusion: { in: %w(metric imperial) }
 
   # associations
-  has_many :recipes, dependent:destroy
+  has_many :recipes, dependent: :destroy
 end
