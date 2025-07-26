@@ -1,10 +1,5 @@
 class UsersController < ApplicationController
 
-  def index
-    @users = User.all
-    render json: @user
-  end
-
   def show
     @user = User.find(params[:id])
     render json: @user, status: 200
@@ -20,11 +15,14 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    @user = User.find(params[:id])
     @user.destroy
     head :no_content
   end
 
+  private
+
   def user_params
-    params.permit(:email, :email_confirmation,:password, :first_name, :last_name, :preferred_system)
+    params.permit(:email, :email_confirmation,:password, :password_confirmation,:first_name, :last_name, :preferred_system)
   end
 end
