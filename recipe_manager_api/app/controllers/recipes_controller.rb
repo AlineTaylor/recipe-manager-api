@@ -1,8 +1,8 @@
 class RecipesController < ApplicationController
-  before_action :set_recipe, only: [:show, :update, :destroy, :convert_units]
+  before_action :set_recipe, only: [:show, :update, :destroy]
 
   def index
-    @recipes = current_user.recipes.includes(:labels, :ingredient_lists)
+    @recipes = current_user.recipes.includes(:labels, :ingredient_lists, :instructions)
     render json: @recipes
   end
 
@@ -43,8 +43,7 @@ class RecipesController < ApplicationController
     params.require(:recipe).permit(
       :title, :servings, :cooking_time, :favorite, :shopping_list,
       instructions_attributes: [:id, :step_number, :step_content, :_destroy],
-      ingredient_lists_attributes: [:id, :ingredient_id, :metric_qty, :metric_unit, :imperial_qty, :imperial_unit, :_destroy],
-      label_ids: []
+      ingredient_lists_attributes: [:id, :ingredient_id, :metric_qty, :metric_unit, :imperial_qty, :imperial_unit, :_destroy]
     )
   end
 end
