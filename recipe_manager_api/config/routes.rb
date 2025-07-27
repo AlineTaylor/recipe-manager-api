@@ -12,11 +12,19 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :update, :destroy, :create]
 
   resources :recipes do
+
+    # instruction endpoints
     get 'instructions', on: :member
     post  'instructions',   to: 'recipes#create_instruction', on: :member
     patch  'instructions/:instruction_id', to: 'recipes#update_instruction'
     delete 'instructions/:instruction_id', to: 'recipes#destroy_instruction'
-    resources :ingredient_lists, only: [:index, :create, :update, :destroy]
+
+    # ingredient list endpoints
+    
+    post 'ingredient_lists', to: 'recipes#create_ingredient_list', on: :member
+    patch 'ingredient_lists/:ingredient_list_id', to: 'recipes#update_ingredient_list'
+    delete 'ingredient_lists/:ingredient_list_id', to: 'recipes#destroy_ingredient_list'
+    # labels
     resources :labels, only: [:index, :update]
   end
 end

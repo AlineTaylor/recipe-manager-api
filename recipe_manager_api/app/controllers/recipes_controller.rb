@@ -66,6 +66,8 @@ class RecipesController < ApplicationController
     head :no_content
   end
 
+  # custom instructions endpoints
+
   def instructions
     current_user = User.first # Remove later
     recipe = current_user.recipes.find(params[:id])
@@ -85,7 +87,7 @@ class RecipesController < ApplicationController
 
   def update_instruction
     current_user = User.first # Remove later
-    recipe = current_user.recipes.find(params[:id])
+    recipe = current_user.recipes.find(params[:recipe_id])
     instruction = recipe.instructions.find(params[:instruction_id])
     if instruction.update(instruction_params)
       render json: instruction
@@ -96,9 +98,58 @@ class RecipesController < ApplicationController
 
   def destroy_instruction
     current_user = User.first # Remove later
-    recipe = current_user.recipes.find(params[:id])
+    recipe = current_user.recipes.find(params[:recipe_id])
     instruction = recipe.instructions.find(params[:instruction_id])
     instruction.destroy
+    head :no_content
+  end
+
+  # custom ingredient list endpoints
+
+  def ingredient_lists
+    current_user = User.first # Remove later
+    recipe = current_user.recipes.find(params[:id])
+    render json: recipe.ingredient_lists
+  end
+
+  def create_ingredient_list
+    current_user = User.first # Remove later
+    recipe = current_user.recipes.find(params[:id])
+    ingredient_list_data = ingredient_list_params.deep_dup
+
+    # Check for nested ingredient attributes
+    if ingredient_list_data[:ingredient_attributes] && ingredient_list_data[:ingredient_attributes][:ingredient].present?
+      ingredient_name = ingredient_list_data[:ingredient_attributes][:ingredient].strip
+      ingredient = Ingredient.where('lower(ingredient) = ?', ingredient_name.downcase).first_or_create(ingredient: ingredient_name)
+      ingredient_list_data[:ingredient_id] = ingredient.id
+      ingredient_list_data.delete(:ingredient_attributes)
+    end
+
+    ingredient_list = recipe.ingredient_lists.build(ingredient_list_data)
+    if ingredient_list.save
+      render json: ingredient_list, status: :created
+    else
+      render json: { errors: ingredient_list.errors.full_messages }, status: :unprocessable_entity
+    end
+  end
+
+
+  def update_ingredient_list
+    current_user = User.first # Remove later
+    recipe = current_user.recipes.find(params[:id])
+    ingredient_list = recipe.ingredient_lists.find(params[:ingredient_list_id])
+    if ingredient_list.update(ingredient_list_params)
+      render json: ingredient_list
+    else
+      render json: { errors: ingredient_list.errors.full_messages }, status: :unprocessable_entity
+    end
+  end
+
+  def destroy_ingredient_list
+    current_user = User.first # Remove later
+    recipe = current_user.recipes.find(params[:id])
+    ingredient_list = recipe.ingredient_lists.find(params[:ingredient_list_id])
+    ingredient_list.destroy
     head :no_content
   end
 
@@ -121,5 +172,11 @@ class RecipesController < ApplicationController
 
   def instruction_params
     params.require(:instruction).permit(:step_number, :step_content)
+  end
+
+  def ingredient_list_params
+    params.require(:ingredient_list).permit(
+      :ingredient_id, :metric_qty, :metric_unit, :imperial_qty, :imperial_unit,
+      ingredient_attributes: [:id, :ingredient] )
   end
 end
