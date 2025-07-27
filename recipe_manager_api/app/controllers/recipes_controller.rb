@@ -11,6 +11,8 @@ class RecipesController < ApplicationController
   end
 
   def create
+    current_user = User.first
+    #TODO delete line above once done testing
     @recipe = current_user.recipes.build(recipe_params)
     if @recipe.save
       render json: @recipe, status: :created
@@ -43,7 +45,7 @@ class RecipesController < ApplicationController
     params.require(:recipe).permit(
       :title, :servings, :cooking_time, :favorite, :shopping_list,
       instructions_attributes: [:id, :step_number, :step_content, :_destroy],
-      ingredient_lists_attributes: [:id, :ingredient_id, :metric_qty, :metric_unit, :imperial_qty, :imperial_unit, :_destroy]
+      ingredient_lists_attributes: [:id, :ingredient_id, :metric_qty, :metric_unit, :imperial_qty, :imperial_unit, :_destroy, { ingredient_attributes: [:id, :ingredient] }]
     )
   end
 end

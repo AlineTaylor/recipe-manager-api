@@ -361,3 +361,284 @@ FOREIGN KEY ("user_id")
   [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='RecipeManagerApi'*/[0m
   [1m[36mUser Exists? (1.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'a@b.com' LIMIT 1 /*application='RecipeManagerApi'*/[0m
   [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION /*application='RecipeManagerApi'*/[0m
+Started GET "/" for 127.0.0.1 at 2025-07-26 16:39:38 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (5.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RecipeManagerApi'*/[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/aline/.rbenv/versions/3.4.2/lib/ruby/gems/3.4.0/gems/railties-8.0.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/aline/.rbenv/versions/3.4.2/lib/ruby/gems/3.4.0/gems/railties-8.0.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.2ms | GC: 0.0ms)
+Completed 200 OK in 94ms (Views: 27.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/icon.png" for 127.0.0.1 at 2025-07-26 16:39:39 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/icon.png"):
+  
+Started POST "/users" for ::1 at 2025-07-26 17:53:21 -0500
+Processing by UsersController#create as */*
+  Parameters: {"email" => "[FILTERED]", "email_confirmation" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "first_name" => "Sam", "last_name" => "Baker", "preferred_system" => "metric", "user" => {"email" => "[FILTERED]", "email_confirmation" => "[FILTERED]", "password" => "[FILTERED]", "first_name" => "Sam", "last_name" => "Baker", "preferred_system" => "metric"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x000072c30eb6bcc0>, params: {"email" => "[FILTERED]", "email_confirmation" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "first_name" => "Sam", "last_name" => "Baker", "preferred_system" => "metric", "controller" => "users", "action" => "create", "user" => {"email" => "[FILTERED]", "email_confirmation" => "[FILTERED]", "password" => "[FILTERED]", "first_name" => "Sam", "last_name" => "Baker", "preferred_system" => "metric"}} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:10:in 'UsersController#create'
+  [1m[36mUser Exists? (4.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'newuser@example.com' LIMIT 1 /*action='create',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:10:in 'UsersController#create'
+  [1m[36mUser Create (6.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "email_confirmation", "password", "password_digest", "first_name", "last_name", "preferred_system", "created_at", "updated_at") VALUES ('newuser@example.com', NULL, NULL, '$2a$12$KcXfVA6WP3hsb3o/TxOvG.YqQuno8NmOzYNF1yI/0TObTX2cPxGBe', 'Sam', 'Baker', 'metric', '2025-07-26 22:53:22.458009', '2025-07-26 22:53:22.458009') RETURNING "id" /*action='create',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:10:in 'UsersController#create'
+  [1m[36mTRANSACTION (13.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:10:in 'UsersController#create'
+Completed 201 Created in 488ms (Views: 16.3ms | ActiveRecord: 47.9ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/:id/1" for ::1 at 2025-07-26 17:54:16 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/users/:id/1"):
+  
+Started GET "/users/1" for ::1 at 2025-07-26 17:54:25 -0500
+Processing by UsersController#show as */*
+  Parameters: {"id" => "1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='show',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:4:in 'UsersController#show'
+Completed 200 OK in 11ms (Views: 2.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started PATCH "/users/1" for ::1 at 2025-07-26 17:54:49 -0500
+  
+AbstractController::ActionNotFound (The action 'update' could not be found for UsersController):
+  
+actionpack (8.0.2) lib/abstract_controller/base.rb:158:in 'AbstractController::Base#process'
+actionpack (8.0.2) lib/action_controller/metal.rb:252:in 'ActionController::Metal#dispatch'
+actionpack (8.0.2) lib/action_controller/metal.rb:335:in 'ActionController::Metal.dispatch'
+actionpack (8.0.2) lib/action_dispatch/routing/route_set.rb:67:in 'ActionDispatch::Routing::RouteSet::Dispatcher#dispatch'
+actionpack (8.0.2) lib/action_dispatch/routing/route_set.rb:50:in 'ActionDispatch::Routing::RouteSet::Dispatcher#serve'
+actionpack (8.0.2) lib/action_dispatch/journey/router.rb:53:in 'block in ActionDispatch::Journey::Router#serve'
+actionpack (8.0.2) lib/action_dispatch/journey/router.rb:133:in 'block in ActionDispatch::Journey::Router#find_routes'
+actionpack (8.0.2) lib/action_dispatch/journey/router.rb:126:in 'Array#each'
+actionpack (8.0.2) lib/action_dispatch/journey/router.rb:126:in 'ActionDispatch::Journey::Router#find_routes'
+actionpack (8.0.2) lib/action_dispatch/journey/router.rb:34:in 'ActionDispatch::Journey::Router#serve'
+actionpack (8.0.2) lib/action_dispatch/routing/route_set.rb:908:in 'ActionDispatch::Routing::RouteSet#call'
+railties (8.0.2) lib/rails/engine/lazy_route_set.rb:68:in 'Rails::Engine::LazyRouteSet#call'
+rack (3.1.16) lib/rack/etag.rb:29:in 'Rack::ETag#call'
+rack (3.1.16) lib/rack/conditional_get.rb:43:in 'Rack::ConditionalGet#call'
+rack (3.1.16) lib/rack/head.rb:15:in 'Rack::Head#call'
+activerecord (8.0.2) lib/active_record/migration.rb:671:in 'ActiveRecord::Migration::CheckPending#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/callbacks.rb:31:in 'block in ActionDispatch::Callbacks#call'
+activesupport (8.0.2) lib/active_support/callbacks.rb:100:in 'ActiveSupport::Callbacks#run_callbacks'
+actionpack (8.0.2) lib/action_dispatch/middleware/callbacks.rb:30:in 'ActionDispatch::Callbacks#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in 'ActionDispatch::ActionableExceptions#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:31:in 'ActionDispatch::DebugExceptions#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/show_exceptions.rb:32:in 'ActionDispatch::ShowExceptions#call'
+railties (8.0.2) lib/rails/rack/logger.rb:41:in 'Rails::Rack::Logger#call_app'
+railties (8.0.2) lib/rails/rack/logger.rb:29:in 'Rails::Rack::Logger#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/remote_ip.rb:96:in 'ActionDispatch::RemoteIp#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/request_id.rb:34:in 'ActionDispatch::RequestId#call'
+rack (3.1.16) lib/rack/runtime.rb:24:in 'Rack::Runtime#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:61:in 'block in ActionDispatch::ServerTiming#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:26:in 'ActionDispatch::ServerTiming::Subscriber#collect_events'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:60:in 'ActionDispatch::ServerTiming#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/static.rb:27:in 'ActionDispatch::Static#call'
+rack (3.1.16) lib/rack/sendfile.rb:114:in 'Rack::Sendfile#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/host_authorization.rb:143:in 'ActionDispatch::HostAuthorization#call'
+railties (8.0.2) lib/rails/engine.rb:535:in 'Rails::Engine#call'
+puma (6.6.0) lib/puma/configuration.rb:279:in 'Puma::Configuration::ConfigMiddleware#call'
+puma (6.6.0) lib/puma/request.rb:99:in 'block in Puma::Request#handle_request'
+puma (6.6.0) lib/puma/thread_pool.rb:390:in 'Puma::ThreadPool#with_force_shutdown'
+puma (6.6.0) lib/puma/request.rb:98:in 'Puma::Request#handle_request'
+puma (6.6.0) lib/puma/server.rb:472:in 'Puma::Server#process_client'
+puma (6.6.0) lib/puma/server.rb:254:in 'block in Puma::Server#run'
+puma (6.6.0) lib/puma/thread_pool.rb:167:in 'block in Puma::ThreadPool#spawn_thread'
+Started PATCH "/users/1" for ::1 at 2025-07-26 17:55:38 -0500
+  
+AbstractController::ActionNotFound (The action 'update' could not be found for UsersController):
+  
+actionpack (8.0.2) lib/abstract_controller/base.rb:158:in 'AbstractController::Base#process'
+actionpack (8.0.2) lib/action_controller/metal.rb:252:in 'ActionController::Metal#dispatch'
+actionpack (8.0.2) lib/action_controller/metal.rb:335:in 'ActionController::Metal.dispatch'
+actionpack (8.0.2) lib/action_dispatch/routing/route_set.rb:67:in 'ActionDispatch::Routing::RouteSet::Dispatcher#dispatch'
+actionpack (8.0.2) lib/action_dispatch/routing/route_set.rb:50:in 'ActionDispatch::Routing::RouteSet::Dispatcher#serve'
+actionpack (8.0.2) lib/action_dispatch/journey/router.rb:53:in 'block in ActionDispatch::Journey::Router#serve'
+actionpack (8.0.2) lib/action_dispatch/journey/router.rb:133:in 'block in ActionDispatch::Journey::Router#find_routes'
+actionpack (8.0.2) lib/action_dispatch/journey/router.rb:126:in 'Array#each'
+actionpack (8.0.2) lib/action_dispatch/journey/router.rb:126:in 'ActionDispatch::Journey::Router#find_routes'
+actionpack (8.0.2) lib/action_dispatch/journey/router.rb:34:in 'ActionDispatch::Journey::Router#serve'
+actionpack (8.0.2) lib/action_dispatch/routing/route_set.rb:908:in 'ActionDispatch::Routing::RouteSet#call'
+railties (8.0.2) lib/rails/engine/lazy_route_set.rb:68:in 'Rails::Engine::LazyRouteSet#call'
+rack (3.1.16) lib/rack/etag.rb:29:in 'Rack::ETag#call'
+rack (3.1.16) lib/rack/conditional_get.rb:43:in 'Rack::ConditionalGet#call'
+rack (3.1.16) lib/rack/head.rb:15:in 'Rack::Head#call'
+activerecord (8.0.2) lib/active_record/migration.rb:671:in 'ActiveRecord::Migration::CheckPending#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/callbacks.rb:31:in 'block in ActionDispatch::Callbacks#call'
+activesupport (8.0.2) lib/active_support/callbacks.rb:100:in 'ActiveSupport::Callbacks#run_callbacks'
+actionpack (8.0.2) lib/action_dispatch/middleware/callbacks.rb:30:in 'ActionDispatch::Callbacks#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in 'ActionDispatch::ActionableExceptions#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:31:in 'ActionDispatch::DebugExceptions#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/show_exceptions.rb:32:in 'ActionDispatch::ShowExceptions#call'
+railties (8.0.2) lib/rails/rack/logger.rb:41:in 'Rails::Rack::Logger#call_app'
+railties (8.0.2) lib/rails/rack/logger.rb:29:in 'Rails::Rack::Logger#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/remote_ip.rb:96:in 'ActionDispatch::RemoteIp#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/request_id.rb:34:in 'ActionDispatch::RequestId#call'
+rack (3.1.16) lib/rack/runtime.rb:24:in 'Rack::Runtime#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:61:in 'block in ActionDispatch::ServerTiming#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:26:in 'ActionDispatch::ServerTiming::Subscriber#collect_events'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:60:in 'ActionDispatch::ServerTiming#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/static.rb:27:in 'ActionDispatch::Static#call'
+rack (3.1.16) lib/rack/sendfile.rb:114:in 'Rack::Sendfile#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/host_authorization.rb:143:in 'ActionDispatch::HostAuthorization#call'
+railties (8.0.2) lib/rails/engine.rb:535:in 'Rails::Engine#call'
+puma (6.6.0) lib/puma/configuration.rb:279:in 'Puma::Configuration::ConfigMiddleware#call'
+puma (6.6.0) lib/puma/request.rb:99:in 'block in Puma::Request#handle_request'
+puma (6.6.0) lib/puma/thread_pool.rb:390:in 'Puma::ThreadPool#with_force_shutdown'
+puma (6.6.0) lib/puma/request.rb:98:in 'Puma::Request#handle_request'
+puma (6.6.0) lib/puma/server.rb:472:in 'Puma::Server#process_client'
+puma (6.6.0) lib/puma/server.rb:254:in 'block in Puma::Server#run'
+puma (6.6.0) lib/puma/thread_pool.rb:167:in 'block in Puma::ThreadPool#spawn_thread'
+Started GET "/" for 127.0.0.1 at 2025-07-26 18:04:20 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RecipeManagerApi'*/[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/aline/.rbenv/versions/3.4.2/lib/ruby/gems/3.4.0/gems/railties-8.0.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/aline/.rbenv/versions/3.4.2/lib/ruby/gems/3.4.0/gems/railties-8.0.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 2.3ms | GC: 0.0ms)
+Completed 200 OK in 17ms (Views: 9.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started PATCH "/users/1" for ::1 at 2025-07-26 18:06:57 -0500
+Processing by UsersController#update as */*
+  Parameters: {"first_name" => "Samuel", "preferred_system" => "imperial", "id" => "1", "user" => {"first_name" => "Samuel", "preferred_system" => "imperial"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='update',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:18:in 'UsersController#update'
+[31mUnpermitted parameters: :id, :user. Context: { controller: UsersController, action: update, request: #<ActionDispatch::Request:0x00007cbedaa7d7b0>, params: {"first_name" => "Samuel", "preferred_system" => "imperial", "controller" => "users", "action" => "update", "id" => "1", "user" => {"first_name" => "Samuel", "preferred_system" => "imperial"}} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='update',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:19:in 'UsersController#update'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'newuser@example.com' AND "users"."id" != 1 LIMIT 1 /*action='update',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:19:in 'UsersController#update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION /*action='update',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:19:in 'UsersController#update'
+Completed 422 Unprocessable Content in 39ms (Views: 0.8ms | ActiveRecord: 5.7ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started PATCH "/users/1" for ::1 at 2025-07-26 18:25:09 -0500
+Processing by UsersController#update as */*
+  Parameters: {"first_name" => "Samuel", "preferred_system" => "imperial", "id" => "1", "user" => {"first_name" => "Samuel", "preferred_system" => "imperial"}}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='update',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:18:in 'UsersController#update'
+[31mUnpermitted parameters: :id, :user. Context: { controller: UsersController, action: update, request: #<ActionDispatch::Request:0x00007cbedcbe2ef0>, params: {"first_name" => "Samuel", "preferred_system" => "imperial", "controller" => "users", "action" => "update", "id" => "1", "user" => {"first_name" => "Samuel", "preferred_system" => "imperial"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='update',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:19:in 'UsersController#update'
+  [1m[36mUser Exists? (1.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'newuser@example.com' AND "users"."id" != 1 LIMIT 1 /*action='update',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:19:in 'UsersController#update'
+  [1m[36mUser Update (1.7ms)[0m  [1m[33mUPDATE "users" SET "first_name" = 'Samuel', "preferred_system" = 'imperial', "updated_at" = '2025-07-26 23:25:09.939361' WHERE "users"."id" = 1 /*action='update',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:19:in 'UsersController#update'
+  [1m[36mTRANSACTION (8.4ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='update',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:19:in 'UsersController#update'
+Completed 200 OK in 39ms (Views: 0.5ms | ActiveRecord: 13.3ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started DELETE "/users/1" for ::1 at 2025-07-26 18:44:11 -0500
+Processing by UsersController#destroy as */*
+  Parameters: {"id" => "1"}
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='destroy',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:28:in 'UsersController#destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='destroy',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:29:in 'UsersController#destroy'
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 1 /*action='destroy',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:29:in 'UsersController#destroy'
+  [1m[36mUser Destroy (0.7ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = 1 /*action='destroy',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:29:in 'UsersController#destroy'
+  [1m[36mTRANSACTION (9.6ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='destroy',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:29:in 'UsersController#destroy'
+Completed 204 No Content in 106ms (ActiveRecord: 16.0ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started DELETE "/users/1" for ::1 at 2025-07-26 18:44:15 -0500
+Processing by UsersController#destroy as */*
+  Parameters: {"id" => "1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='destroy',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:28:in 'UsersController#destroy'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=1):
+  
+app/controllers/users_controller.rb:28:in 'UsersController#destroy'
+Started POST "/users" for ::1 at 2025-07-26 18:44:27 -0500
+Processing by UsersController#create as */*
+  Parameters: {"email" => "[FILTERED]", "email_confirmation" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "first_name" => "Sam", "last_name" => "Baker", "preferred_system" => "metric", "user" => {"email" => "[FILTERED]", "email_confirmation" => "[FILTERED]", "password" => "[FILTERED]", "first_name" => "Sam", "last_name" => "Baker", "preferred_system" => "metric"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x00007cbeda9c26e0>, params: {"email" => "[FILTERED]", "email_confirmation" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "first_name" => "Sam", "last_name" => "Baker", "preferred_system" => "metric", "controller" => "users", "action" => "create", "user" => {"email" => "[FILTERED]", "email_confirmation" => "[FILTERED]", "password" => "[FILTERED]", "first_name" => "Sam", "last_name" => "Baker", "preferred_system" => "metric"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:10:in 'UsersController#create'
+  [1m[36mUser Exists? (1.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'newuser@example.com' LIMIT 1 /*action='create',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:10:in 'UsersController#create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "email_confirmation", "password", "password_digest", "first_name", "last_name", "preferred_system", "created_at", "updated_at") VALUES ('newuser@example.com', NULL, NULL, '$2a$12$hZfX2m24SOecSTO4aKn1BOjziP7uLY.8QT9ctHbAUoY7iKFj5Z9OK', 'Sam', 'Baker', 'metric', '2025-07-26 23:44:27.730370', '2025-07-26 23:44:27.730370') RETURNING "id" /*action='create',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:10:in 'UsersController#create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:10:in 'UsersController#create'
+Completed 201 Created in 297ms (Views: 0.4ms | ActiveRecord: 2.4ms (2 queries, 0 cached) | GC: 0.9ms)
+
+
+Started GET "/users/1" for ::1 at 2025-07-26 18:44:36 -0500
+Processing by UsersController#show as */*
+  Parameters: {"id" => "1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='show',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:4:in 'UsersController#show'
+Completed 404 Not Found in 2ms (ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=1):
+  
+app/controllers/users_controller.rb:4:in 'UsersController#show'
+Started GET "/users/2" for ::1 at 2025-07-26 18:44:41 -0500
+Processing by UsersController#show as */*
+  Parameters: {"id" => "2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='show',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:4:in 'UsersController#show'
+Completed 200 OK in 28ms (Views: 0.8ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 24.1ms)
+
+
+Started PATCH "/users/2" for ::1 at 2025-07-26 18:44:51 -0500
+Processing by UsersController#update as */*
+  Parameters: {"first_name" => "Samuel", "preferred_system" => "imperial", "id" => "2", "user" => {"first_name" => "Samuel", "preferred_system" => "imperial"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='update',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:18:in 'UsersController#update'
+[31mUnpermitted parameters: :id, :user. Context: { controller: UsersController, action: update, request: #<ActionDispatch::Request:0x00007cbedc6f29e0>, params: {"first_name" => "Samuel", "preferred_system" => "imperial", "controller" => "users", "action" => "update", "id" => "2", "user" => {"first_name" => "Samuel", "preferred_system" => "imperial"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='update',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:19:in 'UsersController#update'
+  [1m[36mUser Exists? (1.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'newuser@example.com' AND "users"."id" != 2 LIMIT 1 /*action='update',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:19:in 'UsersController#update'
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "first_name" = 'Samuel', "preferred_system" = 'imperial', "updated_at" = '2025-07-26 23:44:51.540323' WHERE "users"."id" = 2 /*action='update',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:19:in 'UsersController#update'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='update',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:19:in 'UsersController#update'
+Completed 200 OK in 19ms (Views: 0.5ms | ActiveRecord: 2.8ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/recipes" for ::1 at 2025-07-26 18:45:13 -0500
+Processing by RecipesController#create as */*
+  Parameters: {"recipe" => {"title" => "Banana Bread", "servings" => 6, "cooking_time" => 60, "favorite" => false, "shopping_list" => false, "instructions_attributes" => [{"step_number" => 1, "step_content" => "Preheat oven to 350°F (175°C)."}, {"step_number" => 2, "step_content" => "Mix bananas, eggs, and oil."}, {"step_number" => 3, "step_content" => "Add dry ingredients and stir."}, {"step_number" => 4, "step_content" => "Pour into loaf pan and bake for 50 minutes."}], "ingredient_lists_attributes" => [{"ingredient_id" => 1, "metric_qty" => 120, "metric_unit" => "g", "imperial_qty" => 4.2, "imperial_unit" => "oz"}, {"ingredient_id" => 2, "metric_qty" => 2, "metric_unit" => "pcs", "imperial_qty" => 2, "imperial_unit" => "pcs"}, {"ingredient_id" => 3, "metric_qty" => 200, "metric_unit" => "g", "imperial_qty" => 7, "imperial_unit" => "oz"}]}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+NameError (undefined local variable or method 'current_user' for an instance of RecipesController):
+  
+app/controllers/recipes_controller.rb:14:in 'RecipesController#create'
+Started POST "/recipes" for ::1 at 2025-07-26 18:48:40 -0500
+Processing by RecipesController#create as */*
+  Parameters: {"recipe" => {"title" => "Banana Bread", "servings" => 6, "cooking_time" => 60, "favorite" => false, "shopping_list" => false, "instructions_attributes" => [{"step_number" => 1, "step_content" => "Preheat oven to 350°F (175°C)."}, {"step_number" => 2, "step_content" => "Mix bananas, eggs, and oil."}, {"step_number" => 3, "step_content" => "Add dry ingredients and stir."}, {"step_number" => 4, "step_content" => "Pour into loaf pan and bake for 50 minutes."}], "ingredient_lists_attributes" => [{"ingredient_id" => 1, "metric_qty" => 120, "metric_unit" => "g", "imperial_qty" => 4.2, "imperial_unit" => "oz"}, {"ingredient_id" => 2, "metric_qty" => 2, "metric_unit" => "pcs", "imperial_qty" => 2, "imperial_unit" => "pcs"}, {"ingredient_id" => 3, "metric_qty" => 200, "metric_unit" => "g", "imperial_qty" => 7, "imperial_unit" => "oz"}]}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:14:in 'RecipesController#create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:17:in 'RecipesController#create'
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 1 LIMIT 1 /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:17:in 'RecipesController#create'
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 2 LIMIT 1 /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:17:in 'RecipesController#create'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 3 LIMIT 1 /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:17:in 'RecipesController#create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:17:in 'RecipesController#create'
+Completed 422 Unprocessable Content in 108ms (Views: 0.4ms | ActiveRecord: 12.5ms (4 queries, 0 cached) | GC: 21.9ms)
+
+
