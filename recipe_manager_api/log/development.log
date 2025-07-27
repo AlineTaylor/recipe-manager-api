@@ -642,3 +642,222 @@ Processing by RecipesController#create as */*
 Completed 422 Unprocessable Content in 108ms (Views: 0.4ms | ActiveRecord: 12.5ms (4 queries, 0 cached) | GC: 21.9ms)
 
 
+Started POST "/recipes" for ::1 at 2025-07-26 19:10:50 -0500
+Processing by RecipesController#create as */*
+  Parameters: {"recipe" => {"title" => "Banana Bread", "servings" => 6, "cooking_time" => 60, "favorite" => false, "shopping_list" => false, "instructions_attributes" => [{"step_number" => 1, "step_content" => "Preheat oven to 350°F (175°C)."}, {"step_number" => 2, "step_content" => "Mix bananas, eggs, and oil."}, {"step_number" => 3, "step_content" => "Add dry ingredients and stir."}, {"step_number" => 4, "step_content" => "Pour into loaf pan and bake for 50 minutes."}], "ingredient_lists_attributes" => [{"ingredient_id" => 1, "metric_qty" => 120, "metric_unit" => "g", "imperial_qty" => 4.2, "imperial_unit" => "oz"}, {"ingredient_id" => 2, "metric_qty" => 2, "metric_unit" => "pcs", "imperial_qty" => 2, "imperial_unit" => "pcs"}, {"ingredient_id" => 3, "metric_qty" => 200, "metric_unit" => "g", "imperial_qty" => 7, "imperial_unit" => "oz"}]}}
+  [1m[36mUser Load (4.8ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:14:in 'RecipesController#create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/models/ingredient_list.rb:17:in 'IngredientList#find_or_build_ingredient_by_name'
+  [1m[36mIngredient Load (1.8ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 1 LIMIT 1 /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/models/ingredient_list.rb:17:in 'IngredientList#find_or_build_ingredient_by_name'
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 2 LIMIT 1 /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/models/ingredient_list.rb:17:in 'IngredientList#find_or_build_ingredient_by_name'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 3 LIMIT 1 /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/models/ingredient_list.rb:17:in 'IngredientList#find_or_build_ingredient_by_name'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:17:in 'RecipesController#create'
+Completed 422 Unprocessable Content in 71ms (Views: 0.3ms | ActiveRecord: 6.9ms (4 queries, 0 cached) | GC: 1.3ms)
+
+
+Started POST "/recipes" for ::1 at 2025-07-26 19:11:36 -0500
+Processing by RecipesController#create as */*
+  Parameters: {"recipe" => {"title" => "Banana Bread", "servings" => 6, "cooking_time" => 60, "favorite" => false, "shopping_list" => false, "instructions_attributes" => [{"step_number" => 1, "step_content" => "Preheat oven to 350°F (175°C)."}, {"step_number" => 2, "step_content" => "Mix bananas, eggs, and oil."}, {"step_number" => 3, "step_content" => "Add dry ingredients and stir."}, {"step_number" => 4, "step_content" => "Pour into loaf pan and bake for 50 minutes."}], "ingredient_lists_attributes" => [{"ingredient_id" => 1, "metric_qty" => 120, "metric_unit" => "g", "imperial_qty" => 4.2, "imperial_unit" => "oz"}, {"ingredient_id" => 2, "metric_qty" => 2, "metric_unit" => "pcs", "imperial_qty" => 2, "imperial_unit" => "pcs"}, {"ingredient_id" => 3, "metric_qty" => 200, "metric_unit" => "g", "imperial_qty" => 7, "imperial_unit" => "oz"}]}}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:14:in 'RecipesController#create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/models/ingredient_list.rb:17:in 'IngredientList#find_or_build_ingredient_by_name'
+  [1m[36mIngredient Load (1.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 1 LIMIT 1 /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/models/ingredient_list.rb:17:in 'IngredientList#find_or_build_ingredient_by_name'
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 2 LIMIT 1 /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/models/ingredient_list.rb:17:in 'IngredientList#find_or_build_ingredient_by_name'
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 3 LIMIT 1 /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/models/ingredient_list.rb:17:in 'IngredientList#find_or_build_ingredient_by_name'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:17:in 'RecipesController#create'
+Completed 422 Unprocessable Content in 30ms (Views: 0.2ms | ActiveRecord: 2.9ms (4 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/recipes" for ::1 at 2025-07-26 19:13:26 -0500
+Processing by RecipesController#create as */*
+  Parameters: {"recipe" => {"title" => "Simple Chocolate Cake", "servings" => 8, "cooking_time" => 45, "favorite" => true, "shopping_list" => false, "instructions_attributes" => [{"step_number" => 1, "step_content" => "Preheat oven to 350°F (175°C)."}, {"step_number" => 2, "step_content" => "Mix dry ingredients in a bowl."}, {"step_number" => 3, "step_content" => "Add wet ingredients and mix until smooth."}, {"step_number" => 4, "step_content" => "Pour into greased pan and bake for 30 minutes."}], "ingredient_lists_attributes" => [{"ingredient_id" => 1, "metric_qty" => 200, "metric_unit" => "g", "imperial_qty" => 7.05, "imperial_unit" => "oz"}, {"ingredient_id" => 2, "metric_qty" => 100, "metric_unit" => "g", "imperial_qty" => 3.5, "imperial_unit" => "oz"}, {"ingredient_id" => 3, "metric_qty" => 2, "metric_unit" => "pcs", "imperial_qty" => 2, "imperial_unit" => "pcs"}]}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:14:in 'RecipesController#create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/models/ingredient_list.rb:17:in 'IngredientList#find_or_build_ingredient_by_name'
+  [1m[36mIngredient Load (2.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 1 LIMIT 1 /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/models/ingredient_list.rb:17:in 'IngredientList#find_or_build_ingredient_by_name'
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 2 LIMIT 1 /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/models/ingredient_list.rb:17:in 'IngredientList#find_or_build_ingredient_by_name'
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 3 LIMIT 1 /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/models/ingredient_list.rb:17:in 'IngredientList#find_or_build_ingredient_by_name'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:17:in 'RecipesController#create'
+Completed 422 Unprocessable Content in 36ms (Views: 0.2ms | ActiveRecord: 3.1ms (4 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/recipes" for ::1 at 2025-07-26 19:15:16 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RecipeManagerApi'*/[0m
+Processing by RecipesController#create as */*
+  Parameters: {"recipe" => {"title" => "Banana Bread", "servings" => 6, "cooking_time" => 60, "favorite" => false, "shopping_list" => false, "instructions_attributes" => [{"step_number" => 1, "step_content" => "Preheat oven to 350°F (175°C)."}, {"step_number" => 2, "step_content" => "Mix bananas, eggs, and oil."}, {"step_number" => 3, "step_content" => "Add dry ingredients and stir."}, {"step_number" => 4, "step_content" => "Pour into loaf pan and bake for 50 minutes."}], "ingredient_lists_attributes" => [{"ingredient_id" => 1, "metric_qty" => 120, "metric_unit" => "g", "imperial_qty" => 4.2, "imperial_unit" => "oz"}, {"ingredient_id" => 2, "metric_qty" => 2, "metric_unit" => "pcs", "imperial_qty" => 2, "imperial_unit" => "pcs"}, {"ingredient_id" => 3, "metric_qty" => 200, "metric_unit" => "g", "imperial_qty" => 7, "imperial_unit" => "oz"}]}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:14:in 'RecipesController#create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/models/ingredient_list.rb:17:in 'IngredientList#find_or_build_ingredient_by_name'
+  [1m[36mIngredient Load (0.6ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 1 LIMIT 1 /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/models/ingredient_list.rb:17:in 'IngredientList#find_or_build_ingredient_by_name'
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 2 LIMIT 1 /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/models/ingredient_list.rb:17:in 'IngredientList#find_or_build_ingredient_by_name'
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 3 LIMIT 1 /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/models/ingredient_list.rb:17:in 'IngredientList#find_or_build_ingredient_by_name'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:17:in 'RecipesController#create'
+Completed 422 Unprocessable Content in 242ms (Views: 41.0ms | ActiveRecord: 8.1ms (4 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/recipes" for ::1 at 2025-07-26 19:19:15 -0500
+Processing by RecipesController#create as */*
+  Parameters: {"recipe" => {"title" => "Banana Bread", "servings" => 6, "cooking_time" => 60, "favorite" => false, "shopping_list" => false, "instructions_attributes" => [{"step_number" => 1, "step_content" => "Preheat oven to 350°F (175°C)."}, {"step_number" => 2, "step_content" => "Mix bananas, eggs, and oil."}, {"step_number" => 3, "step_content" => "Add dry ingredients and stir."}, {"step_number" => 4, "step_content" => "Pour into loaf pan and bake for 50 minutes."}], "ingredient_lists_attributes" => [{"metric_qty" => 120, "metric_unit" => "g", "imperial_qty" => 4.2, "imperial_unit" => "oz", "ingredient_attributes" => {"ingredient" => "Flour"}}, {"metric_qty" => 2, "metric_unit" => "pcs", "imperial_qty" => 2, "imperial_unit" => "pcs", "ingredient_attributes" => {"ingredient" => "Banana"}}, {"metric_qty" => 200, "metric_unit" => "g", "imperial_qty" => 7, "imperial_unit" => "oz", "ingredient_attributes" => {"ingredient" => "Sugar"}}]}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:14:in 'RecipesController#create'
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.5ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'ingredient_attributes' for IngredientList.)
+Caused by: NoMethodError (private method 'ingredient_attributes=' called for an instance of IngredientList)
+
+Information for: ActiveModel::UnknownAttributeError (unknown attribute 'ingredient_attributes' for IngredientList.):
+  
+app/controllers/recipes_controller.rb:16:in 'RecipesController#create'
+
+Information for cause: NoMethodError (private method 'ingredient_attributes=' called for an instance of IngredientList):
+  
+app/controllers/recipes_controller.rb:16:in 'RecipesController#create'
+Started POST "/recipes" for ::1 at 2025-07-26 19:22:11 -0500
+Processing by RecipesController#create as */*
+  Parameters: {"recipe" => {"title" => "Banana Bread", "servings" => 6, "cooking_time" => 60, "favorite" => false, "shopping_list" => false, "instructions_attributes" => [{"step_number" => 1, "step_content" => "Preheat oven to 350°F (175°C)."}, {"step_number" => 2, "step_content" => "Mix bananas, eggs, and oil."}, {"step_number" => 3, "step_content" => "Add dry ingredients and stir."}, {"step_number" => 4, "step_content" => "Pour into loaf pan and bake for 50 minutes."}], "ingredient_lists_attributes" => [{"metric_qty" => 120, "metric_unit" => "g", "imperial_qty" => 4.2, "imperial_unit" => "oz", "ingredient_attributes" => {"ingredient" => "Flour"}}, {"metric_qty" => 2, "metric_unit" => "pcs", "imperial_qty" => 2, "imperial_unit" => "pcs", "ingredient_attributes" => {"ingredient" => "Banana"}}, {"metric_qty" => 200, "metric_unit" => "g", "imperial_qty" => 7, "imperial_unit" => "oz", "ingredient_attributes" => {"ingredient" => "Sugar"}}]}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:14:in 'RecipesController#create'
+Completed 500 Internal Server Error in 58ms (ActiveRecord: 3.8ms (1 query, 0 cached) | GC: 3.6ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'ingredient_attributes' for IngredientList.)
+Caused by: NoMethodError (private method 'ingredient_attributes=' called for an instance of IngredientList)
+
+Information for: ActiveModel::UnknownAttributeError (unknown attribute 'ingredient_attributes' for IngredientList.):
+  
+app/controllers/recipes_controller.rb:16:in 'RecipesController#create'
+
+Information for cause: NoMethodError (private method 'ingredient_attributes=' called for an instance of IngredientList):
+  
+app/controllers/recipes_controller.rb:16:in 'RecipesController#create'
+Started POST "/recipes" for ::1 at 2025-07-26 19:22:19 -0500
+Processing by RecipesController#create as */*
+  Parameters: {"recipe" => {"title" => "Banana Bread", "servings" => 6, "cooking_time" => 60, "favorite" => false, "shopping_list" => false, "instructions_attributes" => [{"step_number" => 1, "step_content" => "Preheat oven to 350°F (175°C)."}, {"step_number" => 2, "step_content" => "Mix bananas, eggs, and oil."}, {"step_number" => 3, "step_content" => "Add dry ingredients and stir."}, {"step_number" => 4, "step_content" => "Pour into loaf pan and bake for 50 minutes."}], "ingredient_lists_attributes" => [{"metric_qty" => 120, "metric_unit" => "g", "imperial_qty" => 4.2, "imperial_unit" => "oz", "ingredient_attributes" => {"ingredient" => "Flour"}}, {"metric_qty" => 2, "metric_unit" => "pcs", "imperial_qty" => 2, "imperial_unit" => "pcs", "ingredient_attributes" => {"ingredient" => "Banana"}}, {"metric_qty" => 200, "metric_unit" => "g", "imperial_qty" => 7, "imperial_unit" => "oz", "ingredient_attributes" => {"ingredient" => "Sugar"}}]}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:14:in 'RecipesController#create'
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'ingredient_attributes' for IngredientList.)
+Caused by: NoMethodError (private method 'ingredient_attributes=' called for an instance of IngredientList)
+
+Information for: ActiveModel::UnknownAttributeError (unknown attribute 'ingredient_attributes' for IngredientList.):
+  
+app/controllers/recipes_controller.rb:16:in 'RecipesController#create'
+
+Information for cause: NoMethodError (private method 'ingredient_attributes=' called for an instance of IngredientList):
+  
+app/controllers/recipes_controller.rb:16:in 'RecipesController#create'
+Started POST "/recipes" for ::1 at 2025-07-26 19:22:53 -0500
+Processing by RecipesController#create as */*
+  Parameters: {"recipe" => {"title" => "Banana Bread", "servings" => 6, "cooking_time" => 60, "favorite" => false, "shopping_list" => false, "instructions_attributes" => [{"step_number" => 1, "step_content" => "Preheat oven to 350°F (175°C)."}, {"step_number" => 2, "step_content" => "Mix bananas, eggs, and oil."}, {"step_number" => 3, "step_content" => "Add dry ingredients and stir."}, {"step_number" => 4, "step_content" => "Pour into loaf pan and bake for 50 minutes."}], "ingredient_lists_attributes" => [{"metric_qty" => 120, "metric_unit" => "g", "imperial_qty" => 4.2, "imperial_unit" => "oz", "ingredient_attributes" => {"ingredient" => "Flour"}}, {"metric_qty" => 2, "metric_unit" => "pcs", "imperial_qty" => 2, "imperial_unit" => "pcs", "ingredient_attributes" => {"ingredient" => "Banana"}}, {"metric_qty" => 200, "metric_unit" => "g", "imperial_qty" => 7, "imperial_unit" => "oz", "ingredient_attributes" => {"ingredient" => "Sugar"}}]}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:14:in 'RecipesController#create'
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'ingredient_attributes' for IngredientList.)
+Caused by: NoMethodError (private method 'ingredient_attributes=' called for an instance of IngredientList)
+
+Information for: ActiveModel::UnknownAttributeError (unknown attribute 'ingredient_attributes' for IngredientList.):
+  
+app/controllers/recipes_controller.rb:16:in 'RecipesController#create'
+
+Information for cause: NoMethodError (private method 'ingredient_attributes=' called for an instance of IngredientList):
+  
+app/controllers/recipes_controller.rb:16:in 'RecipesController#create'
+Started POST "/recipes" for ::1 at 2025-07-26 19:57:21 -0500
+Processing by RecipesController#create as */*
+  Parameters: {"recipe" => {"title" => "Banana Bread", "servings" => 6, "cooking_time" => 60, "favorite" => false, "shopping_list" => false, "instructions_attributes" => [{"step_number" => 1, "step_content" => "Preheat oven to 350°F (175°C)."}, {"step_number" => 2, "step_content" => "Mix bananas, eggs, and oil."}, {"step_number" => 3, "step_content" => "Add dry ingredients and stir."}, {"step_number" => 4, "step_content" => "Pour into loaf pan and bake for 50 minutes."}], "ingredient_lists_attributes" => [{"metric_qty" => 120, "metric_unit" => "g", "imperial_qty" => 4.2, "imperial_unit" => "oz", "ingredient_attributes" => {"ingredient" => "Flour"}}, {"metric_qty" => 2, "metric_unit" => "pcs", "imperial_qty" => 2, "imperial_unit" => "pcs", "ingredient_attributes" => {"ingredient" => "Banana"}}, {"metric_qty" => 200, "metric_unit" => "g", "imperial_qty" => 7, "imperial_unit" => "oz", "ingredient_attributes" => {"ingredient" => "Sugar"}}]}}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:14:in 'RecipesController#create'
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 1.9ms (1 query, 0 cached) | GC: 0.2ms)
+
+
+  
+NoMethodError (undefined method '[]' for nil):
+  
+app/controllers/recipes_controller.rb:26:in 'block in RecipesController#create'
+app/controllers/recipes_controller.rb:23:in 'Array#each'
+app/controllers/recipes_controller.rb:23:in 'RecipesController#create'
+Started POST "/recipes" for ::1 at 2025-07-26 20:00:42 -0500
+Processing by RecipesController#create as */*
+  Parameters: {"recipe" => {"title" => "Banana Bread", "servings" => 6, "cooking_time" => 60, "favorite" => false, "shopping_list" => false, "instructions_attributes" => [{"step_number" => 1, "step_content" => "Preheat oven to 350°F (175°C)."}, {"step_number" => 2, "step_content" => "Mix bananas, eggs, and oil."}, {"step_number" => 3, "step_content" => "Add dry ingredients and stir."}, {"step_number" => 4, "step_content" => "Pour into loaf pan and bake for 50 minutes."}], "ingredient_lists_attributes" => [{"metric_qty" => 120, "metric_unit" => "g", "imperial_qty" => 4.2, "imperial_unit" => "oz", "ingredient_attributes" => {"ingredient" => "Flour"}}, {"metric_qty" => 2, "metric_unit" => "pcs", "imperial_qty" => 2, "imperial_unit" => "pcs", "ingredient_attributes" => {"ingredient" => "Banana"}}, {"metric_qty" => 200, "metric_unit" => "g", "imperial_qty" => 7, "imperial_unit" => "oz", "ingredient_attributes" => {"ingredient" => "Sugar"}}]}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:14:in 'RecipesController#create'
+  [1m[36mIngredient Load (0.8ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE (lower(ingredient) = 'flour') ORDER BY "ingredients"."id" ASC LIMIT 1 /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:30:in 'block in RecipesController#create'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE (lower(ingredient) = 'banana') ORDER BY "ingredients"."id" ASC LIMIT 1 /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:30:in 'block in RecipesController#create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:30:in 'block in RecipesController#create'
+  [1m[36mIngredient Exists? (5.9ms)[0m  [1m[34mSELECT 1 AS one FROM "ingredients" WHERE LOWER("ingredients"."ingredient") = LOWER('Banana') LIMIT 1 /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:30:in 'block in RecipesController#create'
+  [1m[36mIngredient Create (0.9ms)[0m  [1m[32mINSERT INTO "ingredients" ("ingredient", "created_at", "updated_at") VALUES ('Banana', '2025-07-27 01:00:42.125301', '2025-07-27 01:00:42.125301') RETURNING "id" /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:30:in 'block in RecipesController#create'
+  [1m[36mTRANSACTION (19.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:30:in 'block in RecipesController#create'
+  [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE (lower(ingredient) = 'sugar') ORDER BY "ingredients"."id" ASC LIMIT 1 /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:30:in 'block in RecipesController#create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:30:in 'block in RecipesController#create'
+  [1m[36mIngredient Exists? (2.4ms)[0m  [1m[34mSELECT 1 AS one FROM "ingredients" WHERE LOWER("ingredients"."ingredient") = LOWER('Sugar') LIMIT 1 /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:30:in 'block in RecipesController#create'
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("ingredient", "created_at", "updated_at") VALUES ('Sugar', '2025-07-27 01:00:42.162097', '2025-07-27 01:00:42.162097') RETURNING "id" /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:30:in 'block in RecipesController#create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:30:in 'block in RecipesController#create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:46:in 'RecipesController#create'
+  [1m[36mIngredient Load (3.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 1 LIMIT 1 /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:46:in 'RecipesController#create'
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 2 LIMIT 1 /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:46:in 'RecipesController#create'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 3 LIMIT 1 /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:46:in 'RecipesController#create'
+  [1m[36mRecipe Create (0.4ms)[0m  [1m[32mINSERT INTO "recipes" ("user_id", "title", "servings", "cooking_time", "favorite", "shopping_list", "created_at", "updated_at") VALUES (2, 'Banana Bread', 6, 60, 0, 0, '2025-07-27 01:00:42.229870', '2025-07-27 01:00:42.229870') RETURNING "id" /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:46:in 'RecipesController#create'
+  [1m[36mInstruction Create (0.3ms)[0m  [1m[32mINSERT INTO "instructions" ("recipe_id", "step_number", "step_content", "created_at", "updated_at") VALUES (1, 1, 'Preheat oven to 350°F (175°C).', '2025-07-27 01:00:42.234412', '2025-07-27 01:00:42.234412') RETURNING "id" /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:46:in 'RecipesController#create'
+  [1m[36mInstruction Create (0.2ms)[0m  [1m[32mINSERT INTO "instructions" ("recipe_id", "step_number", "step_content", "created_at", "updated_at") VALUES (1, 2, 'Mix bananas, eggs, and oil.', '2025-07-27 01:00:42.246831', '2025-07-27 01:00:42.246831') RETURNING "id" /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:46:in 'RecipesController#create'
+  [1m[36mInstruction Create (0.2ms)[0m  [1m[32mINSERT INTO "instructions" ("recipe_id", "step_number", "step_content", "created_at", "updated_at") VALUES (1, 3, 'Add dry ingredients and stir.', '2025-07-27 01:00:42.253250', '2025-07-27 01:00:42.253250') RETURNING "id" /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:46:in 'RecipesController#create'
+  [1m[36mInstruction Create (0.3ms)[0m  [1m[32mINSERT INTO "instructions" ("recipe_id", "step_number", "step_content", "created_at", "updated_at") VALUES (1, 4, 'Pour into loaf pan and bake for 50 minutes.', '2025-07-27 01:00:42.258093', '2025-07-27 01:00:42.258093') RETURNING "id" /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:46:in 'RecipesController#create'
+  [1m[36mIngredientList Create (1.1ms)[0m  [1m[32mINSERT INTO "ingredient_lists" ("ingredient_id", "recipe_id", "metric_qty", "metric_unit", "imperial_qty", "imperial_unit", "created_at", "updated_at") VALUES (1, 1, 120.0, 'g', 4.2, 'oz', '2025-07-27 01:00:42.263572', '2025-07-27 01:00:42.263572') RETURNING "id" /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:46:in 'RecipesController#create'
+  [1m[36mIngredientList Create (0.7ms)[0m  [1m[32mINSERT INTO "ingredient_lists" ("ingredient_id", "recipe_id", "metric_qty", "metric_unit", "imperial_qty", "imperial_unit", "created_at", "updated_at") VALUES (2, 1, 2.0, 'pcs', 2.0, 'pcs', '2025-07-27 01:00:42.273754', '2025-07-27 01:00:42.273754') RETURNING "id" /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:46:in 'RecipesController#create'
+  [1m[36mIngredientList Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredient_lists" ("ingredient_id", "recipe_id", "metric_qty", "metric_unit", "imperial_qty", "imperial_unit", "created_at", "updated_at") VALUES (3, 1, 200.0, 'g', 7.0, 'oz', '2025-07-27 01:00:42.277680', '2025-07-27 01:00:42.277680') RETURNING "id" /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:46:in 'RecipesController#create'
+  [1m[36mTRANSACTION (6.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:46:in 'RecipesController#create'
+Completed 201 Created in 213ms (Views: 0.9ms | ActiveRecord: 49.4ms (19 queries, 0 cached) | GC: 13.4ms)
+
+
