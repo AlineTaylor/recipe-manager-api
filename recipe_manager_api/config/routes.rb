@@ -12,7 +12,10 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :update, :destroy, :create]
 
   resources :recipes do
-    resources :instructions, only: [:index, :create, :update, :destroy]
+    get 'instructions', on: :member
+    post  'instructions',   to: 'recipes#create_instruction', on: :member
+    patch  'instructions/:instruction_id', to: 'recipes#update_instruction'
+    delete 'instructions/:instruction_id', to: 'recipes#destroy_instruction'
     resources :ingredient_lists, only: [:index, :create, :update, :destroy]
     resources :labels, only: [:index, :update]
   end

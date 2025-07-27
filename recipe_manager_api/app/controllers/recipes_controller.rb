@@ -2,6 +2,9 @@ class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :update, :destroy]
 
   def index
+    #TODO should indexing display ingredients and directions too? Or is the condensed version sufficient? How will Blueprinter play into this? Decide and update controller as need?
+    current_user = User.first
+    #TODO delete line above once done testing
     @recipes = current_user.recipes.includes(:labels, :ingredient_lists, :instructions)
     render json: @recipes
   end
@@ -23,26 +26,26 @@ class RecipesController < ApplicationController
   ingredient_lists = recipe_data[:ingredient_lists_attributes]
 
   # Handles both array-style (most common) and hash-style (Rails forms)
-  if ingredient_lists.is_a?(Array)
-    ingredient_lists.each do |list|
-      next unless list[:ingredient_attributes]&.dig(:ingredient).present?
-      ingredient_name = list[:ingredient_attributes][:ingredient].strip
-      ingredient = Ingredient.where('lower(ingredient) = ?', ingredient_name.downcase).first_or_create(ingredient: ingredient_name)
-      list[:ingredient_id] = ingredient.id
-      list.delete(:ingredient_attributes)
+    if ingredient_lists.is_a?(Array)
+      ingredient_lists.each do |list|
+        next unless list[:ingredient_attributes]&.dig(:ingredient).present?
+        ingredient_name = list[:ingredient_attributes][:ingredient].strip
+        ingredient = Ingredient.where('lower(ingredient) = ?', ingredient_name.downcase).first_or_create(ingredient: ingredient_name)
+        list[:ingredient_id] = ingredient.id
+        list.delete(:ingredient_attributes)
+      end
+    elsif ingredient_lists.is_a?(Hash)
+      ingredient_lists.each do |_key, list|
+        next unless list[:ingredient_attributes]&.dig(:ingredient).present?
+        ingredient_name = list[:ingredient_attributes][:ingredient].strip
+        ingredient = Ingredient.where('lower(ingredient) = ?', ingredient_name.downcase).first_or_create(ingredient: ingredient_name)
+        list[:ingredient_id] = ingredient.id
+        list.delete(:ingredient_attributes)
+        end
     end
-  elsif ingredient_lists.is_a?(Hash)
-    ingredient_lists.each do |_key, list|
-      next unless list[:ingredient_attributes]&.dig(:ingredient).present?
-      ingredient_name = list[:ingredient_attributes][:ingredient].strip
-      ingredient = Ingredient.where('lower(ingredient) = ?', ingredient_name.downcase).first_or_create(ingredient: ingredient_name)
-      list[:ingredient_id] = ingredient.id
-      list.delete(:ingredient_attributes)
-    end
-  end
   end
 
-    @recipe = current_user.recipes.build(recipe_data)
+  @recipe = current_user.recipes.build(recipe_data)
     if @recipe.save
       render json: @recipe, status: :created
     else
@@ -63,10 +66,48 @@ class RecipesController < ApplicationController
     head :no_content
   end
 
+  def instructions
+    current_user = User.first # Remove later
+    recipe = current_user.recipes.find(params[:id])
+    render json: recipe.instructions
+  end
+
+  def create_instruction
+    current_user = User.first # Remove later
+    recipe = current_user.recipes.find(params[:id])
+    instruction = recipe.instructions.build(instruction_params)
+    if instruction.save
+      render json: instruction, status: :created
+    else
+      render json: { errors: instruction.errors.full_messages }, status: :unprocessable_entity
+    end
+  end
+
+  def update_instruction
+    current_user = User.first # Remove later
+    recipe = current_user.recipes.find(params[:id])
+    instruction = recipe.instructions.find(params[:instruction_id])
+    if instruction.update(instruction_params)
+      render json: instruction
+    else
+      render json: { errors: instruction.errors.full_messages }, status: :unprocessable_entity
+    end
+  end
+
+  def destroy_instruction
+    current_user = User.first # Remove later
+    recipe = current_user.recipes.find(params[:id])
+    instruction = recipe.instructions.find(params[:instruction_id])
+    instruction.destroy
+    head :no_content
+  end
+
   private
 
   # limiting user access to their own recipes only (see before_action at the top)
   def set_recipe
+    current_user = User.first
+    #TODO delete line above once done testing
     @recipe = current_user.recipes.find(params[:id])
   end
 
@@ -76,5 +117,9 @@ class RecipesController < ApplicationController
       instructions_attributes: [:id, :step_number, :step_content, :_destroy],
       ingredient_lists_attributes: [:id, :ingredient_id, :metric_qty, :metric_unit, :imperial_qty, :imperial_unit, :_destroy, { ingredient_attributes: [:id, :ingredient] }]
     )
+  end
+
+  def instruction_params
+    params.require(:instruction).permit(:step_number, :step_content)
   end
 end

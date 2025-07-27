@@ -861,3 +861,412 @@ Processing by RecipesController#create as */*
 Completed 201 Created in 213ms (Views: 0.9ms | ActiveRecord: 49.4ms (19 queries, 0 cached) | GC: 13.4ms)
 
 
+Started GET "/recipes/1" for ::1 at 2025-07-26 20:19:25 -0500
+Processing by RecipesController#show as */*
+  Parameters: {"id" => "1"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+NameError (undefined local variable or method 'current_user' for an instance of RecipesController):
+  
+app/controllers/recipes_controller.rb:70:in 'RecipesController#set_recipe'
+Started GET "/recipes/1" for ::1 at 2025-07-26 20:21:16 -0500
+Processing by RecipesController#show as */*
+  Parameters: {"id" => "1"}
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:72:in 'RecipesController#set_recipe'
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 2 AND "recipes"."id" = 1 LIMIT 1 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:74:in 'RecipesController#set_recipe'
+  [1m[36mInstruction Load (0.2ms)[0m  [1m[34mSELECT "instructions".* FROM "instructions" WHERE "instructions"."recipe_id" = 1 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:12:in 'RecipesController#show'
+  [1m[36mIngredientList Load (0.3ms)[0m  [1m[34mSELECT "ingredient_lists".* FROM "ingredient_lists" WHERE "ingredient_lists"."recipe_id" = 1 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:12:in 'RecipesController#show'
+  [1m[36mLabel Load (0.3ms)[0m  [1m[34mSELECT "labels".* FROM "labels" INNER JOIN "labels_recipes" ON "labels"."id" = "labels_recipes"."label_id" WHERE "labels_recipes"."recipe_id" = 1 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:12:in 'RecipesController#show'
+Completed 200 OK in 109ms (Views: 61.4ms | ActiveRecord: 6.7ms (5 queries, 0 cached) | GC: 2.3ms)
+
+
+Started GET "/recipes" for ::1 at 2025-07-26 20:21:29 -0500
+Processing by RecipesController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:5:in 'RecipesController#index'
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 2 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:8:in 'RecipesController#index'
+  [1m[36mHABTM_Labels Load (0.3ms)[0m  [1m[34mSELECT "labels_recipes".* FROM "labels_recipes" WHERE "labels_recipes"."recipe_id" = 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:8:in 'RecipesController#index'
+  [1m[36mIngredientList Load (0.2ms)[0m  [1m[34mSELECT "ingredient_lists".* FROM "ingredient_lists" WHERE "ingredient_lists"."recipe_id" = 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:8:in 'RecipesController#index'
+  [1m[36mInstruction Load (0.1ms)[0m  [1m[34mSELECT "instructions".* FROM "instructions" WHERE "instructions"."recipe_id" = 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:8:in 'RecipesController#index'
+Completed 200 OK in 42ms (Views: 37.9ms | ActiveRecord: 1.7ms (5 queries, 0 cached) | GC: 0.0ms)
+
+
+Started PATCH "/recipes/:id" for ::1 at 2025-07-26 20:22:40 -0500
+Processing by RecipesController#update as */*
+  Parameters: {"recipe" => {"title" => "Best Ever Banana Bread", "instructions_attributes" => [{"step_number" => 5, "step_content" => "Let cool before slicing."}]}, "id" => ":id"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='update',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:72:in 'RecipesController#set_recipe'
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 2 AND "recipes"."id" = NULL LIMIT 1 /*action='update',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:74:in 'RecipesController#set_recipe'
+Completed 404 Not Found in 13ms (ActiveRecord: 0.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Recipe with 'id'=:id [WHERE "recipes"."user_id" = ?]):
+  
+app/controllers/recipes_controller.rb:74:in 'RecipesController#set_recipe'
+Started PATCH "/recipes/1" for ::1 at 2025-07-26 20:22:55 -0500
+Processing by RecipesController#update as */*
+  Parameters: {"recipe" => {"title" => "Best Ever Banana Bread", "instructions_attributes" => [{"step_number" => 5, "step_content" => "Let cool before slicing."}]}, "id" => "1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='update',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:72:in 'RecipesController#set_recipe'
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 2 AND "recipes"."id" = 1 LIMIT 1 /*action='update',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:74:in 'RecipesController#set_recipe'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='update',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:56:in 'RecipesController#update'
+  [1m[36mRecipe Update (3.5ms)[0m  [1m[33mUPDATE "recipes" SET "title" = 'Best Ever Banana Bread', "updated_at" = '2025-07-27 01:22:55.837743' WHERE "recipes"."id" = 1 /*action='update',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:56:in 'RecipesController#update'
+  [1m[36mInstruction Create (0.3ms)[0m  [1m[32mINSERT INTO "instructions" ("recipe_id", "step_number", "step_content", "created_at", "updated_at") VALUES (1, 5, 'Let cool before slicing.', '2025-07-27 01:22:55.844712', '2025-07-27 01:22:55.844712') RETURNING "id" /*action='update',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:56:in 'RecipesController#update'
+  [1m[36mTRANSACTION (7.9ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='update',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:56:in 'RecipesController#update'
+Completed 200 OK in 49ms (Views: 5.3ms | ActiveRecord: 12.1ms (4 queries, 0 cached) | GC: 1.3ms)
+
+
+Started POST "/recipes/1/instructions" for ::1 at 2025-07-26 20:25:49 -0500
+  
+ActionController::RoutingError (uninitialized constant InstructionsController)
+Caused by: ActionDispatch::MissingController (uninitialized constant InstructionsController)
+Caused by: NameError (uninitialized constant InstructionsController)
+
+Information for: ActionController::RoutingError (uninitialized constant InstructionsController):
+  
+
+Information for cause: ActionDispatch::MissingController (uninitialized constant InstructionsController):
+  
+actionpack (8.0.2) lib/action_dispatch/http/request.rb:102:in 'ActionDispatch::Request#controller_class_for'
+actionpack (8.0.2) lib/action_dispatch/http/request.rb:91:in 'ActionDispatch::Request#controller_class'
+actionpack (8.0.2) lib/action_dispatch/routing/route_set.rb:61:in 'ActionDispatch::Routing::RouteSet::Dispatcher#controller'
+actionpack (8.0.2) lib/action_dispatch/routing/route_set.rb:48:in 'ActionDispatch::Routing::RouteSet::Dispatcher#serve'
+actionpack (8.0.2) lib/action_dispatch/journey/router.rb:53:in 'block in ActionDispatch::Journey::Router#serve'
+actionpack (8.0.2) lib/action_dispatch/journey/router.rb:133:in 'block in ActionDispatch::Journey::Router#find_routes'
+actionpack (8.0.2) lib/action_dispatch/journey/router.rb:126:in 'Array#each'
+actionpack (8.0.2) lib/action_dispatch/journey/router.rb:126:in 'ActionDispatch::Journey::Router#find_routes'
+actionpack (8.0.2) lib/action_dispatch/journey/router.rb:34:in 'ActionDispatch::Journey::Router#serve'
+actionpack (8.0.2) lib/action_dispatch/routing/route_set.rb:908:in 'ActionDispatch::Routing::RouteSet#call'
+railties (8.0.2) lib/rails/engine/lazy_route_set.rb:68:in 'Rails::Engine::LazyRouteSet#call'
+rack (3.1.16) lib/rack/etag.rb:29:in 'Rack::ETag#call'
+rack (3.1.16) lib/rack/conditional_get.rb:43:in 'Rack::ConditionalGet#call'
+rack (3.1.16) lib/rack/head.rb:15:in 'Rack::Head#call'
+activerecord (8.0.2) lib/active_record/migration.rb:671:in 'ActiveRecord::Migration::CheckPending#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/callbacks.rb:31:in 'block in ActionDispatch::Callbacks#call'
+activesupport (8.0.2) lib/active_support/callbacks.rb:100:in 'ActiveSupport::Callbacks#run_callbacks'
+actionpack (8.0.2) lib/action_dispatch/middleware/callbacks.rb:30:in 'ActionDispatch::Callbacks#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in 'ActionDispatch::ActionableExceptions#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:31:in 'ActionDispatch::DebugExceptions#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/show_exceptions.rb:32:in 'ActionDispatch::ShowExceptions#call'
+railties (8.0.2) lib/rails/rack/logger.rb:41:in 'Rails::Rack::Logger#call_app'
+railties (8.0.2) lib/rails/rack/logger.rb:29:in 'Rails::Rack::Logger#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/remote_ip.rb:96:in 'ActionDispatch::RemoteIp#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/request_id.rb:34:in 'ActionDispatch::RequestId#call'
+rack (3.1.16) lib/rack/runtime.rb:24:in 'Rack::Runtime#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:61:in 'block in ActionDispatch::ServerTiming#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:26:in 'ActionDispatch::ServerTiming::Subscriber#collect_events'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:60:in 'ActionDispatch::ServerTiming#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/static.rb:27:in 'ActionDispatch::Static#call'
+rack (3.1.16) lib/rack/sendfile.rb:114:in 'Rack::Sendfile#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/host_authorization.rb:143:in 'ActionDispatch::HostAuthorization#call'
+railties (8.0.2) lib/rails/engine.rb:535:in 'Rails::Engine#call'
+puma (6.6.0) lib/puma/configuration.rb:279:in 'Puma::Configuration::ConfigMiddleware#call'
+puma (6.6.0) lib/puma/request.rb:99:in 'block in Puma::Request#handle_request'
+puma (6.6.0) lib/puma/thread_pool.rb:390:in 'Puma::ThreadPool#with_force_shutdown'
+puma (6.6.0) lib/puma/request.rb:98:in 'Puma::Request#handle_request'
+puma (6.6.0) lib/puma/server.rb:472:in 'Puma::Server#process_client'
+puma (6.6.0) lib/puma/server.rb:254:in 'block in Puma::Server#run'
+puma (6.6.0) lib/puma/thread_pool.rb:167:in 'block in Puma::ThreadPool#spawn_thread'
+
+Information for cause: NameError (uninitialized constant InstructionsController):
+  
+activesupport (8.0.2) lib/active_support/inflector/methods.rb:290:in 'ActiveSupport::Inflector#constantize'
+activesupport (8.0.2) lib/active_support/core_ext/string/inflections.rb:74:in 'String#constantize'
+actionpack (8.0.2) lib/action_dispatch/http/request.rb:99:in 'ActionDispatch::Request#controller_class_for'
+actionpack (8.0.2) lib/action_dispatch/http/request.rb:91:in 'ActionDispatch::Request#controller_class'
+actionpack (8.0.2) lib/action_dispatch/routing/route_set.rb:61:in 'ActionDispatch::Routing::RouteSet::Dispatcher#controller'
+actionpack (8.0.2) lib/action_dispatch/routing/route_set.rb:48:in 'ActionDispatch::Routing::RouteSet::Dispatcher#serve'
+actionpack (8.0.2) lib/action_dispatch/journey/router.rb:53:in 'block in ActionDispatch::Journey::Router#serve'
+actionpack (8.0.2) lib/action_dispatch/journey/router.rb:133:in 'block in ActionDispatch::Journey::Router#find_routes'
+actionpack (8.0.2) lib/action_dispatch/journey/router.rb:126:in 'Array#each'
+actionpack (8.0.2) lib/action_dispatch/journey/router.rb:126:in 'ActionDispatch::Journey::Router#find_routes'
+actionpack (8.0.2) lib/action_dispatch/journey/router.rb:34:in 'ActionDispatch::Journey::Router#serve'
+actionpack (8.0.2) lib/action_dispatch/routing/route_set.rb:908:in 'ActionDispatch::Routing::RouteSet#call'
+railties (8.0.2) lib/rails/engine/lazy_route_set.rb:68:in 'Rails::Engine::LazyRouteSet#call'
+rack (3.1.16) lib/rack/etag.rb:29:in 'Rack::ETag#call'
+rack (3.1.16) lib/rack/conditional_get.rb:43:in 'Rack::ConditionalGet#call'
+rack (3.1.16) lib/rack/head.rb:15:in 'Rack::Head#call'
+activerecord (8.0.2) lib/active_record/migration.rb:671:in 'ActiveRecord::Migration::CheckPending#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/callbacks.rb:31:in 'block in ActionDispatch::Callbacks#call'
+activesupport (8.0.2) lib/active_support/callbacks.rb:100:in 'ActiveSupport::Callbacks#run_callbacks'
+actionpack (8.0.2) lib/action_dispatch/middleware/callbacks.rb:30:in 'ActionDispatch::Callbacks#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in 'ActionDispatch::ActionableExceptions#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:31:in 'ActionDispatch::DebugExceptions#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/show_exceptions.rb:32:in 'ActionDispatch::ShowExceptions#call'
+railties (8.0.2) lib/rails/rack/logger.rb:41:in 'Rails::Rack::Logger#call_app'
+railties (8.0.2) lib/rails/rack/logger.rb:29:in 'Rails::Rack::Logger#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/remote_ip.rb:96:in 'ActionDispatch::RemoteIp#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/request_id.rb:34:in 'ActionDispatch::RequestId#call'
+rack (3.1.16) lib/rack/runtime.rb:24:in 'Rack::Runtime#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:61:in 'block in ActionDispatch::ServerTiming#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:26:in 'ActionDispatch::ServerTiming::Subscriber#collect_events'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:60:in 'ActionDispatch::ServerTiming#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/static.rb:27:in 'ActionDispatch::Static#call'
+rack (3.1.16) lib/rack/sendfile.rb:114:in 'Rack::Sendfile#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/host_authorization.rb:143:in 'ActionDispatch::HostAuthorization#call'
+railties (8.0.2) lib/rails/engine.rb:535:in 'Rails::Engine#call'
+puma (6.6.0) lib/puma/configuration.rb:279:in 'Puma::Configuration::ConfigMiddleware#call'
+puma (6.6.0) lib/puma/request.rb:99:in 'block in Puma::Request#handle_request'
+puma (6.6.0) lib/puma/thread_pool.rb:390:in 'Puma::ThreadPool#with_force_shutdown'
+puma (6.6.0) lib/puma/request.rb:98:in 'Puma::Request#handle_request'
+puma (6.6.0) lib/puma/server.rb:472:in 'Puma::Server#process_client'
+puma (6.6.0) lib/puma/server.rb:254:in 'block in Puma::Server#run'
+puma (6.6.0) lib/puma/thread_pool.rb:167:in 'block in Puma::ThreadPool#spawn_thread'
+Started POST "/recipes/1/instructions" for ::1 at 2025-07-26 20:25:59 -0500
+  
+ActionController::RoutingError (uninitialized constant InstructionsController)
+Caused by: ActionDispatch::MissingController (uninitialized constant InstructionsController)
+Caused by: NameError (uninitialized constant InstructionsController)
+
+Information for: ActionController::RoutingError (uninitialized constant InstructionsController):
+  
+
+Information for cause: ActionDispatch::MissingController (uninitialized constant InstructionsController):
+  
+actionpack (8.0.2) lib/action_dispatch/http/request.rb:102:in 'ActionDispatch::Request#controller_class_for'
+actionpack (8.0.2) lib/action_dispatch/http/request.rb:91:in 'ActionDispatch::Request#controller_class'
+actionpack (8.0.2) lib/action_dispatch/routing/route_set.rb:61:in 'ActionDispatch::Routing::RouteSet::Dispatcher#controller'
+actionpack (8.0.2) lib/action_dispatch/routing/route_set.rb:48:in 'ActionDispatch::Routing::RouteSet::Dispatcher#serve'
+actionpack (8.0.2) lib/action_dispatch/journey/router.rb:53:in 'block in ActionDispatch::Journey::Router#serve'
+actionpack (8.0.2) lib/action_dispatch/journey/router.rb:133:in 'block in ActionDispatch::Journey::Router#find_routes'
+actionpack (8.0.2) lib/action_dispatch/journey/router.rb:126:in 'Array#each'
+actionpack (8.0.2) lib/action_dispatch/journey/router.rb:126:in 'ActionDispatch::Journey::Router#find_routes'
+actionpack (8.0.2) lib/action_dispatch/journey/router.rb:34:in 'ActionDispatch::Journey::Router#serve'
+actionpack (8.0.2) lib/action_dispatch/routing/route_set.rb:908:in 'ActionDispatch::Routing::RouteSet#call'
+railties (8.0.2) lib/rails/engine/lazy_route_set.rb:68:in 'Rails::Engine::LazyRouteSet#call'
+rack (3.1.16) lib/rack/etag.rb:29:in 'Rack::ETag#call'
+rack (3.1.16) lib/rack/conditional_get.rb:43:in 'Rack::ConditionalGet#call'
+rack (3.1.16) lib/rack/head.rb:15:in 'Rack::Head#call'
+activerecord (8.0.2) lib/active_record/migration.rb:671:in 'ActiveRecord::Migration::CheckPending#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/callbacks.rb:31:in 'block in ActionDispatch::Callbacks#call'
+activesupport (8.0.2) lib/active_support/callbacks.rb:100:in 'ActiveSupport::Callbacks#run_callbacks'
+actionpack (8.0.2) lib/action_dispatch/middleware/callbacks.rb:30:in 'ActionDispatch::Callbacks#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in 'ActionDispatch::ActionableExceptions#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:31:in 'ActionDispatch::DebugExceptions#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/show_exceptions.rb:32:in 'ActionDispatch::ShowExceptions#call'
+railties (8.0.2) lib/rails/rack/logger.rb:41:in 'Rails::Rack::Logger#call_app'
+railties (8.0.2) lib/rails/rack/logger.rb:29:in 'Rails::Rack::Logger#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/remote_ip.rb:96:in 'ActionDispatch::RemoteIp#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/request_id.rb:34:in 'ActionDispatch::RequestId#call'
+rack (3.1.16) lib/rack/runtime.rb:24:in 'Rack::Runtime#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:61:in 'block in ActionDispatch::ServerTiming#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:26:in 'ActionDispatch::ServerTiming::Subscriber#collect_events'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:60:in 'ActionDispatch::ServerTiming#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/static.rb:27:in 'ActionDispatch::Static#call'
+rack (3.1.16) lib/rack/sendfile.rb:114:in 'Rack::Sendfile#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/host_authorization.rb:143:in 'ActionDispatch::HostAuthorization#call'
+railties (8.0.2) lib/rails/engine.rb:535:in 'Rails::Engine#call'
+puma (6.6.0) lib/puma/configuration.rb:279:in 'Puma::Configuration::ConfigMiddleware#call'
+puma (6.6.0) lib/puma/request.rb:99:in 'block in Puma::Request#handle_request'
+puma (6.6.0) lib/puma/thread_pool.rb:390:in 'Puma::ThreadPool#with_force_shutdown'
+puma (6.6.0) lib/puma/request.rb:98:in 'Puma::Request#handle_request'
+puma (6.6.0) lib/puma/server.rb:472:in 'Puma::Server#process_client'
+puma (6.6.0) lib/puma/server.rb:254:in 'block in Puma::Server#run'
+puma (6.6.0) lib/puma/thread_pool.rb:167:in 'block in Puma::ThreadPool#spawn_thread'
+
+Information for cause: NameError (uninitialized constant InstructionsController):
+  
+activesupport (8.0.2) lib/active_support/inflector/methods.rb:290:in 'ActiveSupport::Inflector#constantize'
+activesupport (8.0.2) lib/active_support/core_ext/string/inflections.rb:74:in 'String#constantize'
+actionpack (8.0.2) lib/action_dispatch/http/request.rb:99:in 'ActionDispatch::Request#controller_class_for'
+actionpack (8.0.2) lib/action_dispatch/http/request.rb:91:in 'ActionDispatch::Request#controller_class'
+actionpack (8.0.2) lib/action_dispatch/routing/route_set.rb:61:in 'ActionDispatch::Routing::RouteSet::Dispatcher#controller'
+actionpack (8.0.2) lib/action_dispatch/routing/route_set.rb:48:in 'ActionDispatch::Routing::RouteSet::Dispatcher#serve'
+actionpack (8.0.2) lib/action_dispatch/journey/router.rb:53:in 'block in ActionDispatch::Journey::Router#serve'
+actionpack (8.0.2) lib/action_dispatch/journey/router.rb:133:in 'block in ActionDispatch::Journey::Router#find_routes'
+actionpack (8.0.2) lib/action_dispatch/journey/router.rb:126:in 'Array#each'
+actionpack (8.0.2) lib/action_dispatch/journey/router.rb:126:in 'ActionDispatch::Journey::Router#find_routes'
+actionpack (8.0.2) lib/action_dispatch/journey/router.rb:34:in 'ActionDispatch::Journey::Router#serve'
+actionpack (8.0.2) lib/action_dispatch/routing/route_set.rb:908:in 'ActionDispatch::Routing::RouteSet#call'
+railties (8.0.2) lib/rails/engine/lazy_route_set.rb:68:in 'Rails::Engine::LazyRouteSet#call'
+rack (3.1.16) lib/rack/etag.rb:29:in 'Rack::ETag#call'
+rack (3.1.16) lib/rack/conditional_get.rb:43:in 'Rack::ConditionalGet#call'
+rack (3.1.16) lib/rack/head.rb:15:in 'Rack::Head#call'
+activerecord (8.0.2) lib/active_record/migration.rb:671:in 'ActiveRecord::Migration::CheckPending#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/callbacks.rb:31:in 'block in ActionDispatch::Callbacks#call'
+activesupport (8.0.2) lib/active_support/callbacks.rb:100:in 'ActiveSupport::Callbacks#run_callbacks'
+actionpack (8.0.2) lib/action_dispatch/middleware/callbacks.rb:30:in 'ActionDispatch::Callbacks#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in 'ActionDispatch::ActionableExceptions#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:31:in 'ActionDispatch::DebugExceptions#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/show_exceptions.rb:32:in 'ActionDispatch::ShowExceptions#call'
+railties (8.0.2) lib/rails/rack/logger.rb:41:in 'Rails::Rack::Logger#call_app'
+railties (8.0.2) lib/rails/rack/logger.rb:29:in 'Rails::Rack::Logger#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/remote_ip.rb:96:in 'ActionDispatch::RemoteIp#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/request_id.rb:34:in 'ActionDispatch::RequestId#call'
+rack (3.1.16) lib/rack/runtime.rb:24:in 'Rack::Runtime#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:61:in 'block in ActionDispatch::ServerTiming#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:26:in 'ActionDispatch::ServerTiming::Subscriber#collect_events'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:60:in 'ActionDispatch::ServerTiming#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/static.rb:27:in 'ActionDispatch::Static#call'
+rack (3.1.16) lib/rack/sendfile.rb:114:in 'Rack::Sendfile#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/host_authorization.rb:143:in 'ActionDispatch::HostAuthorization#call'
+railties (8.0.2) lib/rails/engine.rb:535:in 'Rails::Engine#call'
+puma (6.6.0) lib/puma/configuration.rb:279:in 'Puma::Configuration::ConfigMiddleware#call'
+puma (6.6.0) lib/puma/request.rb:99:in 'block in Puma::Request#handle_request'
+puma (6.6.0) lib/puma/thread_pool.rb:390:in 'Puma::ThreadPool#with_force_shutdown'
+puma (6.6.0) lib/puma/request.rb:98:in 'Puma::Request#handle_request'
+puma (6.6.0) lib/puma/server.rb:472:in 'Puma::Server#process_client'
+puma (6.6.0) lib/puma/server.rb:254:in 'block in Puma::Server#run'
+puma (6.6.0) lib/puma/thread_pool.rb:167:in 'block in Puma::ThreadPool#spawn_thread'
+Started POST "/recipes/1/instructions" for ::1 at 2025-07-26 20:44:32 -0500
+Processing by RecipesController#instructions as */*
+  Parameters: {"instruction" => {"step_number" => 6, "step_content" => "Dust with powdered sugar before serving."}, "id" => "1", "recipe" => {}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='instructions',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:70:in 'RecipesController#instructions'
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 2 AND "recipes"."id" = 1 LIMIT 1 /*action='instructions',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:71:in 'RecipesController#instructions'
+  [1m[36mInstruction Load (0.3ms)[0m  [1m[34mSELECT "instructions".* FROM "instructions" WHERE "instructions"."recipe_id" = 1 /*action='instructions',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:72:in 'RecipesController#instructions'
+Completed 200 OK in 240ms (Views: 47.6ms | ActiveRecord: 6.1ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/recipes/1/instructions" for ::1 at 2025-07-26 20:44:48 -0500
+Processing by RecipesController#instructions as */*
+  Parameters: {"instruction" => {"step_number" => 6, "step_content" => "Dust with powdered sugar before serving."}, "id" => "1", "recipe" => {}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='instructions',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:70:in 'RecipesController#instructions'
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 2 AND "recipes"."id" = 1 LIMIT 1 /*action='instructions',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:71:in 'RecipesController#instructions'
+  [1m[36mInstruction Load (0.2ms)[0m  [1m[34mSELECT "instructions".* FROM "instructions" WHERE "instructions"."recipe_id" = 1 /*action='instructions',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:72:in 'RecipesController#instructions'
+Completed 200 OK in 9ms (Views: 3.1ms | ActiveRecord: 0.7ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/recipes/1/instructions" for ::1 at 2025-07-26 20:45:00 -0500
+Processing by RecipesController#instructions as */*
+  Parameters: {"instruction" => {"step_number" => 6, "step_content" => "Dust with powdered sugar before serving."}, "id" => "1", "recipe" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='instructions',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:70:in 'RecipesController#instructions'
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 2 AND "recipes"."id" = 1 LIMIT 1 /*action='instructions',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:71:in 'RecipesController#instructions'
+  [1m[36mInstruction Load (0.1ms)[0m  [1m[34mSELECT "instructions".* FROM "instructions" WHERE "instructions"."recipe_id" = 1 /*action='instructions',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:72:in 'RecipesController#instructions'
+Completed 200 OK in 7ms (Views: 3.4ms | ActiveRecord: 0.4ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/recipes/1" for ::1 at 2025-07-26 20:45:16 -0500
+Processing by RecipesController#show as */*
+  Parameters: {"id" => "1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:109:in 'RecipesController#set_recipe'
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 2 AND "recipes"."id" = 1 LIMIT 1 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:111:in 'RecipesController#set_recipe'
+  [1m[36mInstruction Load (0.2ms)[0m  [1m[34mSELECT "instructions".* FROM "instructions" WHERE "instructions"."recipe_id" = 1 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:13:in 'RecipesController#show'
+  [1m[36mIngredientList Load (0.4ms)[0m  [1m[34mSELECT "ingredient_lists".* FROM "ingredient_lists" WHERE "ingredient_lists"."recipe_id" = 1 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:13:in 'RecipesController#show'
+  [1m[36mLabel Load (0.2ms)[0m  [1m[34mSELECT "labels".* FROM "labels" INNER JOIN "labels_recipes" ON "labels"."id" = "labels_recipes"."label_id" WHERE "labels_recipes"."recipe_id" = 1 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:13:in 'RecipesController#show'
+Completed 200 OK in 55ms (Views: 45.8ms | ActiveRecord: 3.5ms (5 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/recipes/1/instructions" for ::1 at 2025-07-26 20:45:50 -0500
+Processing by RecipesController#instructions as */*
+  Parameters: {"instruction" => {"step_number" => 6, "step_content" => "Dust with powdered sugar before serving."}, "id" => "1", "recipe" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='instructions',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:70:in 'RecipesController#instructions'
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 2 AND "recipes"."id" = 1 LIMIT 1 /*action='instructions',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:71:in 'RecipesController#instructions'
+  [1m[36mInstruction Load (0.2ms)[0m  [1m[34mSELECT "instructions".* FROM "instructions" WHERE "instructions"."recipe_id" = 1 /*action='instructions',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:72:in 'RecipesController#instructions'
+Completed 200 OK in 18ms (Views: 12.1ms | ActiveRecord: 0.6ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/recipes/1/instructions" for ::1 at 2025-07-26 20:50:57 -0500
+Processing by RecipesController#instructions as */*
+  Parameters: {"instruction" => {"step_number" => 6, "step_content" => "Dust with powdered sugar before serving."}, "id" => "1", "recipe" => {}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='instructions',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:70:in 'RecipesController#instructions'
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 2 AND "recipes"."id" = 1 LIMIT 1 /*action='instructions',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:71:in 'RecipesController#instructions'
+  [1m[36mInstruction Load (0.1ms)[0m  [1m[34mSELECT "instructions".* FROM "instructions" WHERE "instructions"."recipe_id" = 1 /*action='instructions',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:72:in 'RecipesController#instructions'
+Completed 200 OK in 42ms (Views: 6.9ms | ActiveRecord: 4.5ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2025-07-26 20:51:25 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RecipeManagerApi'*/[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/aline/.rbenv/versions/3.4.2/lib/ruby/gems/3.4.0/gems/railties-8.0.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/aline/.rbenv/versions/3.4.2/lib/ruby/gems/3.4.0/gems/railties-8.0.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.9ms | GC: 0.0ms)
+Completed 200 OK in 16ms (Views: 7.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/recipes/1/instructions" for ::1 at 2025-07-26 20:51:30 -0500
+Processing by RecipesController#instructions as */*
+  Parameters: {"instruction" => {"step_number" => 6, "step_content" => "Dust with powdered sugar before serving."}, "id" => "1", "recipe" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='instructions',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:70:in 'RecipesController#instructions'
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 2 AND "recipes"."id" = 1 LIMIT 1 /*action='instructions',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:71:in 'RecipesController#instructions'
+  [1m[36mInstruction Load (0.2ms)[0m  [1m[34mSELECT "instructions".* FROM "instructions" WHERE "instructions"."recipe_id" = 1 /*action='instructions',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:72:in 'RecipesController#instructions'
+Completed 200 OK in 79ms (Views: 14.1ms | ActiveRecord: 4.4ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2025-07-26 20:54:56 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RecipeManagerApi'*/[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/aline/.rbenv/versions/3.4.2/lib/ruby/gems/3.4.0/gems/railties-8.0.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/aline/.rbenv/versions/3.4.2/lib/ruby/gems/3.4.0/gems/railties-8.0.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 5.7ms | GC: 0.0ms)
+Completed 200 OK in 22ms (Views: 13.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/recipes/1/instructions" for ::1 at 2025-07-26 20:55:00 -0500
+Processing by RecipesController#create_instruction as */*
+  Parameters: {"instruction" => {"step_number" => 6, "step_content" => "Dust with powdered sugar before serving."}, "id" => "1", "recipe" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='create_instruction',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:76:in 'RecipesController#create_instruction'
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 2 AND "recipes"."id" = 1 LIMIT 1 /*action='create_instruction',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:77:in 'RecipesController#create_instruction'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create_instruction',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:79:in 'RecipesController#create_instruction'
+  [1m[36mInstruction Create (6.1ms)[0m  [1m[32mINSERT INTO "instructions" ("recipe_id", "step_number", "step_content", "created_at", "updated_at") VALUES (1, 6, 'Dust with powdered sugar before serving.', '2025-07-27 01:55:00.371233', '2025-07-27 01:55:00.371233') RETURNING "id" /*action='create_instruction',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:79:in 'RecipesController#create_instruction'
+  [1m[36mTRANSACTION (6.9ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create_instruction',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:79:in 'RecipesController#create_instruction'
+Completed 201 Created in 79ms (Views: 0.4ms | ActiveRecord: 18.4ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/recipes/1" for ::1 at 2025-07-26 20:55:19 -0500
+Processing by RecipesController#show as */*
+  Parameters: {"id" => "1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:109:in 'RecipesController#set_recipe'
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 2 AND "recipes"."id" = 1 LIMIT 1 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:111:in 'RecipesController#set_recipe'
+  [1m[36mInstruction Load (0.2ms)[0m  [1m[34mSELECT "instructions".* FROM "instructions" WHERE "instructions"."recipe_id" = 1 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:13:in 'RecipesController#show'
+  [1m[36mIngredientList Load (0.3ms)[0m  [1m[34mSELECT "ingredient_lists".* FROM "ingredient_lists" WHERE "ingredient_lists"."recipe_id" = 1 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:13:in 'RecipesController#show'
+  [1m[36mLabel Load (0.1ms)[0m  [1m[34mSELECT "labels".* FROM "labels" INNER JOIN "labels_recipes" ON "labels"."id" = "labels_recipes"."label_id" WHERE "labels_recipes"."recipe_id" = 1 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:13:in 'RecipesController#show'
+Completed 200 OK in 55ms (Views: 47.5ms | ActiveRecord: 2.6ms (5 queries, 0 cached) | GC: 0.0ms)
+
+
