@@ -136,7 +136,7 @@ class RecipesController < ApplicationController
 
   def update_ingredient_list
     current_user = User.first # Remove later
-    recipe = current_user.recipes.find(params[:id])
+    recipe = current_user.recipes.find(params[:recipe_id])
     ingredient_list = recipe.ingredient_lists.find(params[:ingredient_list_id])
     if ingredient_list.update(ingredient_list_params)
       render json: ingredient_list
@@ -147,7 +147,7 @@ class RecipesController < ApplicationController
 
   def destroy_ingredient_list
     current_user = User.first # Remove later
-    recipe = current_user.recipes.find(params[:id])
+    recipe = current_user.recipes.find(params[:recipe_id])
     ingredient_list = recipe.ingredient_lists.find(params[:ingredient_list_id])
     ingredient_list.destroy
     head :no_content
