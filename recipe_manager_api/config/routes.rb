@@ -25,7 +25,9 @@ Rails.application.routes.draw do
     patch 'ingredient_lists/:ingredient_list_id', to: 'recipes#update_ingredient_list'
     delete 'ingredient_lists/:ingredient_list_id', to: 'recipes#destroy_ingredient_list'
     # labels
-    resources :labels, only: [:index, :update]
+    get 'labels', to: 'recipes#show_labels', on: :member
+    patch 'labels', to: 'recipes#update_labels', on: :member
+
   end
 end
 # TODO generate shoppinglist methods - maybe its own controller?

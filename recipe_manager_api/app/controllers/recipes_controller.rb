@@ -2,7 +2,6 @@ class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :update, :destroy]
 
   def index
-    #TODO should indexing display ingredients and directions too? Or is the condensed version sufficient? How will Blueprinter play into this? Decide and update controller as need?
     current_user = User.first
     #TODO delete line above once done testing
     @recipes = current_user.recipes.includes(:labels, :ingredient_lists, :instructions)
@@ -45,7 +44,15 @@ class RecipesController < ApplicationController
     end
   end
 
+  label_attributes = recipe_data.delete(:label_attributes) || {
+    vegetarian: false,
+    vegan: false,
+    gluten_free: false,
+    dairy_free: false
+  }
+
   @recipe = current_user.recipes.build(recipe_data)
+  @recipe.build_label(label_attributes)
     if @recipe.save
       render json: @recipe, status: :created
     else
@@ -133,7 +140,6 @@ class RecipesController < ApplicationController
     end
   end
 
-
   def update_ingredient_list
     current_user = User.first # Remove later
     recipe = current_user.recipes.find(params[:recipe_id])
@@ -153,6 +159,26 @@ class RecipesController < ApplicationController
     head :no_content
   end
 
+  # custom label endpoints
+
+  def show_labels
+    current_user = User.first # Temporary
+    recipe = current_user.recipes.find(params[:id])
+    render json: recipe.label # probably plural!
+  end
+
+  def update_labels
+    current_user = User.first # Temporary
+    recipe = current_user.recipes.find(params[:id])
+    label = recipe.label || recipe.build_label
+
+    if label.update(label_params)
+      render json: label
+    else
+      render json: { errors: label.errors.full_messages }, status: :unprocessable_entity
+    end
+  end
+
   private
 
   # limiting user access to their own recipes only (see before_action at the top)
@@ -166,7 +192,7 @@ class RecipesController < ApplicationController
     params.require(:recipe).permit(
       :title, :servings, :cooking_time, :favorite, :shopping_list,
       instructions_attributes: [:id, :step_number, :step_content, :_destroy],
-      ingredient_lists_attributes: [:id, :ingredient_id, :metric_qty, :metric_unit, :imperial_qty, :imperial_unit, :_destroy, { ingredient_attributes: [:id, :ingredient] }]
+      ingredient_lists_attributes: [:id, :ingredient_id, :metric_qty, :metric_unit, :imperial_qty, :imperial_unit, :_destroy, { ingredient_attributes: [:id, :ingredient] }], label_attributes: [:vegetarian, :vegan, :gluten_free, :dairy_free]
     )
   end
 
@@ -178,5 +204,9 @@ class RecipesController < ApplicationController
     params.require(:ingredient_list).permit(
       :ingredient_id, :metric_qty, :metric_unit, :imperial_qty, :imperial_unit,
       ingredient_attributes: [:id, :ingredient] )
+  end
+
+  def label_params
+    params.require(:label).permit(:vegetarian, :vegan, :gluten_free, :dairy_free)
   end
 end

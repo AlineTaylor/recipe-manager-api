@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_07_26_201923) do
+ActiveRecord::Schema[8.0].define(version: 2025_07_28_111231) do
   create_table "ingredient_lists", force: :cascade do |t|
     t.integer "ingredient_id", null: false
     t.integer "recipe_id", null: false
@@ -48,13 +48,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_26_201923) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["recipe_id"], name: "index_labels_on_recipe_id"
-  end
-
-  create_table "labels_recipes", id: false, force: :cascade do |t|
-    t.integer "label_id", null: false
-    t.integer "recipe_id", null: false
-    t.index ["label_id", "recipe_id"], name: "index_labels_recipes_on_label_id_and_recipe_id"
-    t.index ["recipe_id", "label_id"], name: "index_labels_recipes_on_recipe_id_and_label_id"
   end
 
   create_table "recipes", force: :cascade do |t|

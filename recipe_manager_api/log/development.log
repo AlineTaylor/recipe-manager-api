@@ -1799,3 +1799,626 @@ Processing by RecipesController#update_ingredient_list as */*
 Completed 200 OK in 279ms (Views: 0.6ms | ActiveRecord: 18.8ms (4 queries, 0 cached) | GC: 0.0ms)
 
 
+Started POST "/users" for ::1 at 2025-07-28 04:49:53 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RecipeManagerApi'*/[0m
+Processing by UsersController#create as */*
+  Parameters: {"email" => "[FILTERED]", "email_confirmation" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "first_name" => "Aline", "last_name" => "Taylor", "preferred_system" => "metric", "user" => {"email" => "[FILTERED]", "email_confirmation" => "[FILTERED]", "password" => "[FILTERED]", "first_name" => "Aline", "last_name" => "Taylor", "preferred_system" => "metric"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x0000798617d8f6f0>, params: {"email" => "[FILTERED]", "email_confirmation" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "first_name" => "Aline", "last_name" => "Taylor", "preferred_system" => "metric", "controller" => "users", "action" => "create", "user" => {"email" => "[FILTERED]", "email_confirmation" => "[FILTERED]", "password" => "[FILTERED]", "first_name" => "Aline", "last_name" => "Taylor", "preferred_system" => "metric"}} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:10:in 'UsersController#create'
+  [1m[36mUser Exists? (2.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'aline@example.com' LIMIT 1 /*action='create',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:10:in 'UsersController#create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "email_confirmation", "password", "password_digest", "first_name", "last_name", "preferred_system", "created_at", "updated_at") VALUES ('aline@example.com', NULL, NULL, '$2a$12$d8zRWHNLm9pgdfcbXgFt/e6tGLP7zHvV1N2wA7H.GhEjWTFPtdD1i', 'Aline', 'Taylor', 'metric', '2025-07-28 09:49:53.556215', '2025-07-28 09:49:53.556215') RETURNING "id" /*action='create',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:10:in 'UsersController#create'
+  [1m[36mTRANSACTION (7.3ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:10:in 'UsersController#create'
+Completed 201 Created in 323ms (Views: 0.6ms | ActiveRecord: 12.4ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/3" for ::1 at 2025-07-28 04:50:22 -0500
+Processing by UsersController#show as */*
+  Parameters: {"id" => "3"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1 /*action='show',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:4:in 'UsersController#show'
+Completed 200 OK in 8ms (Views: 2.5ms | ActiveRecord: 0.5ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started PATCH "/users/3" for ::1 at 2025-07-28 04:51:00 -0500
+Processing by UsersController#update as */*
+  Parameters: {"first_name" => "Aline Yui", "last_name" => "Taylor", "preferred_system" => "imperial", "id" => "3", "user" => {"first_name" => "Aline Yui", "last_name" => "Taylor", "preferred_system" => "imperial"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1 /*action='update',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:18:in 'UsersController#update'
+[31mUnpermitted parameters: :id, :user. Context: { controller: UsersController, action: update, request: #<ActionDispatch::Request:0x0000798615da47f0>, params: {"first_name" => "Aline Yui", "last_name" => "Taylor", "preferred_system" => "imperial", "controller" => "users", "action" => "update", "id" => "3", "user" => {"first_name" => "Aline Yui", "last_name" => "Taylor", "preferred_system" => "imperial"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='update',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:19:in 'UsersController#update'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'aline@example.com' AND "users"."id" != 3 LIMIT 1 /*action='update',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:19:in 'UsersController#update'
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "first_name" = 'Aline Yui', "preferred_system" = 'imperial', "updated_at" = '2025-07-28 09:51:00.827047' WHERE "users"."id" = 3 /*action='update',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:19:in 'UsersController#update'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='update',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:19:in 'UsersController#update'
+Completed 200 OK in 27ms (Views: 7.7ms | ActiveRecord: 5.2ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/recipes" for ::1 at 2025-07-28 04:51:23 -0500
+Processing by RecipesController#create as */*
+  Parameters: {"title" => "Spaghetti Bolognese", "servings" => 4, "cooking_time" => 45, "favorite" => true, "shopping_list" => false, "instructions_attributes" => [{"step_number" => 1, "step_content" => "Heat oil in a pan."}, {"step_number" => 2, "step_content" => "Add onions and garlic."}], "ingredient_lists_attributes" => [{"metric_qty" => 500, "metric_unit" => "g", "imperial_qty" => 1.1, "imperial_unit" => "lb", "ingredient_attributes" => {"ingredient" => "Ground beef"}}], "recipe" => {"title" => "Spaghetti Bolognese", "servings" => 4, "cooking_time" => 45, "favorite" => true, "shopping_list" => false, "instructions_attributes" => [{"step_number" => 1, "step_content" => "Heat oil in a pan."}, {"step_number" => 2, "step_content" => "Add onions and garlic."}], "ingredient_lists_attributes" => [{"metric_qty" => 500, "metric_unit" => "g", "imperial_qty" => 1.1, "imperial_unit" => "lb", "ingredient_attributes" => {"ingredient" => "Ground beef"}}]}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:17:in 'RecipesController#create'
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE (lower(ingredient) = 'ground beef') ORDER BY "ingredients"."id" ASC LIMIT 1 /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:33:in 'block in RecipesController#create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:33:in 'block in RecipesController#create'
+  [1m[36mIngredient Exists? (2.3ms)[0m  [1m[34mSELECT 1 AS one FROM "ingredients" WHERE LOWER("ingredients"."ingredient") = LOWER('Ground beef') LIMIT 1 /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:33:in 'block in RecipesController#create'
+  [1m[36mIngredient Create (1.9ms)[0m  [1m[32mINSERT INTO "ingredients" ("ingredient", "created_at", "updated_at") VALUES ('Ground beef', '2025-07-28 09:51:23.842440', '2025-07-28 09:51:23.842440') RETURNING "id" /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:33:in 'block in RecipesController#create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:33:in 'block in RecipesController#create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:49:in 'RecipesController#create'
+  [1m[36mIngredient Load (2.9ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 4 LIMIT 1 /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:49:in 'RecipesController#create'
+  [1m[36mRecipe Create (1.1ms)[0m  [1m[32mINSERT INTO "recipes" ("user_id", "title", "servings", "cooking_time", "favorite", "shopping_list", "created_at", "updated_at") VALUES (2, 'Spaghetti Bolognese', 4, 45, 1, 0, '2025-07-28 09:51:23.940940', '2025-07-28 09:51:23.940940') RETURNING "id" /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:49:in 'RecipesController#create'
+  [1m[36mInstruction Create (0.8ms)[0m  [1m[32mINSERT INTO "instructions" ("recipe_id", "step_number", "step_content", "created_at", "updated_at") VALUES (2, 1, 'Heat oil in a pan.', '2025-07-28 09:51:23.945344', '2025-07-28 09:51:23.945344') RETURNING "id" /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:49:in 'RecipesController#create'
+  [1m[36mInstruction Create (0.8ms)[0m  [1m[32mINSERT INTO "instructions" ("recipe_id", "step_number", "step_content", "created_at", "updated_at") VALUES (2, 2, 'Add onions and garlic.', '2025-07-28 09:51:23.959950', '2025-07-28 09:51:23.959950') RETURNING "id" /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:49:in 'RecipesController#create'
+  [1m[36mIngredientList Create (15.1ms)[0m  [1m[32mINSERT INTO "ingredient_lists" ("ingredient_id", "recipe_id", "metric_qty", "metric_unit", "imperial_qty", "imperial_unit", "created_at", "updated_at") VALUES (4, 2, 500.0, 'g', 1.1, 'lb', '2025-07-28 09:51:23.967617', '2025-07-28 09:51:23.967617') RETURNING "id" /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:49:in 'RecipesController#create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:49:in 'RecipesController#create'
+Completed 201 Created in 179ms (Views: 0.4ms | ActiveRecord: 28.7ms (9 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/recipes/2" for ::1 at 2025-07-28 04:52:16 -0500
+Processing by RecipesController#show as */*
+  Parameters: {"id" => "2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:160:in 'RecipesController#set_recipe'
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 2 AND "recipes"."id" = 2 LIMIT 1 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:162:in 'RecipesController#set_recipe'
+  [1m[36mInstruction Load (0.2ms)[0m  [1m[34mSELECT "instructions".* FROM "instructions" WHERE "instructions"."recipe_id" = 2 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:13:in 'RecipesController#show'
+  [1m[36mIngredientList Load (1.4ms)[0m  [1m[34mSELECT "ingredient_lists".* FROM "ingredient_lists" WHERE "ingredient_lists"."recipe_id" = 2 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:13:in 'RecipesController#show'
+  [1m[36mLabel Load (0.3ms)[0m  [1m[34mSELECT "labels".* FROM "labels" INNER JOIN "labels_recipes" ON "labels"."id" = "labels_recipes"."label_id" WHERE "labels_recipes"."recipe_id" = 2 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:13:in 'RecipesController#show'
+Completed 200 OK in 63ms (Views: 47.0ms | ActiveRecord: 4.0ms (5 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/recipes" for ::1 at 2025-07-28 04:52:28 -0500
+Processing by RecipesController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:6:in 'RecipesController#index'
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 2 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:9:in 'RecipesController#index'
+  [1m[36mHABTM_Labels Load (0.4ms)[0m  [1m[34mSELECT "labels_recipes".* FROM "labels_recipes" WHERE "labels_recipes"."recipe_id" IN (1, 2) /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:9:in 'RecipesController#index'
+  [1m[36mIngredientList Load (0.3ms)[0m  [1m[34mSELECT "ingredient_lists".* FROM "ingredient_lists" WHERE "ingredient_lists"."recipe_id" IN (1, 2) /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:9:in 'RecipesController#index'
+  [1m[36mInstruction Load (0.2ms)[0m  [1m[34mSELECT "instructions".* FROM "instructions" WHERE "instructions"."recipe_id" IN (1, 2) /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:9:in 'RecipesController#index'
+Completed 200 OK in 36ms (Views: 31.5ms | ActiveRecord: 1.5ms (5 queries, 0 cached) | GC: 0.0ms)
+
+
+Started PATCH "/recipes/2" for ::1 at 2025-07-28 04:52:45 -0500
+Processing by RecipesController#update as */*
+  Parameters: {"title" => "Spaghetti Bolognese Deluxe", "servings" => 6, "id" => "2", "recipe" => {"title" => "Spaghetti Bolognese Deluxe", "servings" => 6}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='update',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:160:in 'RecipesController#set_recipe'
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 2 AND "recipes"."id" = 2 LIMIT 1 /*action='update',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:162:in 'RecipesController#set_recipe'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='update',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:57:in 'RecipesController#update'
+  [1m[36mRecipe Update (2.8ms)[0m  [1m[33mUPDATE "recipes" SET "title" = 'Spaghetti Bolognese Deluxe', "servings" = 6, "updated_at" = '2025-07-28 09:52:45.649300' WHERE "recipes"."id" = 2 /*action='update',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:57:in 'RecipesController#update'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='update',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:57:in 'RecipesController#update'
+Completed 200 OK in 19ms (Views: 0.6ms | ActiveRecord: 3.5ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/recipes/2/instructions" for ::1 at 2025-07-28 04:53:19 -0500
+Processing by RecipesController#create_instruction as */*
+  Parameters: {"step_number" => 3, "step_content" => "Simmer with tomato sauce for 30 minutes.", "id" => "2", "recipe" => {}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='create_instruction',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:78:in 'RecipesController#create_instruction'
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 2 AND "recipes"."id" = 2 LIMIT 1 /*action='create_instruction',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:79:in 'RecipesController#create_instruction'
+Completed 400 Bad Request in 7ms (ActiveRecord: 0.5ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty or invalid: instruction):
+  
+app/controllers/recipes_controller.rb:174:in 'RecipesController#instruction_params'
+app/controllers/recipes_controller.rb:80:in 'RecipesController#create_instruction'
+Started PATCH "/recipes/2/instructions/2" for ::1 at 2025-07-28 04:55:20 -0500
+Processing by RecipesController#update_instruction as */*
+  Parameters: {"step_number" => 2, "step_content" => "Add chopped onions and minced garlic.", "recipe_id" => "2", "instruction_id" => "2", "recipe" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='update_instruction',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:89:in 'RecipesController#update_instruction'
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 2 AND "recipes"."id" = 2 LIMIT 1 /*action='update_instruction',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:90:in 'RecipesController#update_instruction'
+  [1m[36mInstruction Load (0.2ms)[0m  [1m[34mSELECT "instructions".* FROM "instructions" WHERE "instructions"."recipe_id" = 2 AND "instructions"."id" = 2 LIMIT 1 /*action='update_instruction',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:91:in 'RecipesController#update_instruction'
+Completed 404 Not Found in 16ms (ActiveRecord: 0.7ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Instruction with 'id'=2 [WHERE "instructions"."recipe_id" = ?]):
+  
+app/controllers/recipes_controller.rb:91:in 'RecipesController#update_instruction'
+Started GET "/recipes/2" for ::1 at 2025-07-28 04:57:37 -0500
+Processing by RecipesController#show as */*
+  Parameters: {"id" => "2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:160:in 'RecipesController#set_recipe'
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 2 AND "recipes"."id" = 2 LIMIT 1 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:162:in 'RecipesController#set_recipe'
+  [1m[36mInstruction Load (0.2ms)[0m  [1m[34mSELECT "instructions".* FROM "instructions" WHERE "instructions"."recipe_id" = 2 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:13:in 'RecipesController#show'
+  [1m[36mIngredientList Load (0.4ms)[0m  [1m[34mSELECT "ingredient_lists".* FROM "ingredient_lists" WHERE "ingredient_lists"."recipe_id" = 2 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:13:in 'RecipesController#show'
+  [1m[36mLabel Load (0.3ms)[0m  [1m[34mSELECT "labels".* FROM "labels" INNER JOIN "labels_recipes" ON "labels"."id" = "labels_recipes"."label_id" WHERE "labels_recipes"."recipe_id" = 2 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:13:in 'RecipesController#show'
+Completed 200 OK in 37ms (Views: 26.6ms | ActiveRecord: 1.3ms (5 queries, 0 cached) | GC: 4.5ms)
+
+
+Started POST "/recipes/2/instructions" for ::1 at 2025-07-28 05:00:01 -0500
+Processing by RecipesController#create_instruction as */*
+  Parameters: {"instruction" => {"step_number" => 3, "step_content" => "Simmer with tomato sauce for 30 minutes."}, "id" => "2", "recipe" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='create_instruction',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:78:in 'RecipesController#create_instruction'
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 2 AND "recipes"."id" = 2 LIMIT 1 /*action='create_instruction',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:79:in 'RecipesController#create_instruction'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create_instruction',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:81:in 'RecipesController#create_instruction'
+  [1m[36mInstruction Create (2.2ms)[0m  [1m[32mINSERT INTO "instructions" ("recipe_id", "step_number", "step_content", "created_at", "updated_at") VALUES (2, 3, 'Simmer with tomato sauce for 30 minutes.', '2025-07-28 10:00:01.026315', '2025-07-28 10:00:01.026315') RETURNING "id" /*action='create_instruction',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:81:in 'RecipesController#create_instruction'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create_instruction',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:81:in 'RecipesController#create_instruction'
+Completed 201 Created in 21ms (Views: 0.6ms | ActiveRecord: 3.2ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started PATCH "/recipes/2/instructions/2" for ::1 at 2025-07-28 05:01:13 -0500
+Processing by RecipesController#update_instruction as */*
+  Parameters: {"step_number" => 2, "step_content" => "Add chopped onions and minced garlic.", "recipe_id" => "2", "instruction_id" => "2", "recipe" => {}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='update_instruction',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:89:in 'RecipesController#update_instruction'
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 2 AND "recipes"."id" = 2 LIMIT 1 /*action='update_instruction',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:90:in 'RecipesController#update_instruction'
+  [1m[36mInstruction Load (0.4ms)[0m  [1m[34mSELECT "instructions".* FROM "instructions" WHERE "instructions"."recipe_id" = 2 AND "instructions"."id" = 2 LIMIT 1 /*action='update_instruction',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:91:in 'RecipesController#update_instruction'
+Completed 404 Not Found in 24ms (ActiveRecord: 0.9ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Instruction with 'id'=2 [WHERE "instructions"."recipe_id" = ?]):
+  
+app/controllers/recipes_controller.rb:91:in 'RecipesController#update_instruction'
+Started GET "/recipes/2/instructions" for ::1 at 2025-07-28 05:02:39 -0500
+Processing by RecipesController#instructions as */*
+  Parameters: {"instruction" => {"step_number" => 3, "step_content" => "Simmer with tomato sauce for 30 minutes."}, "id" => "2", "recipe" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='instructions',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:72:in 'RecipesController#instructions'
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 2 AND "recipes"."id" = 2 LIMIT 1 /*action='instructions',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:73:in 'RecipesController#instructions'
+  [1m[36mInstruction Load (0.1ms)[0m  [1m[34mSELECT "instructions".* FROM "instructions" WHERE "instructions"."recipe_id" = 2 /*action='instructions',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:74:in 'RecipesController#instructions'
+Completed 200 OK in 10ms (Views: 4.9ms | ActiveRecord: 0.4ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started PATCH "/recipes/2/instructions/9" for ::1 at 2025-07-28 05:03:04 -0500
+Processing by RecipesController#update_instruction as */*
+  Parameters: {"step_number" => 2, "step_content" => "Add chopped onions and minced garlic.", "recipe_id" => "2", "instruction_id" => "9", "recipe" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='update_instruction',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:89:in 'RecipesController#update_instruction'
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 2 AND "recipes"."id" = 2 LIMIT 1 /*action='update_instruction',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:90:in 'RecipesController#update_instruction'
+  [1m[36mInstruction Load (0.2ms)[0m  [1m[34mSELECT "instructions".* FROM "instructions" WHERE "instructions"."recipe_id" = 2 AND "instructions"."id" = 9 LIMIT 1 /*action='update_instruction',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:91:in 'RecipesController#update_instruction'
+Completed 400 Bad Request in 10ms (ActiveRecord: 0.5ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty or invalid: instruction):
+  
+app/controllers/recipes_controller.rb:174:in 'RecipesController#instruction_params'
+app/controllers/recipes_controller.rb:92:in 'RecipesController#update_instruction'
+Started GET "/recipes/2/instructions" for ::1 at 2025-07-28 05:03:30 -0500
+Processing by RecipesController#instructions as */*
+  Parameters: {"instruction" => {"step_number" => 3, "step_content" => "Simmer with tomato sauce for 30 minutes."}, "id" => "2", "recipe" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='instructions',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:72:in 'RecipesController#instructions'
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 2 AND "recipes"."id" = 2 LIMIT 1 /*action='instructions',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:73:in 'RecipesController#instructions'
+  [1m[36mInstruction Load (0.8ms)[0m  [1m[34mSELECT "instructions".* FROM "instructions" WHERE "instructions"."recipe_id" = 2 /*action='instructions',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:74:in 'RecipesController#instructions'
+Completed 200 OK in 13ms (Views: 6.0ms | ActiveRecord: 1.0ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started PATCH "/recipes/2/instructions/9" for ::1 at 2025-07-28 05:04:54 -0500
+Processing by RecipesController#update_instruction as */*
+  Parameters: {"instruction" => {"step_number" => 2, "step_content" => "Fix the garlic instruction"}, "recipe_id" => "2", "instruction_id" => "9", "recipe" => {}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='update_instruction',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:89:in 'RecipesController#update_instruction'
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 2 AND "recipes"."id" = 2 LIMIT 1 /*action='update_instruction',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:90:in 'RecipesController#update_instruction'
+  [1m[36mInstruction Load (0.2ms)[0m  [1m[34mSELECT "instructions".* FROM "instructions" WHERE "instructions"."recipe_id" = 2 AND "instructions"."id" = 9 LIMIT 1 /*action='update_instruction',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:91:in 'RecipesController#update_instruction'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='update_instruction',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:92:in 'RecipesController#update_instruction'
+  [1m[36mInstruction Update (4.7ms)[0m  [1m[33mUPDATE "instructions" SET "step_content" = 'Fix the garlic instruction', "updated_at" = '2025-07-28 10:04:54.408018' WHERE "instructions"."id" = 9 /*action='update_instruction',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:92:in 'RecipesController#update_instruction'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='update_instruction',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:92:in 'RecipesController#update_instruction'
+Completed 200 OK in 28ms (Views: 0.4ms | ActiveRecord: 5.8ms (4 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/recipes/2/ingredient_lists" for ::1 at 2025-07-28 05:07:18 -0500
+Processing by RecipesController#create_ingredient_list as */*
+  Parameters: {"ingredient_list" => {"metric_qty" => 300, "metric_unit" => "ml", "imperial_qty" => 10.1, "imperial_unit" => "fl oz", "ingredient_attributes" => {"ingredient" => "Vegetable broth"}}, "id" => "2", "recipe" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='create_ingredient_list',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:116:in 'RecipesController#create_ingredient_list'
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 2 AND "recipes"."id" = 2 LIMIT 1 /*action='create_ingredient_list',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:117:in 'RecipesController#create_ingredient_list'
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE (lower(ingredient) = 'vegetable broth') ORDER BY "ingredients"."id" ASC LIMIT 1 /*action='create_ingredient_list',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:123:in 'RecipesController#create_ingredient_list'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create_ingredient_list',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:123:in 'RecipesController#create_ingredient_list'
+  [1m[36mIngredient Exists? (3.6ms)[0m  [1m[34mSELECT 1 AS one FROM "ingredients" WHERE LOWER("ingredients"."ingredient") = LOWER('Vegetable broth') LIMIT 1 /*action='create_ingredient_list',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:123:in 'RecipesController#create_ingredient_list'
+  [1m[36mIngredient Create (0.4ms)[0m  [1m[32mINSERT INTO "ingredients" ("ingredient", "created_at", "updated_at") VALUES ('Vegetable broth', '2025-07-28 10:07:18.491843', '2025-07-28 10:07:18.491843') RETURNING "id" /*action='create_ingredient_list',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:123:in 'RecipesController#create_ingredient_list'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create_ingredient_list',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:123:in 'RecipesController#create_ingredient_list'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create_ingredient_list',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:129:in 'RecipesController#create_ingredient_list'
+  [1m[36mIngredient Load (1.7ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 5 LIMIT 1 /*action='create_ingredient_list',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:129:in 'RecipesController#create_ingredient_list'
+  [1m[36mIngredientList Create (0.4ms)[0m  [1m[32mINSERT INTO "ingredient_lists" ("ingredient_id", "recipe_id", "metric_qty", "metric_unit", "imperial_qty", "imperial_unit", "created_at", "updated_at") VALUES (5, 2, 300.0, 'ml', 10.1, 'fl oz', '2025-07-28 10:07:18.517834', '2025-07-28 10:07:18.517834') RETURNING "id" /*action='create_ingredient_list',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:129:in 'RecipesController#create_ingredient_list'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create_ingredient_list',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:129:in 'RecipesController#create_ingredient_list'
+Completed 201 Created in 69ms (Views: 0.5ms | ActiveRecord: 7.4ms (7 queries, 0 cached) | GC: 15.1ms)
+
+
+Started PATCH "/recipes/1/ingredient_lists/1" for ::1 at 2025-07-28 05:07:39 -0500
+Processing by RecipesController#update_ingredient_list as */*
+  Parameters: {"ingredient_list" => {"metric_qty" => 350, "imperial_qty" => 12}, "recipe_id" => "1", "ingredient_list_id" => "1", "recipe" => {}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='update_ingredient_list',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:138:in 'RecipesController#update_ingredient_list'
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 2 AND "recipes"."id" = 1 LIMIT 1 /*action='update_ingredient_list',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:139:in 'RecipesController#update_ingredient_list'
+  [1m[36mIngredientList Load (0.2ms)[0m  [1m[34mSELECT "ingredient_lists".* FROM "ingredient_lists" WHERE "ingredient_lists"."recipe_id" = 1 AND "ingredient_lists"."id" = 1 LIMIT 1 /*action='update_ingredient_list',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:140:in 'RecipesController#update_ingredient_list'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='update_ingredient_list',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:141:in 'RecipesController#update_ingredient_list'
+  [1m[36mIngredientList Update (3.4ms)[0m  [1m[33mUPDATE "ingredient_lists" SET "metric_qty" = 350.0, "imperial_qty" = 12.0, "updated_at" = '2025-07-28 10:07:39.178724' WHERE "ingredient_lists"."id" = 1 /*action='update_ingredient_list',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:141:in 'RecipesController#update_ingredient_list'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='update_ingredient_list',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:141:in 'RecipesController#update_ingredient_list'
+Completed 200 OK in 31ms (Views: 0.5ms | ActiveRecord: 4.5ms (4 queries, 0 cached) | GC: 2.0ms)
+
+
+Started GET "/recipes/2/ingredient_lists" for ::1 at 2025-07-28 05:08:13 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/recipes/2/ingredient_lists"):
+  
+Started PATCH "/recipes/2/ingredient_lists/7" for ::1 at 2025-07-28 05:08:42 -0500
+Processing by RecipesController#update_ingredient_list as */*
+  Parameters: {"ingredient_list" => {"metric_qty" => 350, "imperial_qty" => 12}, "recipe_id" => "2", "ingredient_list_id" => "7", "recipe" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='update_ingredient_list',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:138:in 'RecipesController#update_ingredient_list'
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 2 AND "recipes"."id" = 2 LIMIT 1 /*action='update_ingredient_list',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:139:in 'RecipesController#update_ingredient_list'
+  [1m[36mIngredientList Load (0.3ms)[0m  [1m[34mSELECT "ingredient_lists".* FROM "ingredient_lists" WHERE "ingredient_lists"."recipe_id" = 2 AND "ingredient_lists"."id" = 7 LIMIT 1 /*action='update_ingredient_list',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:140:in 'RecipesController#update_ingredient_list'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='update_ingredient_list',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:141:in 'RecipesController#update_ingredient_list'
+  [1m[36mIngredientList Update (1.9ms)[0m  [1m[33mUPDATE "ingredient_lists" SET "metric_qty" = 350.0, "imperial_qty" = 12.0, "updated_at" = '2025-07-28 10:08:42.564941' WHERE "ingredient_lists"."id" = 7 /*action='update_ingredient_list',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:141:in 'RecipesController#update_ingredient_list'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='update_ingredient_list',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:141:in 'RecipesController#update_ingredient_list'
+Completed 200 OK in 19ms (Views: 0.3ms | ActiveRecord: 2.7ms (4 queries, 0 cached) | GC: 1.3ms)
+
+
+Started PATCH "/recipes/2/ingredients" for ::1 at 2025-07-28 05:09:38 -0500
+  
+ActionController::RoutingError (No route matches [PATCH] "/recipes/2/ingredients"):
+  
+Started GET "/recipes/2/ingredient_lists" for ::1 at 2025-07-28 05:09:54 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/recipes/2/ingredient_lists"):
+  
+Started GET "/recipes/2/ingredient_list" for ::1 at 2025-07-28 05:09:58 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/recipes/2/ingredient_list"):
+  
+Started GET "/recipes/2/ingredients" for ::1 at 2025-07-28 05:10:04 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/recipes/2/ingredients"):
+  
+Started GET "/recipes/1/labels" for ::1 at 2025-07-28 05:10:30 -0500
+  
+ActionController::RoutingError (uninitialized constant LabelsController)
+Caused by: ActionDispatch::MissingController (uninitialized constant LabelsController)
+Caused by: NameError (uninitialized constant LabelsController)
+
+Information for: ActionController::RoutingError (uninitialized constant LabelsController):
+  
+
+Information for cause: ActionDispatch::MissingController (uninitialized constant LabelsController):
+  
+actionpack (8.0.2) lib/action_dispatch/http/request.rb:102:in 'ActionDispatch::Request#controller_class_for'
+actionpack (8.0.2) lib/action_dispatch/http/request.rb:91:in 'ActionDispatch::Request#controller_class'
+actionpack (8.0.2) lib/action_dispatch/routing/route_set.rb:61:in 'ActionDispatch::Routing::RouteSet::Dispatcher#controller'
+actionpack (8.0.2) lib/action_dispatch/routing/route_set.rb:48:in 'ActionDispatch::Routing::RouteSet::Dispatcher#serve'
+actionpack (8.0.2) lib/action_dispatch/journey/router.rb:53:in 'block in ActionDispatch::Journey::Router#serve'
+actionpack (8.0.2) lib/action_dispatch/journey/router.rb:133:in 'block in ActionDispatch::Journey::Router#find_routes'
+actionpack (8.0.2) lib/action_dispatch/journey/router.rb:126:in 'Array#each'
+actionpack (8.0.2) lib/action_dispatch/journey/router.rb:126:in 'ActionDispatch::Journey::Router#find_routes'
+actionpack (8.0.2) lib/action_dispatch/journey/router.rb:34:in 'ActionDispatch::Journey::Router#serve'
+actionpack (8.0.2) lib/action_dispatch/routing/route_set.rb:908:in 'ActionDispatch::Routing::RouteSet#call'
+railties (8.0.2) lib/rails/engine/lazy_route_set.rb:68:in 'Rails::Engine::LazyRouteSet#call'
+rack (3.1.16) lib/rack/etag.rb:29:in 'Rack::ETag#call'
+rack (3.1.16) lib/rack/conditional_get.rb:31:in 'Rack::ConditionalGet#call'
+rack (3.1.16) lib/rack/head.rb:15:in 'Rack::Head#call'
+activerecord (8.0.2) lib/active_record/migration.rb:671:in 'ActiveRecord::Migration::CheckPending#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/callbacks.rb:31:in 'block in ActionDispatch::Callbacks#call'
+activesupport (8.0.2) lib/active_support/callbacks.rb:100:in 'ActiveSupport::Callbacks#run_callbacks'
+actionpack (8.0.2) lib/action_dispatch/middleware/callbacks.rb:30:in 'ActionDispatch::Callbacks#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in 'ActionDispatch::ActionableExceptions#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:31:in 'ActionDispatch::DebugExceptions#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/show_exceptions.rb:32:in 'ActionDispatch::ShowExceptions#call'
+railties (8.0.2) lib/rails/rack/logger.rb:41:in 'Rails::Rack::Logger#call_app'
+railties (8.0.2) lib/rails/rack/logger.rb:29:in 'Rails::Rack::Logger#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/remote_ip.rb:96:in 'ActionDispatch::RemoteIp#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/request_id.rb:34:in 'ActionDispatch::RequestId#call'
+rack (3.1.16) lib/rack/runtime.rb:24:in 'Rack::Runtime#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:61:in 'block in ActionDispatch::ServerTiming#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:26:in 'ActionDispatch::ServerTiming::Subscriber#collect_events'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:60:in 'ActionDispatch::ServerTiming#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/static.rb:27:in 'ActionDispatch::Static#call'
+rack (3.1.16) lib/rack/sendfile.rb:114:in 'Rack::Sendfile#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/host_authorization.rb:143:in 'ActionDispatch::HostAuthorization#call'
+railties (8.0.2) lib/rails/engine.rb:535:in 'Rails::Engine#call'
+puma (6.6.0) lib/puma/configuration.rb:279:in 'Puma::Configuration::ConfigMiddleware#call'
+puma (6.6.0) lib/puma/request.rb:99:in 'block in Puma::Request#handle_request'
+puma (6.6.0) lib/puma/thread_pool.rb:390:in 'Puma::ThreadPool#with_force_shutdown'
+puma (6.6.0) lib/puma/request.rb:98:in 'Puma::Request#handle_request'
+puma (6.6.0) lib/puma/server.rb:472:in 'Puma::Server#process_client'
+puma (6.6.0) lib/puma/server.rb:254:in 'block in Puma::Server#run'
+puma (6.6.0) lib/puma/thread_pool.rb:167:in 'block in Puma::ThreadPool#spawn_thread'
+
+Information for cause: NameError (uninitialized constant LabelsController):
+  
+activesupport (8.0.2) lib/active_support/inflector/methods.rb:290:in 'ActiveSupport::Inflector#constantize'
+activesupport (8.0.2) lib/active_support/core_ext/string/inflections.rb:74:in 'String#constantize'
+actionpack (8.0.2) lib/action_dispatch/http/request.rb:99:in 'ActionDispatch::Request#controller_class_for'
+actionpack (8.0.2) lib/action_dispatch/http/request.rb:91:in 'ActionDispatch::Request#controller_class'
+actionpack (8.0.2) lib/action_dispatch/routing/route_set.rb:61:in 'ActionDispatch::Routing::RouteSet::Dispatcher#controller'
+actionpack (8.0.2) lib/action_dispatch/routing/route_set.rb:48:in 'ActionDispatch::Routing::RouteSet::Dispatcher#serve'
+actionpack (8.0.2) lib/action_dispatch/journey/router.rb:53:in 'block in ActionDispatch::Journey::Router#serve'
+actionpack (8.0.2) lib/action_dispatch/journey/router.rb:133:in 'block in ActionDispatch::Journey::Router#find_routes'
+actionpack (8.0.2) lib/action_dispatch/journey/router.rb:126:in 'Array#each'
+actionpack (8.0.2) lib/action_dispatch/journey/router.rb:126:in 'ActionDispatch::Journey::Router#find_routes'
+actionpack (8.0.2) lib/action_dispatch/journey/router.rb:34:in 'ActionDispatch::Journey::Router#serve'
+actionpack (8.0.2) lib/action_dispatch/routing/route_set.rb:908:in 'ActionDispatch::Routing::RouteSet#call'
+railties (8.0.2) lib/rails/engine/lazy_route_set.rb:68:in 'Rails::Engine::LazyRouteSet#call'
+rack (3.1.16) lib/rack/etag.rb:29:in 'Rack::ETag#call'
+rack (3.1.16) lib/rack/conditional_get.rb:31:in 'Rack::ConditionalGet#call'
+rack (3.1.16) lib/rack/head.rb:15:in 'Rack::Head#call'
+activerecord (8.0.2) lib/active_record/migration.rb:671:in 'ActiveRecord::Migration::CheckPending#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/callbacks.rb:31:in 'block in ActionDispatch::Callbacks#call'
+activesupport (8.0.2) lib/active_support/callbacks.rb:100:in 'ActiveSupport::Callbacks#run_callbacks'
+actionpack (8.0.2) lib/action_dispatch/middleware/callbacks.rb:30:in 'ActionDispatch::Callbacks#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in 'ActionDispatch::ActionableExceptions#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:31:in 'ActionDispatch::DebugExceptions#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/show_exceptions.rb:32:in 'ActionDispatch::ShowExceptions#call'
+railties (8.0.2) lib/rails/rack/logger.rb:41:in 'Rails::Rack::Logger#call_app'
+railties (8.0.2) lib/rails/rack/logger.rb:29:in 'Rails::Rack::Logger#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/remote_ip.rb:96:in 'ActionDispatch::RemoteIp#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/request_id.rb:34:in 'ActionDispatch::RequestId#call'
+rack (3.1.16) lib/rack/runtime.rb:24:in 'Rack::Runtime#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:61:in 'block in ActionDispatch::ServerTiming#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:26:in 'ActionDispatch::ServerTiming::Subscriber#collect_events'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:60:in 'ActionDispatch::ServerTiming#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/static.rb:27:in 'ActionDispatch::Static#call'
+rack (3.1.16) lib/rack/sendfile.rb:114:in 'Rack::Sendfile#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/host_authorization.rb:143:in 'ActionDispatch::HostAuthorization#call'
+railties (8.0.2) lib/rails/engine.rb:535:in 'Rails::Engine#call'
+puma (6.6.0) lib/puma/configuration.rb:279:in 'Puma::Configuration::ConfigMiddleware#call'
+puma (6.6.0) lib/puma/request.rb:99:in 'block in Puma::Request#handle_request'
+puma (6.6.0) lib/puma/thread_pool.rb:390:in 'Puma::ThreadPool#with_force_shutdown'
+puma (6.6.0) lib/puma/request.rb:98:in 'Puma::Request#handle_request'
+puma (6.6.0) lib/puma/server.rb:472:in 'Puma::Server#process_client'
+puma (6.6.0) lib/puma/server.rb:254:in 'block in Puma::Server#run'
+puma (6.6.0) lib/puma/thread_pool.rb:167:in 'block in Puma::ThreadPool#spawn_thread'
+Started GET "/recipes/1/labels" for ::1 at 2025-07-28 05:17:07 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/recipes/1/labels"):
+  
+Started GET "/recipes/1/labels" for ::1 at 2025-07-28 05:26:05 -0500
+Processing by RecipesController#show_labels as */*
+  Parameters: {"id" => "1"}
+  [1m[36mUser Load (4.8ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='show_labels',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:158:in 'RecipesController#show_labels'
+Completed 404 Not Found in 44ms (ActiveRecord: 4.8ms (1 query, 0 cached) | GC: 2.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Recipe without an ID):
+  
+app/controllers/recipes_controller.rb:159:in 'RecipesController#show_labels'
+Started GET "/recipes/1/labels" for ::1 at 2025-07-28 05:30:45 -0500
+Processing by RecipesController#show_labels as */*
+  Parameters: {"id" => "1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='show_labels',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:157:in 'RecipesController#show_labels'
+Completed 404 Not Found in 75ms (ActiveRecord: 3.5ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Recipe without an ID):
+  
+app/controllers/recipes_controller.rb:158:in 'RecipesController#show_labels'
+Started GET "/recipes/1/labels" for ::1 at 2025-07-28 05:31:17 -0500
+Processing by RecipesController#show_labels as */*
+  Parameters: {"id" => "1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='show_labels',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:157:in 'RecipesController#show_labels'
+Completed 404 Not Found in 34ms (ActiveRecord: 3.3ms (1 query, 0 cached) | GC: 1.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Recipe without an ID):
+  
+app/controllers/recipes_controller.rb:158:in 'RecipesController#show_labels'
+Started GET "/recipes/1/labels" for ::1 at 2025-07-28 05:34:15 -0500
+Processing by RecipesController#show_labels as */*
+  Parameters: {"id" => "1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='show_labels',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:157:in 'RecipesController#show_labels'
+  [1m[36mRecipe Load (1.7ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 2 AND "recipes"."id" = 1 LIMIT 1 /*action='show_labels',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:158:in 'RecipesController#show_labels'
+  [1m[36mLabel Load (0.1ms)[0m  [1m[34mSELECT "labels".* FROM "labels" INNER JOIN "labels_recipes" ON "labels"."id" = "labels_recipes"."label_id" WHERE "labels_recipes"."recipe_id" = 1 /*action='show_labels',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:159:in 'RecipesController#show_labels'
+Completed 200 OK in 64ms (Views: 9.2ms | ActiveRecord: 8.3ms (3 queries, 0 cached) | GC: 1.6ms)
+
+
+Started GET "/recipes/1/labels" for ::1 at 2025-07-28 05:34:20 -0500
+Processing by RecipesController#show_labels as */*
+  Parameters: {"id" => "1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='show_labels',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:157:in 'RecipesController#show_labels'
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 2 AND "recipes"."id" = 1 LIMIT 1 /*action='show_labels',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:158:in 'RecipesController#show_labels'
+  [1m[36mLabel Load (0.3ms)[0m  [1m[34mSELECT "labels".* FROM "labels" INNER JOIN "labels_recipes" ON "labels"."id" = "labels_recipes"."label_id" WHERE "labels_recipes"."recipe_id" = 1 /*action='show_labels',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:159:in 'RecipesController#show_labels'
+Completed 200 OK in 12ms (Views: 4.5ms | ActiveRecord: 0.8ms (3 queries, 0 cached) | GC: 0.5ms)
+
+
+Started PATCH "/recipes/1/labels/1" for ::1 at 2025-07-28 05:35:05 -0500
+  
+ActionController::RoutingError (No route matches [PATCH] "/recipes/1/labels/1"):
+  
+Started GET "/recipes/2/labels" for ::1 at 2025-07-28 05:35:27 -0500
+Processing by RecipesController#show_labels as */*
+  Parameters: {"id" => "2"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='show_labels',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:157:in 'RecipesController#show_labels'
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 2 AND "recipes"."id" = 2 LIMIT 1 /*action='show_labels',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:158:in 'RecipesController#show_labels'
+  [1m[36mLabel Load (0.4ms)[0m  [1m[34mSELECT "labels".* FROM "labels" INNER JOIN "labels_recipes" ON "labels"."id" = "labels_recipes"."label_id" WHERE "labels_recipes"."recipe_id" = 2 /*action='show_labels',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:159:in 'RecipesController#show_labels'
+Completed 200 OK in 23ms (Views: 5.5ms | ActiveRecord: 2.1ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/recipes/2/labels/1" for ::1 at 2025-07-28 05:35:48 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/recipes/2/labels/1"):
+  
+Started GET "/recipes/2/labels" for ::1 at 2025-07-28 05:35:53 -0500
+Processing by RecipesController#show_labels as */*
+  Parameters: {"id" => "2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='show_labels',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:157:in 'RecipesController#show_labels'
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 2 AND "recipes"."id" = 2 LIMIT 1 /*action='show_labels',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:158:in 'RecipesController#show_labels'
+  [1m[36mLabel Load (0.3ms)[0m  [1m[34mSELECT "labels".* FROM "labels" INNER JOIN "labels_recipes" ON "labels"."id" = "labels_recipes"."label_id" WHERE "labels_recipes"."recipe_id" = 2 /*action='show_labels',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:159:in 'RecipesController#show_labels'
+Completed 200 OK in 11ms (Views: 4.2ms | ActiveRecord: 0.6ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started PATCH "/recipes/2/labels" for ::1 at 2025-07-28 05:35:59 -0500
+Processing by RecipesController#update_labels as */*
+  Parameters: {"label" => {"vegan" => true, "gluten_free" => true}, "id" => "2", "recipe" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='update_labels',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:163:in 'RecipesController#update_labels'
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 2 AND "recipes"."id" = 2 LIMIT 1 /*action='update_labels',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:164:in 'RecipesController#update_labels'
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.4ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+NoMethodError (undefined method 'label' for an instance of Recipe):
+  
+app/controllers/recipes_controller.rb:165:in 'RecipesController#update_labels'
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RecipeManagerApi'*/[0m
+Migrating to DropLabelsRecipesJoinTable (20250728111231)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[35m (14.6ms)[0m  [1m[35mDROP TABLE "labels_recipes" /*application='RecipeManagerApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250728111231') RETURNING "version" /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (17.7ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RecipeManagerApi'*/[0m
+Started PATCH "/recipes/2/labels" for ::1 at 2025-07-28 06:16:04 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RecipeManagerApi'*/[0m
+Processing by RecipesController#update_labels as */*
+  Parameters: {"label" => {"vegetarian" => true, "vegan" => false, "gluten_free" => true, "dairy_free" => false}, "id" => "2", "recipe" => {}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='update_labels',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:171:in 'RecipesController#update_labels'
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 2 AND "recipes"."id" = 2 LIMIT 1 /*action='update_labels',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:172:in 'RecipesController#update_labels'
+  [1m[36mLabel Load (0.1ms)[0m  [1m[34mSELECT "labels".* FROM "labels" WHERE "labels"."recipe_id" = 2 LIMIT 1 /*action='update_labels',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:173:in 'RecipesController#update_labels'
+Completed 500 Internal Server Error in 66ms (ActiveRecord: 3.9ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+NoMethodError (undefined method 'update' for nil):
+  
+app/controllers/recipes_controller.rb:175:in 'RecipesController#update_labels'
+Started PATCH "/recipes/2/labels" for ::1 at 2025-07-28 06:22:35 -0500
+Processing by RecipesController#update_labels as */*
+  Parameters: {"label" => {"vegetarian" => true, "vegan" => false, "gluten_free" => true, "dairy_free" => false}, "id" => "2", "recipe" => {}}
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='update_labels',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:171:in 'RecipesController#update_labels'
+  [1m[36mRecipe Load (1.5ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 2 AND "recipes"."id" = 2 LIMIT 1 /*action='update_labels',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:172:in 'RecipesController#update_labels'
+  [1m[36mLabel Load (0.4ms)[0m  [1m[34mSELECT "labels".* FROM "labels" WHERE "labels"."recipe_id" = 2 LIMIT 1 /*action='update_labels',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:173:in 'RecipesController#update_labels'
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 4.9ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+NoMethodError (undefined method 'update' for nil):
+  
+app/controllers/recipes_controller.rb:175:in 'RecipesController#update_labels'
+Started PATCH "/recipes/2/labels" for ::1 at 2025-07-28 06:25:34 -0500
+Processing by RecipesController#update_labels as */*
+  Parameters: {"label" => {"vegetarian" => true, "vegan" => false, "gluten_free" => true, "dairy_free" => false}, "id" => "2", "recipe" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='update_labels',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:171:in 'RecipesController#update_labels'
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 2 AND "recipes"."id" = 2 LIMIT 1 /*action='update_labels',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:172:in 'RecipesController#update_labels'
+  [1m[36mLabel Load (0.1ms)[0m  [1m[34mSELECT "labels".* FROM "labels" WHERE "labels"."recipe_id" = 2 LIMIT 1 /*action='update_labels',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:173:in 'RecipesController#update_labels'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='update_labels',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:175:in 'RecipesController#update_labels'
+  [1m[36mLabel Create (4.4ms)[0m  [1m[32mINSERT INTO "labels" ("recipe_id", "vegetarian", "vegan", "gluten_free", "dairy_free", "created_at", "updated_at") VALUES (2, 1, 0, 1, 0, '2025-07-28 11:25:34.687202', '2025-07-28 11:25:34.687202') RETURNING "id" /*action='update_labels',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:175:in 'RecipesController#update_labels'
+  [1m[36mTRANSACTION (8.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='update_labels',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:175:in 'RecipesController#update_labels'
+Completed 200 OK in 66ms (Views: 0.8ms | ActiveRecord: 16.0ms (4 queries, 0 cached) | GC: 8.2ms)
+
+
+Started GET "/recipes/2/labels" for ::1 at 2025-07-28 06:25:42 -0500
+Processing by RecipesController#show_labels as */*
+  Parameters: {"id" => "2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='show_labels',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:165:in 'RecipesController#show_labels'
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 2 AND "recipes"."id" = 2 LIMIT 1 /*action='show_labels',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:166:in 'RecipesController#show_labels'
+  [1m[36mLabel Load (0.2ms)[0m  [1m[34mSELECT "labels".* FROM "labels" WHERE "labels"."recipe_id" = 2 LIMIT 1 /*action='show_labels',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:167:in 'RecipesController#show_labels'
+Completed 200 OK in 7ms (Views: 0.5ms | ActiveRecord: 0.5ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
