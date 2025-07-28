@@ -9,12 +9,25 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   #recipe-manager API routes
-  resources :users, only: [:show, :update, :destroy]
+  resources :users, only: [:show, :update, :destroy, :create]
 
   resources :recipes do
-    resources :instructions, only: [:index, :create, :update, :destroy]
-    resources :ingredient_lists, only: [:index, :create, :update, :destroy]
-    resources :labels, only: [:index, :update]
+
+    # instruction endpoints
+    get 'instructions', on: :member
+    post  'instructions',   to: 'recipes#create_instruction', on: :member
+    patch  'instructions/:instruction_id', to: 'recipes#update_instruction'
+    delete 'instructions/:instruction_id', to: 'recipes#destroy_instruction'
+
+    # ingredient list endpoints
+    
+    post 'ingredient_lists', to: 'recipes#create_ingredient_list', on: :member
+    patch 'ingredient_lists/:ingredient_list_id', to: 'recipes#update_ingredient_list'
+    delete 'ingredient_lists/:ingredient_list_id', to: 'recipes#destroy_ingredient_list'
+    # labels
+    get 'labels', to: 'recipes#show_labels', on: :member
+    patch 'labels', to: 'recipes#update_labels', on: :member
+
   end
 end
 # TODO generate shoppinglist methods - maybe its own controller?
