@@ -2422,3 +2422,66 @@ Processing by RecipesController#show_labels as */*
 Completed 200 OK in 7ms (Views: 0.5ms | ActiveRecord: 0.5ms (3 queries, 0 cached) | GC: 0.0ms)
 
 
+Started OPTIONS "/login" for ::1 at 2025-07-28 19:53:55 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RecipeManagerApi'*/[0m
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/login"):
+  
+Started OPTIONS "/login" for ::1 at 2025-07-28 19:53:56 -0500
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/login"):
+  
+Started OPTIONS "/login" for ::1 at 2025-07-28 19:53:57 -0500
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/login"):
+  
+Started OPTIONS "/login" for ::1 at 2025-07-28 19:53:59 -0500
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/login"):
+  
+Started GET "/users/3" for ::1 at 2025-07-28 19:54:28 -0500
+Processing by UsersController#show as */*
+  Parameters: {"id" => "3"}
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 401 Unauthorized in 10ms (Views: 5.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/3" for ::1 at 2025-07-28 19:54:35 -0500
+Processing by UsersController#show as */*
+  Parameters: {"id" => "3"}
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started OPTIONS "/login" for ::1 at 2025-07-28 19:55:03 -0500
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/login"):
+  
+Started OPTIONS "/login" for ::1 at 2025-07-28 19:55:04 -0500
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/login"):
+  
+Started OPTIONS "/login" for ::1 at 2025-07-28 19:55:20 -0500
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/login"):
+  
+Started POST "/login" for ::1 at 2025-07-28 19:59:42 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RecipeManagerApi'*/[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'a@b.com' LIMIT 1 /*action='create',application='RecipeManagerApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:3:in 'SessionsController#create'
+Completed 401 Unauthorized in 38ms (Views: 0.3ms | ActiveRecord: 2.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for pp */ LIMIT 11 /*application='RecipeManagerApi'*/[0m
+  [1m[36mUser Load (4.4ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for pp */ LIMIT 11 /*application='RecipeManagerApi'*/[0m
+Started POST "/login" for ::1 at 2025-07-28 20:14:50 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RecipeManagerApi'*/[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'aline@example.com' LIMIT 1 /*action='create',application='RecipeManagerApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:3:in 'SessionsController#create'
+Completed 200 OK in 306ms (Views: 0.2ms | ActiveRecord: 2.8ms (1 query, 0 cached) | GC: 0.0ms)
+
+
