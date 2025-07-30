@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   #recipe-manager API routes
+
   resources :users, only: [:show, :update, :destroy, :create]
 
   resources :recipes do
@@ -27,7 +28,9 @@ Rails.application.routes.draw do
     # labels
     get 'labels', to: 'recipes#show_labels', on: :member
     patch 'labels', to: 'recipes#update_labels', on: :member
-
   end
+
+  post '/login', to: 'sessions#create'
+
 end
 # TODO generate shoppinglist methods - maybe its own controller?
