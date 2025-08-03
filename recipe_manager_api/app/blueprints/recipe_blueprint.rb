@@ -8,6 +8,8 @@ class RecipeBlueprint < Blueprinter::Base
 view :normal do
     fields :title, :servings, :cooking_time, :favorite, :shopping_list
 
+    # keeping nested attributes unserialized for now due to the complexity of the recipe controller's custom methods. Improvement opportunity.
+
     field :instructions do |recipe, _opts|
       recipe.instructions.map do |inst|
         {
@@ -26,10 +28,10 @@ view :normal do
           metric_unit: list.metric_unit,
           imperial_qty: list.imperial_qty,
           imperial_unit: list.imperial_unit,
-          ingredient: {
+          ingredient: list.ingredient ? {
             id: list.ingredient.id,
             ingredient: list.ingredient.ingredient
-          }
+          } : nil
         }
       end
     end

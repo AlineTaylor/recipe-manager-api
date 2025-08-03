@@ -7,7 +7,7 @@ class Recipe < ApplicationRecord
   belongs_to :user
   has_many :instructions, dependent: :destroy
   has_one :label, dependent: :destroy
-  has_many :ingredient_lists
+  has_many :ingredient_lists, dependent: :destroy
   has_many :ingredients, through: :ingredient_lists
 
   # nested attributes

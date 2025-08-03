@@ -3,14 +3,12 @@ class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :update, :destroy]
 
   def index
-    @recipes = current_user.recipes.includes(:labels, :ingredient_lists, :instructions)
+    @recipes = current_user.recipes.includes(:label, :ingredient_lists, :instructions)
     render json: RecipeBlueprint.render(@recipes, view: :normal)
-    # render json: @recipes
   end
 
   def show
     render json: RecipeBlueprint.render(@recipe, view: :normal)
-    # render json: @recipe, include: [:instructions, :ingredient_lists, :labels]
   end
 
   def create
@@ -53,7 +51,6 @@ class RecipesController < ApplicationController
   @recipe.build_label(label_attributes)
     if @recipe.save
       render json: RecipeBlueprint.render(@recipe, view: :normal), status: :created
-      # render json: @recipe, status: :created
     else
       render json: { errors: @recipe.errors.full_messages }, status: :unprocessable_entity
     end
@@ -62,7 +59,6 @@ class RecipesController < ApplicationController
   def update
     if @recipe.update(recipe_params)
       render json: RecipeBlueprint.render(@recipe, view: :normal)
-      # render json: @recipe
     else
       render json: { errors: @recipe.errors.full_messages }, status: :unprocessable_entity
     end
@@ -155,7 +151,7 @@ class RecipesController < ApplicationController
 
   def show_labels
     recipe = current_user.recipes.find(params[:id])
-    render json: recipe.label # probably plural!
+    render json: recipe.label
   end
 
   def update_labels
