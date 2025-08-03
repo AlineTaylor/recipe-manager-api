@@ -2485,3 +2485,968 @@ Processing by SessionsController#create as HTML
 Completed 200 OK in 306ms (Views: 0.2ms | ActiveRecord: 2.8ms (1 query, 0 cached) | GC: 0.0ms)
 
 
+Started POST "/recipes" for ::1 at 2025-08-01 21:09:13 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RecipeManagerApi'*/[0m
+Processing by RecipesController#create as */*
+  Parameters: {"id" => 1, "title" => "Lemon Garlic Chicken", "servings" => 4, "cooking_time" => 45, "favorite" => true, "shopping_list" => false, "instructions" => [{"id" => 1, "step_number" => 1, "step_content" => "Preheat oven to 400°F (200°C)."}, {"id" => 2, "step_number" => 2, "step_content" => "Season chicken with salt, pepper, garlic, and lemon juice."}], "ingredient_lists" => [{"id" => 1, "metric_qty" => 500, "metric_unit" => "g", "imperial_qty" => 1.1, "imperial_unit" => "lb", "ingredient" => {"id" => 1, "ingredient" => "Chicken breast"}}, {"id" => 2, "metric_qty" => 2, "metric_unit" => "cloves", "imperial_qty" => 2, "imperial_unit" => "cloves", "ingredient" => {"id" => 2, "ingredient" => "Garlic"}}], "label" => {"id" => 1, "vegetarian" => false, "vegan" => false, "gluten_free" => true, "dairy_free" => true}, "recipe" => {"id" => 1, "title" => "Lemon Garlic Chicken", "servings" => 4, "cooking_time" => 45, "favorite" => true, "shopping_list" => false}}
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 1.2ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2025-08-01 21:11:24 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'aline@example.com' LIMIT 1 /*action='create',application='RecipeManagerApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:3:in 'SessionsController#create'
+Completed 200 OK in 213ms (Views: 0.3ms | ActiveRecord: 1.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/recipes" for ::1 at 2025-08-01 21:11:34 -0500
+Processing by RecipesController#create as */*
+  Parameters: {"id" => 1, "title" => "Lemon Garlic Chicken", "servings" => 4, "cooking_time" => 45, "favorite" => true, "shopping_list" => false, "instructions" => [{"id" => 1, "step_number" => 1, "step_content" => "Preheat oven to 400°F (200°C)."}, {"id" => 2, "step_number" => 2, "step_content" => "Season chicken with salt, pepper, garlic, and lemon juice."}], "ingredient_lists" => [{"id" => 1, "metric_qty" => 500, "metric_unit" => "g", "imperial_qty" => 1.1, "imperial_unit" => "lb", "ingredient" => {"id" => 1, "ingredient" => "Chicken breast"}}, {"id" => 2, "metric_qty" => 2, "metric_unit" => "cloves", "imperial_qty" => 2, "imperial_unit" => "cloves", "ingredient" => {"id" => 2, "ingredient" => "Garlic"}}], "label" => {"id" => 1, "vegetarian" => false, "vegan" => false, "gluten_free" => true, "dairy_free" => true}, "recipe" => {"id" => 1, "title" => "Lemon Garlic Chicken", "servings" => 4, "cooking_time" => 45, "favorite" => true, "shopping_list" => false}}
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/3" for ::1 at 2025-08-01 21:12:04 -0500
+Processing by UsersController#show as */*
+  Parameters: {"id" => "3"}
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2025-08-01 21:22:37 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RecipeManagerApi'*/[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'aline@example.com' LIMIT 1 /*action='create',application='RecipeManagerApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:3:in 'SessionsController#create'
+Completed 200 OK in 202ms (Views: 0.2ms | ActiveRecord: 1.6ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/recipes" for ::1 at 2025-08-01 21:22:45 -0500
+Processing by RecipesController#create as */*
+  Parameters: {"id" => 1, "title" => "Lemon Garlic Chicken", "servings" => 4, "cooking_time" => 45, "favorite" => true, "shopping_list" => false, "instructions" => [{"id" => 1, "step_number" => 1, "step_content" => "Preheat oven to 400°F (200°C)."}, {"id" => 2, "step_number" => 2, "step_content" => "Season chicken with salt, pepper, garlic, and lemon juice."}], "ingredient_lists" => [{"id" => 1, "metric_qty" => 500, "metric_unit" => "g", "imperial_qty" => 1.1, "imperial_unit" => "lb", "ingredient" => {"id" => 1, "ingredient" => "Chicken breast"}}, {"id" => 2, "metric_qty" => 2, "metric_unit" => "cloves", "imperial_qty" => 2, "imperial_unit" => "cloves", "ingredient" => {"id" => 2, "ingredient" => "Garlic"}}], "label" => {"id" => 1, "vegetarian" => false, "vegan" => false, "gluten_free" => true, "dairy_free" => true}, "recipe" => {"id" => 1, "title" => "Lemon Garlic Chicken", "servings" => 4, "cooking_time" => 45, "favorite" => true, "shopping_list" => false}}
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.2ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/recipes" for ::1 at 2025-08-01 21:23:10 -0500
+Processing by RecipesController#create as */*
+  Parameters: {"id" => 1, "title" => "Lemon Garlic Chicken", "servings" => 4, "cooking_time" => 45, "favorite" => true, "shopping_list" => false, "instructions" => [{"id" => 1, "step_number" => 1, "step_content" => "Preheat oven to 400°F (200°C)."}, {"id" => 2, "step_number" => 2, "step_content" => "Season chicken with salt, pepper, garlic, and lemon juice."}], "ingredient_lists" => [{"id" => 1, "metric_qty" => 500, "metric_unit" => "g", "imperial_qty" => 1.1, "imperial_unit" => "lb", "ingredient" => {"id" => 1, "ingredient" => "Chicken breast"}}, {"id" => 2, "metric_qty" => 2, "metric_unit" => "cloves", "imperial_qty" => 2, "imperial_unit" => "cloves", "ingredient" => {"id" => 2, "ingredient" => "Garlic"}}], "label" => {"id" => 1, "vegetarian" => false, "vegan" => false, "gluten_free" => true, "dairy_free" => true}, "recipe" => {"id" => 1, "title" => "Lemon Garlic Chicken", "servings" => 4, "cooking_time" => 45, "favorite" => true, "shopping_list" => false}}
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/recipes" for ::1 at 2025-08-01 21:23:36 -0500
+Processing by RecipesController#create as */*
+  Parameters: {"id" => 1, "title" => "Lemon Garlic Chicken", "servings" => 4, "cooking_time" => 45, "favorite" => true, "shopping_list" => false, "instructions" => [{"id" => 1, "step_number" => 1, "step_content" => "Preheat oven to 400°F (200°C)."}, {"id" => 2, "step_number" => 2, "step_content" => "Season chicken with salt, pepper, garlic, and lemon juice."}], "ingredient_lists" => [{"id" => 1, "metric_qty" => 500, "metric_unit" => "g", "imperial_qty" => 1.1, "imperial_unit" => "lb", "ingredient" => {"id" => 1, "ingredient" => "Chicken breast"}}, {"id" => 2, "metric_qty" => 2, "metric_unit" => "cloves", "imperial_qty" => 2, "imperial_unit" => "cloves", "ingredient" => {"id" => 2, "ingredient" => "Garlic"}}], "label" => {"id" => 1, "vegetarian" => false, "vegan" => false, "gluten_free" => true, "dairy_free" => true}, "recipe" => {"id" => 1, "title" => "Lemon Garlic Chicken", "servings" => 4, "cooking_time" => 45, "favorite" => true, "shopping_list" => false}}
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/recipes" for ::1 at 2025-08-01 21:24:02 -0500
+Processing by RecipesController#create as */*
+  Parameters: {"id" => 1, "title" => "Lemon Garlic Chicken", "servings" => 4, "cooking_time" => 45, "favorite" => true, "shopping_list" => false, "instructions" => [{"id" => 1, "step_number" => 1, "step_content" => "Preheat oven to 400°F (200°C)."}, {"id" => 2, "step_number" => 2, "step_content" => "Season chicken with salt, pepper, garlic, and lemon juice."}], "ingredient_lists" => [{"id" => 1, "metric_qty" => 500, "metric_unit" => "g", "imperial_qty" => 1.1, "imperial_unit" => "lb", "ingredient" => {"id" => 1, "ingredient" => "Chicken breast"}}, {"id" => 2, "metric_qty" => 2, "metric_unit" => "cloves", "imperial_qty" => 2, "imperial_unit" => "cloves", "ingredient" => {"id" => 2, "ingredient" => "Garlic"}}], "label" => {"id" => 1, "vegetarian" => false, "vegan" => false, "gluten_free" => true, "dairy_free" => true}, "recipe" => {"id" => 1, "title" => "Lemon Garlic Chicken", "servings" => 4, "cooking_time" => 45, "favorite" => true, "shopping_list" => false}}
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2025-08-03 14:25:09 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RecipeManagerApi'*/[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'aline@example.com' LIMIT 1 /*action='create',application='RecipeManagerApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:3:in 'SessionsController#create'
+Completed 200 OK in 198ms (Views: 0.2ms | ActiveRecord: 1.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/recipes" for ::1 at 2025-08-03 14:27:07 -0500
+Processing by RecipesController#create as */*
+  Parameters: {"id" => 1, "title" => "Lemon Garlic Chicken", "servings" => 4, "cooking_time" => 45, "favorite" => true, "shopping_list" => false, "instructions" => [{"id" => 1, "step_number" => 1, "step_content" => "Preheat oven to 400°F (200°C)."}, {"id" => 2, "step_number" => 2, "step_content" => "Season chicken with salt, pepper, garlic, and lemon juice."}], "ingredient_lists" => [{"id" => 1, "metric_qty" => 500, "metric_unit" => "g", "imperial_qty" => 1.1, "imperial_unit" => "lb", "ingredient" => {"id" => 1, "ingredient" => "Chicken breast"}}, {"id" => 2, "metric_qty" => 2, "metric_unit" => "cloves", "imperial_qty" => 2, "imperial_unit" => "cloves", "ingredient" => {"id" => 2, "ingredient" => "Garlic"}}], "label" => {"id" => 1, "vegetarian" => false, "vegan" => false, "gluten_free" => true, "dairy_free" => true}, "recipe" => {"id" => 1, "title" => "Lemon Garlic Chicken", "servings" => 4, "cooking_time" => 45, "favorite" => true, "shopping_list" => false}}
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.2ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2025-08-03 14:27:31 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'aline@example.com' LIMIT 1 /*action='create',application='RecipeManagerApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:3:in 'SessionsController#create'
+Completed 200 OK in 193ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/recipes" for ::1 at 2025-08-03 14:28:02 -0500
+Processing by RecipesController#create as */*
+  Parameters: {"id" => 1, "title" => "Lemon Garlic Chicken", "servings" => 4, "cooking_time" => 45, "favorite" => true, "shopping_list" => false, "instructions" => [{"id" => 1, "step_number" => 1, "step_content" => "Preheat oven to 400°F (200°C)."}, {"id" => 2, "step_number" => 2, "step_content" => "Season chicken with salt, pepper, garlic, and lemon juice."}], "ingredient_lists" => [{"id" => 1, "metric_qty" => 500, "metric_unit" => "g", "imperial_qty" => 1.1, "imperial_unit" => "lb", "ingredient" => {"id" => 1, "ingredient" => "Chicken breast"}}, {"id" => 2, "metric_qty" => 2, "metric_unit" => "cloves", "imperial_qty" => 2, "imperial_unit" => "cloves", "ingredient" => {"id" => 2, "ingredient" => "Garlic"}}], "label" => {"id" => 1, "vegetarian" => false, "vegan" => false, "gluten_free" => true, "dairy_free" => true}, "recipe" => {"id" => 1, "title" => "Lemon Garlic Chicken", "servings" => 4, "cooking_time" => 45, "favorite" => true, "shopping_list" => false}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1 /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/application_controller.rb:10:in 'ApplicationController#authenticate_request'
+[31mUnpermitted parameter: :id. Context: { controller: RecipesController, action: create, request: #<ActionDispatch::Request:0x00007de518871a60>, params: {"id" => 1, "title" => "Lemon Garlic Chicken", "servings" => 4, "cooking_time" => 45, "favorite" => true, "shopping_list" => false, "instructions" => [{"id" => 1, "step_number" => 1, "step_content" => "Preheat oven to 400°F (200°C)."}, {"id" => 2, "step_number" => 2, "step_content" => "Season chicken with salt, pepper, garlic, and lemon juice."}], "ingredient_lists" => [{"id" => 1, "metric_qty" => 500, "metric_unit" => "g", "imperial_qty" => 1.1, "imperial_unit" => "lb", "ingredient" => {"id" => 1, "ingredient" => "Chicken breast"}}, {"id" => 2, "metric_qty" => 2, "metric_unit" => "cloves", "imperial_qty" => 2, "imperial_unit" => "cloves", "ingredient" => {"id" => 2, "ingredient" => "Garlic"}}], "label" => {"id" => 1, "vegetarian" => false, "vegan" => false, "gluten_free" => true, "dairy_free" => true}, "controller" => "recipes", "action" => "create", "recipe" => {"id" => 1, "title" => "Lemon Garlic Chicken", "servings" => 4, "cooking_time" => 45, "favorite" => true, "shopping_list" => false}} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:54:in 'RecipesController#create'
+  [1m[36mRecipe Create (2.2ms)[0m  [1m[32mINSERT INTO "recipes" ("user_id", "title", "servings", "cooking_time", "favorite", "shopping_list", "created_at", "updated_at") VALUES (3, 'Lemon Garlic Chicken', 4, 45, 1, 0, '2025-08-03 19:28:02.205177', '2025-08-03 19:28:02.205177') RETURNING "id" /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:54:in 'RecipesController#create'
+  [1m[36mLabel Create (0.1ms)[0m  [1m[32mINSERT INTO "labels" ("recipe_id", "vegetarian", "vegan", "gluten_free", "dairy_free", "created_at", "updated_at") VALUES (3, 0, 0, 0, 0, '2025-08-03 19:28:02.209258', '2025-08-03 19:28:02.209258') RETURNING "id" /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:54:in 'RecipesController#create'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:54:in 'RecipesController#create'
+  [1m[36mIngredientList Load (0.1ms)[0m  [1m[34mSELECT "ingredient_lists".* FROM "ingredient_lists" WHERE "ingredient_lists"."recipe_id" = 3 /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:22:in 'Enumerable#map'
+  [1m[36mInstruction Load (0.1ms)[0m  [1m[34mSELECT "instructions".* FROM "instructions" WHERE "instructions"."recipe_id" = 3 /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:12:in 'Enumerable#map'
+Completed 201 Created in 68ms (Views: 0.3ms | ActiveRecord: 5.9ms (5 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/recipes/3" for ::1 at 2025-08-03 14:29:25 -0500
+Processing by RecipesController#show as */*
+  Parameters: {"id" => "3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/application_controller.rb:10:in 'ApplicationController#authenticate_request'
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 3 AND "recipes"."id" = 3 LIMIT 1 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:176:in 'RecipesController#set_recipe'
+  [1m[36mIngredientList Load (0.1ms)[0m  [1m[34mSELECT "ingredient_lists".* FROM "ingredient_lists" WHERE "ingredient_lists"."recipe_id" = 3 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:22:in 'Enumerable#map'
+  [1m[36mInstruction Load (0.2ms)[0m  [1m[34mSELECT "instructions".* FROM "instructions" WHERE "instructions"."recipe_id" = 3 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:12:in 'Enumerable#map'
+  [1m[36mLabel Load (0.2ms)[0m  [1m[34mSELECT "labels".* FROM "labels" WHERE "labels"."recipe_id" = 3 LIMIT 1 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:38:in 'block (2 levels) in <class:RecipeBlueprint>'
+Completed 200 OK in 12ms (Views: 0.1ms | ActiveRecord: 0.8ms (5 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/recipes/3/instructions" for ::1 at 2025-08-03 14:29:54 -0500
+Processing by RecipesController#instructions as */*
+  Parameters: {"instruction" => {"step_number" => 3, "step_content" => "Simmer with tomato sauce for 30 minutes."}, "id" => "3", "recipe" => {}}
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/recipes/3/instructions" for ::1 at 2025-08-03 14:30:00 -0500
+Processing by RecipesController#instructions as */*
+  Parameters: {"instruction" => {"step_number" => 3, "step_content" => "Simmer with tomato sauce for 30 minutes."}, "id" => "3", "recipe" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1 /*action='instructions',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/application_controller.rb:10:in 'ApplicationController#authenticate_request'
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 3 AND "recipes"."id" = 3 LIMIT 1 /*action='instructions',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:79:in 'RecipesController#instructions'
+  [1m[36mInstruction Load (0.1ms)[0m  [1m[34mSELECT "instructions".* FROM "instructions" WHERE "instructions"."recipe_id" = 3 /*action='instructions',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:80:in 'RecipesController#instructions'
+Completed 200 OK in 27ms (Views: 0.9ms | ActiveRecord: 0.3ms (3 queries, 0 cached) | GC: 23.2ms)
+
+
+Started GET "/recipes/2/instructions" for ::1 at 2025-08-03 14:34:45 -0500
+Processing by RecipesController#instructions as */*
+  Parameters: {"instruction" => {"step_number" => 3, "step_content" => "Simmer with tomato sauce for 30 minutes."}, "id" => "2", "recipe" => {}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1 /*action='instructions',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/application_controller.rb:10:in 'ApplicationController#authenticate_request'
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 3 AND "recipes"."id" = 2 LIMIT 1 /*action='instructions',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:79:in 'RecipesController#instructions'
+Completed 404 Not Found in 6ms (ActiveRecord: 0.4ms (2 queries, 0 cached) | GC: 1.5ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Recipe with 'id'=2 [WHERE "recipes"."user_id" = ?]):
+  
+app/controllers/recipes_controller.rb:79:in 'RecipesController#instructions'
+Started GET "/recipes/1/instructions" for ::1 at 2025-08-03 14:34:54 -0500
+Processing by RecipesController#instructions as */*
+  Parameters: {"instruction" => {"step_number" => 3, "step_content" => "Simmer with tomato sauce for 30 minutes."}, "id" => "1", "recipe" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1 /*action='instructions',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/application_controller.rb:10:in 'ApplicationController#authenticate_request'
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 3 AND "recipes"."id" = 1 LIMIT 1 /*action='instructions',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:79:in 'RecipesController#instructions'
+Completed 404 Not Found in 2ms (ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Recipe with 'id'=1 [WHERE "recipes"."user_id" = ?]):
+  
+app/controllers/recipes_controller.rb:79:in 'RecipesController#instructions'
+Started GET "/recipes/3/instructions" for ::1 at 2025-08-03 14:35:06 -0500
+Processing by RecipesController#instructions as */*
+  Parameters: {"instruction" => {"step_number" => 3, "step_content" => "Simmer with tomato sauce for 30 minutes."}, "id" => "3", "recipe" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1 /*action='instructions',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/application_controller.rb:10:in 'ApplicationController#authenticate_request'
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 3 AND "recipes"."id" = 3 LIMIT 1 /*action='instructions',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:79:in 'RecipesController#instructions'
+  [1m[36mInstruction Load (0.1ms)[0m  [1m[34mSELECT "instructions".* FROM "instructions" WHERE "instructions"."recipe_id" = 3 /*action='instructions',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:80:in 'RecipesController#instructions'
+Completed 200 OK in 5ms (Views: 1.3ms | ActiveRecord: 0.4ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/recipes" for ::1 at 2025-08-03 14:38:09 -0500
+Processing by RecipesController#create as */*
+  Parameters: {"recipe" => {"title" => "Lemon Garlic Chicken", "servings" => 4, "cooking_time" => 45, "favorite" => true, "shopping_list" => false, "instructions_attributes" => [{"step_number" => 1, "step_content" => "Preheat oven to 400°F (200°C)."}, {"step_number" => 2, "step_content" => "Season chicken with salt, pepper, garlic, and lemon juice."}], "ingredient_lists_attributes" => [{"metric_qty" => 500, "metric_unit" => "g", "imperial_qty" => 1.1, "imperial_unit" => "lb", "ingredient_attributes" => {"ingredient" => "Chicken breast"}}, {"metric_qty" => 2, "metric_unit" => "cloves", "imperial_qty" => 2, "imperial_unit" => "cloves", "ingredient_attributes" => {"ingredient" => "Garlic"}}], "label_attributes" => {"vegetarian" => false, "vegan" => false, "gluten_free" => true, "dairy_free" => true}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1 /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/application_controller.rb:10:in 'ApplicationController#authenticate_request'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE (lower(ingredient) = 'chicken breast') ORDER BY "ingredients"."id" ASC LIMIT 1 /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:30:in 'block in RecipesController#create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:30:in 'block in RecipesController#create'
+  [1m[36mIngredient Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "ingredients" WHERE LOWER("ingredients"."ingredient") = LOWER('Chicken breast') LIMIT 1 /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:30:in 'block in RecipesController#create'
+  [1m[36mIngredient Create (0.7ms)[0m  [1m[32mINSERT INTO "ingredients" ("ingredient", "created_at", "updated_at") VALUES ('Chicken breast', '2025-08-03 19:38:09.031433', '2025-08-03 19:38:09.031433') RETURNING "id" /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:30:in 'block in RecipesController#create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:30:in 'block in RecipesController#create'
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE (lower(ingredient) = 'garlic') ORDER BY "ingredients"."id" ASC LIMIT 1 /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:30:in 'block in RecipesController#create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:30:in 'block in RecipesController#create'
+  [1m[36mIngredient Exists? (2.1ms)[0m  [1m[34mSELECT 1 AS one FROM "ingredients" WHERE LOWER("ingredients"."ingredient") = LOWER('Garlic') LIMIT 1 /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:30:in 'block in RecipesController#create'
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("ingredient", "created_at", "updated_at") VALUES ('Garlic', '2025-08-03 19:38:09.040297', '2025-08-03 19:38:09.040297') RETURNING "id" /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:30:in 'block in RecipesController#create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:30:in 'block in RecipesController#create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:54:in 'RecipesController#create'
+  [1m[36mIngredient Load (1.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 6 LIMIT 1 /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:54:in 'RecipesController#create'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 7 LIMIT 1 /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:54:in 'RecipesController#create'
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("user_id", "title", "servings", "cooking_time", "favorite", "shopping_list", "created_at", "updated_at") VALUES (3, 'Lemon Garlic Chicken', 4, 45, 1, 0, '2025-08-03 19:38:09.053569', '2025-08-03 19:38:09.053569') RETURNING "id" /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:54:in 'RecipesController#create'
+  [1m[36mInstruction Create (0.1ms)[0m  [1m[32mINSERT INTO "instructions" ("recipe_id", "step_number", "step_content", "created_at", "updated_at") VALUES (4, 1, 'Preheat oven to 400°F (200°C).', '2025-08-03 19:38:09.054586', '2025-08-03 19:38:09.054586') RETURNING "id" /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:54:in 'RecipesController#create'
+  [1m[36mInstruction Create (0.0ms)[0m  [1m[32mINSERT INTO "instructions" ("recipe_id", "step_number", "step_content", "created_at", "updated_at") VALUES (4, 2, 'Season chicken with salt, pepper, garlic, and lemon juice.', '2025-08-03 19:38:09.055596', '2025-08-03 19:38:09.055596') RETURNING "id" /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:54:in 'RecipesController#create'
+  [1m[36mLabel Create (0.0ms)[0m  [1m[32mINSERT INTO "labels" ("recipe_id", "vegetarian", "vegan", "gluten_free", "dairy_free", "created_at", "updated_at") VALUES (4, 0, 0, 1, 1, '2025-08-03 19:38:09.056441', '2025-08-03 19:38:09.056441') RETURNING "id" /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:54:in 'RecipesController#create'
+  [1m[36mIngredientList Create (0.1ms)[0m  [1m[32mINSERT INTO "ingredient_lists" ("ingredient_id", "recipe_id", "metric_qty", "metric_unit", "imperial_qty", "imperial_unit", "created_at", "updated_at") VALUES (6, 4, 500.0, 'g', 1.1, 'lb', '2025-08-03 19:38:09.057328', '2025-08-03 19:38:09.057328') RETURNING "id" /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:54:in 'RecipesController#create'
+  [1m[36mIngredientList Create (0.0ms)[0m  [1m[32mINSERT INTO "ingredient_lists" ("ingredient_id", "recipe_id", "metric_qty", "metric_unit", "imperial_qty", "imperial_unit", "created_at", "updated_at") VALUES (7, 4, 2.0, 'cloves', 2.0, 'cloves', '2025-08-03 19:38:09.058218', '2025-08-03 19:38:09.058218') RETURNING "id" /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:54:in 'RecipesController#create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:54:in 'RecipesController#create'
+  [1m[36mIngredientList Load (0.1ms)[0m  [1m[34mSELECT "ingredient_lists".* FROM "ingredient_lists" WHERE "ingredient_lists"."recipe_id" = 4 /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:22:in 'Enumerable#map'
+  [1m[36mInstruction Load (0.1ms)[0m  [1m[34mSELECT "instructions".* FROM "instructions" WHERE "instructions"."recipe_id" = 4 /*action='create',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:12:in 'Enumerable#map'
+Completed 201 Created in 59ms (Views: 0.1ms | ActiveRecord: 6.9ms (17 queries, 0 cached) | GC: 17.7ms)
+
+
+Started GET "/recipes/4" for ::1 at 2025-08-03 14:38:19 -0500
+Processing by RecipesController#show as */*
+  Parameters: {"id" => "4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/application_controller.rb:10:in 'ApplicationController#authenticate_request'
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 3 AND "recipes"."id" = 4 LIMIT 1 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:176:in 'RecipesController#set_recipe'
+  [1m[36mIngredientList Load (0.1ms)[0m  [1m[34mSELECT "ingredient_lists".* FROM "ingredient_lists" WHERE "ingredient_lists"."recipe_id" = 4 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:22:in 'Enumerable#map'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 6 LIMIT 1 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:30:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 7 LIMIT 1 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:30:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mInstruction Load (0.1ms)[0m  [1m[34mSELECT "instructions".* FROM "instructions" WHERE "instructions"."recipe_id" = 4 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:12:in 'Enumerable#map'
+  [1m[36mLabel Load (0.0ms)[0m  [1m[34mSELECT "labels".* FROM "labels" WHERE "labels"."recipe_id" = 4 LIMIT 1 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:38:in 'block (2 levels) in <class:RecipeBlueprint>'
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 0.5ms (7 queries, 0 cached) | GC: 0.1ms)
+
+
+Started GET "/recipes" for ::1 at 2025-08-03 14:38:25 -0500
+Processing by RecipesController#index as */*
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/recipes" for ::1 at 2025-08-03 14:38:29 -0500
+Processing by RecipesController#index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/application_controller.rb:10:in 'ApplicationController#authenticate_request'
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 3 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:7:in 'RecipesController#index'
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.6ms (2 queries, 0 cached) | GC: 1.6ms)
+
+
+  
+ActiveRecord::AssociationNotFoundError (Association named 'labels' was not found on Recipe; perhaps you misspelled it?):
+  
+app/controllers/recipes_controller.rb:7:in 'RecipesController#index'
+Started PATCH "/recipes/4" for ::1 at 2025-08-03 14:38:51 -0500
+Processing by RecipesController#update as */*
+  Parameters: {"title" => "Spaghetti Bolognese Deluxe", "servings" => 6, "id" => "4", "recipe" => {"title" => "Spaghetti Bolognese Deluxe", "servings" => 6}}
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started PATCH "/recipes/4" for ::1 at 2025-08-03 14:39:34 -0500
+Processing by RecipesController#update as */*
+  Parameters: {"title" => "New Lemon Garlic Chicken", "id" => "4", "recipe" => {"title" => "New Lemon Garlic Chicken"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1 /*action='update',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/application_controller.rb:10:in 'ApplicationController#authenticate_request'
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 3 AND "recipes"."id" = 4 LIMIT 1 /*action='update',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:176:in 'RecipesController#set_recipe'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='update',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:63:in 'RecipesController#update'
+  [1m[36mRecipe Update (0.8ms)[0m  [1m[33mUPDATE "recipes" SET "title" = 'New Lemon Garlic Chicken', "updated_at" = '2025-08-03 19:39:34.460474' WHERE "recipes"."id" = 4 /*action='update',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:63:in 'RecipesController#update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='update',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:63:in 'RecipesController#update'
+  [1m[36mIngredientList Load (0.1ms)[0m  [1m[34mSELECT "ingredient_lists".* FROM "ingredient_lists" WHERE "ingredient_lists"."recipe_id" = 4 /*action='update',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:22:in 'Enumerable#map'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 6 LIMIT 1 /*action='update',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:30:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.9ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 7 LIMIT 1 /*action='update',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:30:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mInstruction Load (0.1ms)[0m  [1m[34mSELECT "instructions".* FROM "instructions" WHERE "instructions"."recipe_id" = 4 /*action='update',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:12:in 'Enumerable#map'
+  [1m[36mLabel Load (0.1ms)[0m  [1m[34mSELECT "labels".* FROM "labels" WHERE "labels"."recipe_id" = 4 LIMIT 1 /*action='update',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:38:in 'block (2 levels) in <class:RecipeBlueprint>'
+Completed 200 OK in 14ms (Views: 0.1ms | ActiveRecord: 2.2ms (8 queries, 0 cached) | GC: 3.4ms)
+
+
+Started DELETE "/recipes/1" for ::1 at 2025-08-03 14:40:01 -0500
+Processing by RecipesController#destroy as */*
+  Parameters: {"id" => "1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1 /*action='destroy',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/application_controller.rb:10:in 'ApplicationController#authenticate_request'
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 3 AND "recipes"."id" = 1 LIMIT 1 /*action='destroy',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:176:in 'RecipesController#set_recipe'
+Completed 404 Not Found in 10ms (ActiveRecord: 0.8ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Recipe with 'id'=1 [WHERE "recipes"."user_id" = ?]):
+  
+app/controllers/recipes_controller.rb:176:in 'RecipesController#set_recipe'
+Started DELETE "/recipes/2" for ::1 at 2025-08-03 14:40:07 -0500
+Processing by RecipesController#destroy as */*
+  Parameters: {"id" => "2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1 /*action='destroy',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/application_controller.rb:10:in 'ApplicationController#authenticate_request'
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 3 AND "recipes"."id" = 2 LIMIT 1 /*action='destroy',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:176:in 'RecipesController#set_recipe'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Recipe with 'id'=2 [WHERE "recipes"."user_id" = ?]):
+  
+app/controllers/recipes_controller.rb:176:in 'RecipesController#set_recipe'
+Started DELETE "/recipes/3" for ::1 at 2025-08-03 14:40:21 -0500
+Processing by RecipesController#destroy as */*
+  Parameters: {"id" => "3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1 /*action='destroy',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/application_controller.rb:10:in 'ApplicationController#authenticate_request'
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 3 AND "recipes"."id" = 3 LIMIT 1 /*action='destroy',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:176:in 'RecipesController#set_recipe'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='destroy',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:72:in 'RecipesController#destroy'
+  [1m[36mInstruction Load (2.4ms)[0m  [1m[34mSELECT "instructions".* FROM "instructions" WHERE "instructions"."recipe_id" = 3 /*action='destroy',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:72:in 'RecipesController#destroy'
+  [1m[36mLabel Load (0.1ms)[0m  [1m[34mSELECT "labels".* FROM "labels" WHERE "labels"."recipe_id" = 3 LIMIT 1 /*action='destroy',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:72:in 'RecipesController#destroy'
+  [1m[36mLabel Destroy (0.1ms)[0m  [1m[31mDELETE FROM "labels" WHERE "labels"."id" = 2 /*action='destroy',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:72:in 'RecipesController#destroy'
+  [1m[36mRecipe Destroy (0.1ms)[0m  [1m[31mDELETE FROM "recipes" WHERE "recipes"."id" = 3 /*action='destroy',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:72:in 'RecipesController#destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='destroy',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:72:in 'RecipesController#destroy'
+Completed 204 No Content in 17ms (ActiveRecord: 3.2ms (6 queries, 0 cached) | GC: 3.1ms)
+
+
+Started POST "/recipes/4/instructions" for ::1 at 2025-08-03 14:41:03 -0500
+Processing by RecipesController#create_instruction as */*
+  Parameters: {"instruction" => {"step_number" => 3, "step_content" => "Simmer with tomato sauce for 30 minutes."}, "id" => "4", "recipe" => {}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1 /*action='create_instruction',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/application_controller.rb:10:in 'ApplicationController#authenticate_request'
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 3 AND "recipes"."id" = 4 LIMIT 1 /*action='create_instruction',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:84:in 'RecipesController#create_instruction'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create_instruction',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:86:in 'RecipesController#create_instruction'
+  [1m[36mInstruction Create (5.1ms)[0m  [1m[32mINSERT INTO "instructions" ("recipe_id", "step_number", "step_content", "created_at", "updated_at") VALUES (4, 3, 'Simmer with tomato sauce for 30 minutes.', '2025-08-03 19:41:03.108739', '2025-08-03 19:41:03.108739') RETURNING "id" /*action='create_instruction',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:86:in 'RecipesController#create_instruction'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create_instruction',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:86:in 'RecipesController#create_instruction'
+Completed 201 Created in 30ms (Views: 1.1ms | ActiveRecord: 6.9ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/recipes/4/instructions" for ::1 at 2025-08-03 14:41:10 -0500
+Processing by RecipesController#instructions as */*
+  Parameters: {"instruction" => {"step_number" => 3, "step_content" => "Simmer with tomato sauce for 30 minutes."}, "id" => "4", "recipe" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1 /*action='instructions',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/application_controller.rb:10:in 'ApplicationController#authenticate_request'
+  [1m[36mRecipe Load (0.8ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 3 AND "recipes"."id" = 4 LIMIT 1 /*action='instructions',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:79:in 'RecipesController#instructions'
+  [1m[36mInstruction Load (0.2ms)[0m  [1m[34mSELECT "instructions".* FROM "instructions" WHERE "instructions"."recipe_id" = 4 /*action='instructions',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:80:in 'RecipesController#instructions'
+Completed 200 OK in 12ms (Views: 3.3ms | ActiveRecord: 1.2ms (3 queries, 0 cached) | GC: 0.9ms)
+
+
+Started PATCH "/recipes/4/instructions/3" for ::1 at 2025-08-03 14:41:25 -0500
+Processing by RecipesController#update_instruction as */*
+  Parameters: {"instruction" => {"step_number" => 2, "step_content" => "Fix the garlic instruction"}, "recipe_id" => "4", "instruction_id" => "3", "recipe" => {}}
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started PATCH "/recipes/4/instructions/3" for ::1 at 2025-08-03 14:41:30 -0500
+Processing by RecipesController#update_instruction as */*
+  Parameters: {"instruction" => {"step_number" => 2, "step_content" => "Fix the garlic instruction"}, "recipe_id" => "4", "instruction_id" => "3", "recipe" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1 /*action='update_instruction',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/application_controller.rb:10:in 'ApplicationController#authenticate_request'
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 3 AND "recipes"."id" = 4 LIMIT 1 /*action='update_instruction',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:94:in 'RecipesController#update_instruction'
+  [1m[36mInstruction Load (0.1ms)[0m  [1m[34mSELECT "instructions".* FROM "instructions" WHERE "instructions"."recipe_id" = 4 AND "instructions"."id" = 3 LIMIT 1 /*action='update_instruction',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:95:in 'RecipesController#update_instruction'
+Completed 404 Not Found in 9ms (ActiveRecord: 0.5ms (3 queries, 0 cached) | GC: 1.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Instruction with 'id'=3 [WHERE "instructions"."recipe_id" = ?]):
+  
+app/controllers/recipes_controller.rb:95:in 'RecipesController#update_instruction'
+Started PATCH "/recipes/4/instructions/2" for ::1 at 2025-08-03 14:41:45 -0500
+Processing by RecipesController#update_instruction as */*
+  Parameters: {"instruction" => {"step_number" => 2, "step_content" => "Fix the garlic instruction"}, "recipe_id" => "4", "instruction_id" => "2", "recipe" => {}}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1 /*action='update_instruction',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/application_controller.rb:10:in 'ApplicationController#authenticate_request'
+  [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 3 AND "recipes"."id" = 4 LIMIT 1 /*action='update_instruction',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:94:in 'RecipesController#update_instruction'
+  [1m[36mInstruction Load (0.5ms)[0m  [1m[34mSELECT "instructions".* FROM "instructions" WHERE "instructions"."recipe_id" = 4 AND "instructions"."id" = 2 LIMIT 1 /*action='update_instruction',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:95:in 'RecipesController#update_instruction'
+Completed 404 Not Found in 22ms (ActiveRecord: 5.0ms (3 queries, 0 cached) | GC: 2.4ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Instruction with 'id'=2 [WHERE "instructions"."recipe_id" = ?]):
+  
+app/controllers/recipes_controller.rb:95:in 'RecipesController#update_instruction'
+Started DELETE "/recipes/4/instructions/3" for ::1 at 2025-08-03 14:42:12 -0500
+Processing by RecipesController#destroy_instruction as */*
+  Parameters: {"recipe_id" => "4", "instruction_id" => "3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1 /*action='destroy_instruction',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/application_controller.rb:10:in 'ApplicationController#authenticate_request'
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 3 AND "recipes"."id" = 4 LIMIT 1 /*action='destroy_instruction',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:104:in 'RecipesController#destroy_instruction'
+  [1m[36mInstruction Load (0.1ms)[0m  [1m[34mSELECT "instructions".* FROM "instructions" WHERE "instructions"."recipe_id" = 4 AND "instructions"."id" = 3 LIMIT 1 /*action='destroy_instruction',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:105:in 'RecipesController#destroy_instruction'
+Completed 404 Not Found in 14ms (ActiveRecord: 0.6ms (3 queries, 0 cached) | GC: 5.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Instruction with 'id'=3 [WHERE "instructions"."recipe_id" = ?]):
+  
+app/controllers/recipes_controller.rb:105:in 'RecipesController#destroy_instruction'
+Started POST "/recipes/4/ingredient_lists" for ::1 at 2025-08-03 14:43:06 -0500
+Processing by RecipesController#create_ingredient_list as */*
+  Parameters: {"ingredient_list" => {"metric_qty" => 300, "metric_unit" => "ml", "imperial_qty" => 10.1, "imperial_unit" => "fl oz", "ingredient_attributes" => {"ingredient" => "Vegetable broth"}}, "id" => "4", "recipe" => {}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1 /*action='create_ingredient_list',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/application_controller.rb:10:in 'ApplicationController#authenticate_request'
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 3 AND "recipes"."id" = 4 LIMIT 1 /*action='create_ingredient_list',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:118:in 'RecipesController#create_ingredient_list'
+  [1m[36mIngredient Load (0.5ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE (lower(ingredient) = 'vegetable broth') ORDER BY "ingredients"."id" ASC LIMIT 1 /*action='create_ingredient_list',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:124:in 'RecipesController#create_ingredient_list'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create_ingredient_list',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:130:in 'RecipesController#create_ingredient_list'
+  [1m[36mIngredient Load (1.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 5 LIMIT 1 /*action='create_ingredient_list',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:130:in 'RecipesController#create_ingredient_list'
+  [1m[36mIngredientList Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredient_lists" ("ingredient_id", "recipe_id", "metric_qty", "metric_unit", "imperial_qty", "imperial_unit", "created_at", "updated_at") VALUES (5, 4, 300.0, 'ml', 10.1, 'fl oz', '2025-08-03 19:43:06.065267', '2025-08-03 19:43:06.065267') RETURNING "id" /*action='create_ingredient_list',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:130:in 'RecipesController#create_ingredient_list'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create_ingredient_list',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:130:in 'RecipesController#create_ingredient_list'
+Completed 201 Created in 29ms (Views: 0.2ms | ActiveRecord: 3.3ms (5 queries, 0 cached) | GC: 0.0ms)
+
+
+Started PATCH "/recipes/4/ingredient_lists/10" for ::1 at 2025-08-03 14:43:30 -0500
+Processing by RecipesController#update_ingredient_list as */*
+  Parameters: {"ingredient_list" => {"metric_qty" => 350, "imperial_qty" => 12}, "recipe_id" => "4", "ingredient_list_id" => "10", "recipe" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1 /*action='update_ingredient_list',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/application_controller.rb:10:in 'ApplicationController#authenticate_request'
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 3 AND "recipes"."id" = 4 LIMIT 1 /*action='update_ingredient_list',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:138:in 'RecipesController#update_ingredient_list'
+  [1m[36mIngredientList Load (0.1ms)[0m  [1m[34mSELECT "ingredient_lists".* FROM "ingredient_lists" WHERE "ingredient_lists"."recipe_id" = 4 AND "ingredient_lists"."id" = 10 LIMIT 1 /*action='update_ingredient_list',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:139:in 'RecipesController#update_ingredient_list'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='update_ingredient_list',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:140:in 'RecipesController#update_ingredient_list'
+  [1m[36mIngredientList Update (2.7ms)[0m  [1m[33mUPDATE "ingredient_lists" SET "metric_qty" = 350.0, "imperial_qty" = 12.0, "updated_at" = '2025-08-03 19:43:30.210112' WHERE "ingredient_lists"."id" = 10 /*action='update_ingredient_list',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:140:in 'RecipesController#update_ingredient_list'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='update_ingredient_list',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:140:in 'RecipesController#update_ingredient_list'
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 3.2ms (4 queries, 0 cached) | GC: 2.3ms)
+
+
+Started DELETE "/recipes/4/ingredients/10" for ::1 at 2025-08-03 14:43:45 -0500
+  
+ActionController::RoutingError (No route matches [DELETE] "/recipes/4/ingredients/10"):
+  
+Started DELETE "/recipes/4/ingredients/10" for ::1 at 2025-08-03 14:43:58 -0500
+  
+ActionController::RoutingError (No route matches [DELETE] "/recipes/4/ingredients/10"):
+  
+Started DELETE "/recipes/4/ingredient_lists/10" for ::1 at 2025-08-03 14:44:21 -0500
+Processing by RecipesController#destroy_ingredient_list as */*
+  Parameters: {"recipe_id" => "4", "ingredient_list_id" => "10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1 /*action='destroy_ingredient_list',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/application_controller.rb:10:in 'ApplicationController#authenticate_request'
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 3 AND "recipes"."id" = 4 LIMIT 1 /*action='destroy_ingredient_list',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:148:in 'RecipesController#destroy_ingredient_list'
+  [1m[36mIngredientList Load (0.1ms)[0m  [1m[34mSELECT "ingredient_lists".* FROM "ingredient_lists" WHERE "ingredient_lists"."recipe_id" = 4 AND "ingredient_lists"."id" = 10 LIMIT 1 /*action='destroy_ingredient_list',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:149:in 'RecipesController#destroy_ingredient_list'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='destroy_ingredient_list',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:150:in 'RecipesController#destroy_ingredient_list'
+  [1m[36mIngredientList Destroy (1.1ms)[0m  [1m[31mDELETE FROM "ingredient_lists" WHERE "ingredient_lists"."id" = 10 /*action='destroy_ingredient_list',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:150:in 'RecipesController#destroy_ingredient_list'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='destroy_ingredient_list',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:150:in 'RecipesController#destroy_ingredient_list'
+Completed 204 No Content in 8ms (ActiveRecord: 1.7ms (4 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/3" for ::1 at 2025-08-03 14:45:19 -0500
+Processing by UsersController#show as */*
+  Parameters: {"id" => "3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1 /*action='show',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:10:in 'ApplicationController#authenticate_request'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:5:in 'UsersController#show'
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.2ms (2 queries, 1 cached) | GC: 0.0ms)
+
+
+Started GET "/recipes" for ::1 at 2025-08-03 14:45:54 -0500
+Processing by RecipesController#index as */*
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/application_controller.rb:10:in 'ApplicationController#authenticate_request'
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 3 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:7:in 'RecipesController#index'
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.8ms (2 queries, 0 cached) | GC: 0.4ms)
+
+
+  
+ActiveRecord::AssociationNotFoundError (Association named 'labels' was not found on Recipe; perhaps you misspelled it?):
+  
+app/controllers/recipes_controller.rb:7:in 'RecipesController#index'
+Started DELETE "/recipes/4/instruction/3" for ::1 at 2025-08-03 14:46:20 -0500
+  
+ActionController::RoutingError (No route matches [DELETE] "/recipes/4/instruction/3"):
+  
+Started DELETE "/recipes/4/instructions/3" for ::1 at 2025-08-03 14:46:25 -0500
+Processing by RecipesController#destroy_instruction as */*
+  Parameters: {"recipe_id" => "4", "instruction_id" => "3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1 /*action='destroy_instruction',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/application_controller.rb:10:in 'ApplicationController#authenticate_request'
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 3 AND "recipes"."id" = 4 LIMIT 1 /*action='destroy_instruction',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:104:in 'RecipesController#destroy_instruction'
+  [1m[36mInstruction Load (0.1ms)[0m  [1m[34mSELECT "instructions".* FROM "instructions" WHERE "instructions"."recipe_id" = 4 AND "instructions"."id" = 3 LIMIT 1 /*action='destroy_instruction',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:105:in 'RecipesController#destroy_instruction'
+Completed 404 Not Found in 11ms (ActiveRecord: 0.5ms (3 queries, 0 cached) | GC: 3.3ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Instruction with 'id'=3 [WHERE "instructions"."recipe_id" = ?]):
+  
+app/controllers/recipes_controller.rb:105:in 'RecipesController#destroy_instruction'
+Started GET "/recipes/4/labels" for ::1 at 2025-08-03 14:46:52 -0500
+Processing by RecipesController#show_labels as */*
+  Parameters: {"id" => "4"}
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/recipes/4/labels" for ::1 at 2025-08-03 14:46:56 -0500
+Processing by RecipesController#show_labels as */*
+  Parameters: {"id" => "4"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1 /*action='show_labels',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/application_controller.rb:10:in 'ApplicationController#authenticate_request'
+  [1m[36mRecipe Load (0.7ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 3 AND "recipes"."id" = 4 LIMIT 1 /*action='show_labels',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:157:in 'RecipesController#show_labels'
+  [1m[36mLabel Load (0.9ms)[0m  [1m[34mSELECT "labels".* FROM "labels" WHERE "labels"."recipe_id" = 4 LIMIT 1 /*action='show_labels',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:158:in 'RecipesController#show_labels'
+Completed 200 OK in 17ms (Views: 1.1ms | ActiveRecord: 1.8ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started PATCH "/recipes/4/labels" for ::1 at 2025-08-03 14:47:21 -0500
+Processing by RecipesController#update_labels as */*
+  Parameters: {"label" => {"vegetarian" => true, "vegan" => false, "gluten_free" => true, "dairy_free" => false}, "id" => "4", "recipe" => {}}
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1 /*action='update_labels',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/application_controller.rb:10:in 'ApplicationController#authenticate_request'
+  [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 3 AND "recipes"."id" = 4 LIMIT 1 /*action='update_labels',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:162:in 'RecipesController#update_labels'
+  [1m[36mLabel Load (0.4ms)[0m  [1m[34mSELECT "labels".* FROM "labels" WHERE "labels"."recipe_id" = 4 LIMIT 1 /*action='update_labels',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:163:in 'RecipesController#update_labels'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='update_labels',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:165:in 'RecipesController#update_labels'
+  [1m[36mLabel Update (4.4ms)[0m  [1m[33mUPDATE "labels" SET "vegetarian" = 1, "dairy_free" = 0, "updated_at" = '2025-08-03 19:47:21.421177' WHERE "labels"."id" = 3 /*action='update_labels',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:165:in 'RecipesController#update_labels'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='update_labels',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:165:in 'RecipesController#update_labels'
+Completed 200 OK in 34ms (Views: 0.6ms | ActiveRecord: 6.5ms (4 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/recipes/4" for ::1 at 2025-08-03 15:04:16 -0500
+Processing by RecipesController#show as */*
+  Parameters: {"id" => "4"}
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/application_controller.rb:10:in 'ApplicationController#authenticate_request'
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 3 AND "recipes"."id" = 4 LIMIT 1 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:176:in 'RecipesController#set_recipe'
+  [1m[36mIngredientList Load (0.1ms)[0m  [1m[34mSELECT "ingredient_lists".* FROM "ingredient_lists" WHERE "ingredient_lists"."recipe_id" = 4 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:22:in 'Enumerable#map'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 6 LIMIT 1 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:30:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 7 LIMIT 1 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:30:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mInstruction Load (0.1ms)[0m  [1m[34mSELECT "instructions".* FROM "instructions" WHERE "instructions"."recipe_id" = 4 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:12:in 'Enumerable#map'
+  [1m[36mLabel Load (0.1ms)[0m  [1m[34mSELECT "labels".* FROM "labels" WHERE "labels"."recipe_id" = 4 LIMIT 1 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:38:in 'block (2 levels) in <class:RecipeBlueprint>'
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 3.2ms (7 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/recipes/4/instructions" for ::1 at 2025-08-03 15:04:49 -0500
+Processing by RecipesController#instructions as */*
+  Parameters: {"instruction" => {"step_number" => 3, "step_content" => "Simmer with tomato sauce for 30 minutes."}, "id" => "4", "recipe" => {}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1 /*action='instructions',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/application_controller.rb:10:in 'ApplicationController#authenticate_request'
+  [1m[36mRecipe Load (1.7ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 3 AND "recipes"."id" = 4 LIMIT 1 /*action='instructions',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:79:in 'RecipesController#instructions'
+  [1m[36mInstruction Load (0.5ms)[0m  [1m[34mSELECT "instructions".* FROM "instructions" WHERE "instructions"."recipe_id" = 4 /*action='instructions',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:80:in 'RecipesController#instructions'
+Completed 200 OK in 17ms (Views: 6.4ms | ActiveRecord: 2.7ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started PATCH "/recipes/4/instructions/11" for ::1 at 2025-08-03 15:05:00 -0500
+Processing by RecipesController#update_instruction as */*
+  Parameters: {"instruction" => {"step_number" => 2, "step_content" => "Fix the garlic instruction"}, "recipe_id" => "4", "instruction_id" => "11", "recipe" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1 /*action='update_instruction',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/application_controller.rb:10:in 'ApplicationController#authenticate_request'
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 3 AND "recipes"."id" = 4 LIMIT 1 /*action='update_instruction',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:94:in 'RecipesController#update_instruction'
+  [1m[36mInstruction Load (0.1ms)[0m  [1m[34mSELECT "instructions".* FROM "instructions" WHERE "instructions"."recipe_id" = 4 AND "instructions"."id" = 11 LIMIT 1 /*action='update_instruction',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:95:in 'RecipesController#update_instruction'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='update_instruction',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:96:in 'RecipesController#update_instruction'
+  [1m[36mInstruction Update (1.3ms)[0m  [1m[33mUPDATE "instructions" SET "step_number" = 2, "step_content" = 'Fix the garlic instruction', "updated_at" = '2025-08-03 20:05:00.269771' WHERE "instructions"."id" = 11 /*action='update_instruction',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:96:in 'RecipesController#update_instruction'
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='update_instruction',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:96:in 'RecipesController#update_instruction'
+Completed 200 OK in 15ms (Views: 0.2ms | ActiveRecord: 4.9ms (4 queries, 0 cached) | GC: 1.7ms)
+
+
+Started DELETE "/recipes/4/instructions/11" for ::1 at 2025-08-03 15:05:09 -0500
+Processing by RecipesController#destroy_instruction as */*
+  Parameters: {"recipe_id" => "4", "instruction_id" => "11"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1 /*action='destroy_instruction',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/application_controller.rb:10:in 'ApplicationController#authenticate_request'
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 3 AND "recipes"."id" = 4 LIMIT 1 /*action='destroy_instruction',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:104:in 'RecipesController#destroy_instruction'
+  [1m[36mInstruction Load (0.9ms)[0m  [1m[34mSELECT "instructions".* FROM "instructions" WHERE "instructions"."recipe_id" = 4 AND "instructions"."id" = 11 LIMIT 1 /*action='destroy_instruction',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:105:in 'RecipesController#destroy_instruction'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='destroy_instruction',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:106:in 'RecipesController#destroy_instruction'
+  [1m[36mInstruction Destroy (0.5ms)[0m  [1m[31mDELETE FROM "instructions" WHERE "instructions"."id" = 11 /*action='destroy_instruction',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:106:in 'RecipesController#destroy_instruction'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='destroy_instruction',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:106:in 'RecipesController#destroy_instruction'
+Completed 204 No Content in 5ms (ActiveRecord: 1.7ms (4 queries, 0 cached) | GC: 0.9ms)
+
+
+Started GET "/recipes/4" for ::1 at 2025-08-03 15:11:21 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RecipeManagerApi'*/[0m
+Processing by RecipesController#show as */*
+  Parameters: {"id" => "4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/application_controller.rb:10:in 'ApplicationController#authenticate_request'
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 3 AND "recipes"."id" = 4 LIMIT 1 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:176:in 'RecipesController#set_recipe'
+  [1m[36mIngredientList Load (0.1ms)[0m  [1m[34mSELECT "ingredient_lists".* FROM "ingredient_lists" WHERE "ingredient_lists"."recipe_id" = 4 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:22:in 'Enumerable#map'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 6 LIMIT 1 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:30:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 7 LIMIT 1 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:30:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mInstruction Load (0.1ms)[0m  [1m[34mSELECT "instructions".* FROM "instructions" WHERE "instructions"."recipe_id" = 4 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:12:in 'Enumerable#map'
+  [1m[36mLabel Load (0.1ms)[0m  [1m[34mSELECT "labels".* FROM "labels" WHERE "labels"."recipe_id" = 4 LIMIT 1 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:38:in 'block (2 levels) in <class:RecipeBlueprint>'
+Completed 200 OK in 84ms (Views: 0.2ms | ActiveRecord: 2.9ms (7 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/recipes" for ::1 at 2025-08-03 15:11:26 -0500
+Processing by RecipesController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/application_controller.rb:10:in 'ApplicationController#authenticate_request'
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 3 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:7:in 'RecipesController#index'
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActiveRecord::AssociationNotFoundError (Association named 'labels' was not found on Recipe; perhaps you misspelled it?):
+  
+app/controllers/recipes_controller.rb:7:in 'RecipesController#index'
+Started GET "/recipes" for ::1 at 2025-08-03 15:13:08 -0500
+Processing by RecipesController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/application_controller.rb:10:in 'ApplicationController#authenticate_request'
+Completed 200 OK in 15ms (Views: 0.1ms | ActiveRecord: 2.2ms (1 query, 0 cached) | GC: 0.1ms)
+
+
+Started GET "/recipes" for ::1 at 2025-08-03 15:13:14 -0500
+Processing by RecipesController#index as */*
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/application_controller.rb:10:in 'ApplicationController#authenticate_request'
+Completed 200 OK in 9ms (Views: 0.6ms | ActiveRecord: 1.1ms (1 query, 0 cached) | GC: 0.5ms)
+
+
+Started GET "/recipes" for ::1 at 2025-08-03 15:15:05 -0500
+Processing by RecipesController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/application_controller.rb:10:in 'ApplicationController#authenticate_request'
+Completed 204 No Content in 6ms (ActiveRecord: 0.7ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/recipes/4" for ::1 at 2025-08-03 15:15:24 -0500
+Processing by RecipesController#show as */*
+  Parameters: {"id" => "4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/application_controller.rb:10:in 'ApplicationController#authenticate_request'
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 3 AND "recipes"."id" = 4 LIMIT 1 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:181:in 'RecipesController#set_recipe'
+  [1m[36mIngredientList Load (0.3ms)[0m  [1m[34mSELECT "ingredient_lists".* FROM "ingredient_lists" WHERE "ingredient_lists"."recipe_id" = 4 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:22:in 'Enumerable#map'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 6 LIMIT 1 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:30:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 7 LIMIT 1 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:30:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mInstruction Load (0.1ms)[0m  [1m[34mSELECT "instructions".* FROM "instructions" WHERE "instructions"."recipe_id" = 4 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:12:in 'Enumerable#map'
+  [1m[36mLabel Load (0.1ms)[0m  [1m[34mSELECT "labels".* FROM "labels" WHERE "labels"."recipe_id" = 4 LIMIT 1 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:38:in 'block (2 levels) in <class:RecipeBlueprint>'
+Completed 200 OK in 49ms (Views: 0.1ms | ActiveRecord: 2.4ms (7 queries, 0 cached) | GC: 10.3ms)
+
+
+Started GET "/recipes" for ::1 at 2025-08-03 15:16:45 -0500
+Processing by RecipesController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/application_controller.rb:10:in 'ApplicationController#authenticate_request'
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 3 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:10:in 'RecipesController#index'
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 1.1ms (2 queries, 0 cached) | GC: 0.6ms)
+
+
+  
+ActiveRecord::AssociationNotFoundError (Association named 'labels' was not found on Recipe; perhaps you misspelled it?):
+  
+app/controllers/recipes_controller.rb:10:in 'RecipesController#index'
+Started GET "/recipes" for ::1 at 2025-08-03 15:19:15 -0500
+Processing by RecipesController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/application_controller.rb:10:in 'ApplicationController#authenticate_request'
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 3 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:10:in 'RecipesController#index'
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.4ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActiveRecord::AssociationNotFoundError (Association named 'labels' was not found on Recipe; perhaps you misspelled it?):
+  
+app/controllers/recipes_controller.rb:10:in 'RecipesController#index'
+Started GET "/recipes" for ::1 at 2025-08-03 15:21:00 -0500
+Processing by RecipesController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/application_controller.rb:10:in 'ApplicationController#authenticate_request'
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 3 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:10:in 'RecipesController#index'
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 1.4ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActiveRecord::AssociationNotFoundError (Association named 'labels' was not found on Recipe; perhaps you misspelled it?):
+  
+app/controllers/recipes_controller.rb:10:in 'RecipesController#index'
+Started GET "/recipes/4" for ::1 at 2025-08-03 15:21:04 -0500
+Processing by RecipesController#show as */*
+  Parameters: {"id" => "4"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/application_controller.rb:10:in 'ApplicationController#authenticate_request'
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 3 AND "recipes"."id" = 4 LIMIT 1 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:179:in 'RecipesController#set_recipe'
+  [1m[36mIngredientList Load (0.1ms)[0m  [1m[34mSELECT "ingredient_lists".* FROM "ingredient_lists" WHERE "ingredient_lists"."recipe_id" = 4 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:22:in 'Enumerable#map'
+  [1m[36mIngredient Load (0.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 6 LIMIT 1 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:29:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 7 LIMIT 1 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:29:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mInstruction Load (0.1ms)[0m  [1m[34mSELECT "instructions".* FROM "instructions" WHERE "instructions"."recipe_id" = 4 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:12:in 'Enumerable#map'
+  [1m[36mLabel Load (0.1ms)[0m  [1m[34mSELECT "labels".* FROM "labels" WHERE "labels"."recipe_id" = 4 LIMIT 1 /*action='show',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:38:in 'block (2 levels) in <class:RecipeBlueprint>'
+Completed 200 OK in 54ms (Views: 0.1ms | ActiveRecord: 2.4ms (7 queries, 0 cached) | GC: 7.8ms)
+
+
+Started GET "/recipes" for ::1 at 2025-08-03 15:22:43 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RecipeManagerApi'*/[0m
+Processing by RecipesController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/application_controller.rb:10:in 'ApplicationController#authenticate_request'
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 3 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:10:in 'RecipesController#index'
+Completed 500 Internal Server Error in 56ms (ActiveRecord: 2.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActiveRecord::AssociationNotFoundError (Association named 'labels' was not found on Recipe; perhaps you misspelled it?):
+  
+app/controllers/recipes_controller.rb:10:in 'RecipesController#index'
+  [1m[36mUser Load (6.3ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for pp */ LIMIT 11 /*application='RecipeManagerApi'*/[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 3 /* loading for pp */ LIMIT 11 /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredientList Load (0.1ms)[0m  [1m[34mSELECT "ingredient_lists".* FROM "ingredient_lists" WHERE "ingredient_lists"."recipe_id" = 4 /*application='RecipeManagerApi'*/[0m
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 3 /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredientList Load (0.1ms)[0m  [1m[34mSELECT "ingredient_lists".* FROM "ingredient_lists" WHERE "ingredient_lists"."recipe_id" = 4 /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 6 LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 7 LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredientList Load (0.8ms)[0m  [1m[34mSELECT "ingredient_lists".* FROM "ingredient_lists" WHERE "ingredient_lists"."recipe_id" IN (1, 2, 4) /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 1 LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 2 LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 3 LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 3 LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredient Load (0.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 3 LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 4 LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredient Load (0.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 5 LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredient Load (0.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 6 LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredient Load (0.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 7 LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" /*application='RecipeManagerApi'*/[0m
+  [1m[36mLabel Load (0.1ms)[0m  [1m[34mSELECT "labels".* FROM "labels" WHERE "labels"."recipe_id" IN (1, 2, 4) /*application='RecipeManagerApi'*/[0m
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 2 /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mInstruction Load (0.1ms)[0m  [1m[34mSELECT "instructions".* FROM "instructions" WHERE "instructions"."recipe_id" = 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mInstruction Destroy (0.4ms)[0m  [1m[31mDELETE FROM "instructions" WHERE "instructions"."id" = 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mInstruction Destroy (0.1ms)[0m  [1m[31mDELETE FROM "instructions" WHERE "instructions"."id" = 2 /*application='RecipeManagerApi'*/[0m
+  [1m[36mInstruction Destroy (0.0ms)[0m  [1m[31mDELETE FROM "instructions" WHERE "instructions"."id" = 3 /*application='RecipeManagerApi'*/[0m
+  [1m[36mInstruction Destroy (0.0ms)[0m  [1m[31mDELETE FROM "instructions" WHERE "instructions"."id" = 4 /*application='RecipeManagerApi'*/[0m
+  [1m[36mInstruction Destroy (0.0ms)[0m  [1m[31mDELETE FROM "instructions" WHERE "instructions"."id" = 5 /*application='RecipeManagerApi'*/[0m
+  [1m[36mInstruction Destroy (0.1ms)[0m  [1m[31mDELETE FROM "instructions" WHERE "instructions"."id" = 6 /*application='RecipeManagerApi'*/[0m
+  [1m[36mInstruction Destroy (0.0ms)[0m  [1m[31mDELETE FROM "instructions" WHERE "instructions"."id" = 7 /*application='RecipeManagerApi'*/[0m
+  [1m[36mLabel Load (0.1ms)[0m  [1m[34mSELECT "labels".* FROM "labels" WHERE "labels"."recipe_id" = 1 LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mRecipe Destroy (0.3ms)[0m  [1m[31mDELETE FROM "recipes" WHERE "recipes"."id" = 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" ORDER BY "recipes"."id" ASC LIMIT 1000 /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredientList Load (0.2ms)[0m  [1m[34mSELECT "ingredient_lists".* FROM "ingredient_lists" WHERE "ingredient_lists"."recipe_id" IN (1, 2, 4) /*application='RecipeManagerApi'*/[0m
+  [1m[36mLabel Load (0.1ms)[0m  [1m[34mSELECT "labels".* FROM "labels" WHERE "labels"."recipe_id" IN (1, 2, 4) /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 1 LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 2 LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 3 LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredient Load (0.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 3 LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredient Load (0.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 3 LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mInstruction Load (0.0ms)[0m  [1m[34mSELECT "instructions".* FROM "instructions" WHERE "instructions"."recipe_id" = 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mInstruction Destroy (0.0ms)[0m  [1m[31mDELETE FROM "instructions" WHERE "instructions"."id" = 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mInstruction Destroy (0.0ms)[0m  [1m[31mDELETE FROM "instructions" WHERE "instructions"."id" = 2 /*application='RecipeManagerApi'*/[0m
+  [1m[36mInstruction Destroy (0.0ms)[0m  [1m[31mDELETE FROM "instructions" WHERE "instructions"."id" = 3 /*application='RecipeManagerApi'*/[0m
+  [1m[36mInstruction Destroy (0.0ms)[0m  [1m[31mDELETE FROM "instructions" WHERE "instructions"."id" = 4 /*application='RecipeManagerApi'*/[0m
+  [1m[36mInstruction Destroy (0.0ms)[0m  [1m[31mDELETE FROM "instructions" WHERE "instructions"."id" = 5 /*application='RecipeManagerApi'*/[0m
+  [1m[36mInstruction Destroy (0.0ms)[0m  [1m[31mDELETE FROM "instructions" WHERE "instructions"."id" = 6 /*application='RecipeManagerApi'*/[0m
+  [1m[36mInstruction Destroy (0.0ms)[0m  [1m[31mDELETE FROM "instructions" WHERE "instructions"."id" = 7 /*application='RecipeManagerApi'*/[0m
+  [1m[36mRecipe Destroy (0.2ms)[0m  [1m[31mDELETE FROM "recipes" WHERE "recipes"."id" = 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" ORDER BY "recipes"."id" ASC LIMIT 1000 /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredientList Load (0.2ms)[0m  [1m[34mSELECT "ingredient_lists".* FROM "ingredient_lists" WHERE "ingredient_lists"."recipe_id" IN (1, 2, 4) /*application='RecipeManagerApi'*/[0m
+  [1m[36mLabel Load (0.1ms)[0m  [1m[34mSELECT "labels".* FROM "labels" WHERE "labels"."recipe_id" IN (1, 2, 4) /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 1 LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredient Load (0.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 2 LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredient Load (0.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 3 LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredient Load (0.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 3 LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredient Load (0.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 3 LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mInstruction Load (0.1ms)[0m  [1m[34mSELECT "instructions".* FROM "instructions" WHERE "instructions"."recipe_id" = 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mInstruction Destroy (0.1ms)[0m  [1m[31mDELETE FROM "instructions" WHERE "instructions"."id" = 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mInstruction Destroy (0.0ms)[0m  [1m[31mDELETE FROM "instructions" WHERE "instructions"."id" = 2 /*application='RecipeManagerApi'*/[0m
+  [1m[36mInstruction Destroy (0.0ms)[0m  [1m[31mDELETE FROM "instructions" WHERE "instructions"."id" = 3 /*application='RecipeManagerApi'*/[0m
+  [1m[36mInstruction Destroy (0.0ms)[0m  [1m[31mDELETE FROM "instructions" WHERE "instructions"."id" = 4 /*application='RecipeManagerApi'*/[0m
+  [1m[36mInstruction Destroy (0.0ms)[0m  [1m[31mDELETE FROM "instructions" WHERE "instructions"."id" = 5 /*application='RecipeManagerApi'*/[0m
+  [1m[36mInstruction Destroy (0.0ms)[0m  [1m[31mDELETE FROM "instructions" WHERE "instructions"."id" = 6 /*application='RecipeManagerApi'*/[0m
+  [1m[36mInstruction Destroy (0.0ms)[0m  [1m[31mDELETE FROM "instructions" WHERE "instructions"."id" = 7 /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredientList Destroy (0.0ms)[0m  [1m[31mDELETE FROM "ingredient_lists" WHERE "ingredient_lists"."id" = 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredientList Destroy (0.0ms)[0m  [1m[31mDELETE FROM "ingredient_lists" WHERE "ingredient_lists"."id" = 2 /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredientList Destroy (0.0ms)[0m  [1m[31mDELETE FROM "ingredient_lists" WHERE "ingredient_lists"."id" = 3 /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredientList Destroy (0.0ms)[0m  [1m[31mDELETE FROM "ingredient_lists" WHERE "ingredient_lists"."id" = 4 /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredientList Destroy (0.0ms)[0m  [1m[31mDELETE FROM "ingredient_lists" WHERE "ingredient_lists"."id" = 5 /*application='RecipeManagerApi'*/[0m
+  [1m[36mRecipe Destroy (0.0ms)[0m  [1m[31mDELETE FROM "recipes" WHERE "recipes"."id" = 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 4 LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 5 LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredient Load (0.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 6 LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredient Load (0.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 7 LIMIT 1 /*application='RecipeManagerApi'*/[0m
+Started GET "/recipes" for ::1 at 2025-08-03 17:12:34 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RecipeManagerApi'*/[0m
+Processing by RecipesController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/application_controller.rb:10:in 'ApplicationController#authenticate_request'
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 3 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:10:in 'RecipesController#index'
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 1.5ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActiveRecord::AssociationNotFoundError (Association named 'labels' was not found on Recipe; perhaps you misspelled it?):
+  
+app/controllers/recipes_controller.rb:10:in 'RecipesController#index'
+Started POST "/login" for ::1 at 2025-08-03 17:13:20 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'aline@example.com' LIMIT 1 /*action='create',application='RecipeManagerApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:3:in 'SessionsController#create'
+Completed 200 OK in 197ms (Views: 0.2ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 1.4ms)
+
+
+Started GET "/recipes" for ::1 at 2025-08-03 17:13:40 -0500
+Processing by RecipesController#index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/application_controller.rb:10:in 'ApplicationController#authenticate_request'
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 3 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:10:in 'RecipesController#index'
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.7ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActiveRecord::AssociationNotFoundError (Association named 'labels' was not found on Recipe; perhaps you misspelled it?):
+  
+app/controllers/recipes_controller.rb:10:in 'RecipesController#index'
+  [1m[36mRecipe Load (1.8ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" /*application='RecipeManagerApi'*/[0m
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" ORDER BY "recipes"."id" ASC LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredientList Count (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "ingredient_lists" WHERE "ingredient_lists"."recipe_id" = 2 /*application='RecipeManagerApi'*/[0m
+  [1m[36mInstruction Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "instructions" WHERE "instructions"."recipe_id" = 2 /*application='RecipeManagerApi'*/[0m
+  [1m[36mLabel Load (0.1ms)[0m  [1m[34mSELECT "labels".* FROM "labels" WHERE "labels"."recipe_id" = 2 LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = 4 LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredientList Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "ingredient_lists" WHERE "ingredient_lists"."recipe_id" = 4 /*application='RecipeManagerApi'*/[0m
+  [1m[36mInstruction Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "instructions" WHERE "instructions"."recipe_id" = 4 /*application='RecipeManagerApi'*/[0m
+  [1m[36mLabel Load (0.1ms)[0m  [1m[34mSELECT "labels".* FROM "labels" WHERE "labels"."recipe_id" = 4 LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1 /*application='RecipeManagerApi'*/[0m
+Started GET "/recipes" for ::1 at 2025-08-03 17:18:42 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RecipeManagerApi'*/[0m
+Processing by RecipesController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/application_controller.rb:10:in 'ApplicationController#authenticate_request'
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 3 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:10:in 'RecipesController#index'
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 1.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActiveRecord::AssociationNotFoundError (Association named 'labels' was not found on Recipe; perhaps you misspelled it?):
+  
+app/controllers/recipes_controller.rb:10:in 'RecipesController#index'
+Started GET "/recipes" for ::1 at 2025-08-03 17:26:43 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RecipeManagerApi'*/[0m
+Processing by RecipesController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/application_controller.rb:10:in 'ApplicationController#authenticate_request'
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 3 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:7:in 'RecipesController#index'
+  [1m[36mLabel Load (0.1ms)[0m  [1m[34mSELECT "labels".* FROM "labels" WHERE "labels"."recipe_id" = 4 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:7:in 'RecipesController#index'
+  [1m[36mIngredientList Load (0.2ms)[0m  [1m[34mSELECT "ingredient_lists".* FROM "ingredient_lists" WHERE "ingredient_lists"."recipe_id" = 4 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:7:in 'RecipesController#index'
+  [1m[36mInstruction Load (0.1ms)[0m  [1m[34mSELECT "instructions".* FROM "instructions" WHERE "instructions"."recipe_id" = 4 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:7:in 'RecipesController#index'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 6 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:29:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 7 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:29:in 'block (3 levels) in <class:RecipeBlueprint>'
+Completed 200 OK in 71ms (Views: 0.1ms | ActiveRecord: 2.6ms (7 queries, 0 cached) | GC: 0.0ms)
+
+
