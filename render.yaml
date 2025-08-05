@@ -9,7 +9,7 @@ services:
     name: recipe_manager
     runtime: ruby
     plan: free
-    buildCommand: "recipe_manager_api/bin/render-build.sh"
+    buildCommand: "./bin/render-build.sh"
     # class notes:
     # preDeployCommand: "./bin/rails db:migrate" # preDeployCommand only available on paid instance types
     startCommand: "./bin/rails server"
