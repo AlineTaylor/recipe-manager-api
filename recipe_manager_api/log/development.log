@@ -3450,3 +3450,394 @@ Processing by RecipesController#index as */*
 Completed 200 OK in 71ms (Views: 0.1ms | ActiveRecord: 2.6ms (7 queries, 0 cached) | GC: 0.0ms)
 
 
+Started POST "/login" for ::1 at 2025-08-03 18:40:36 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RecipeManagerApi'*/[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'aline@example.com' LIMIT 1 /*action='create',application='RecipeManagerApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:3:in 'SessionsController#create'
+Completed 200 OK in 188ms (Views: 0.2ms | ActiveRecord: 1.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2025-08-03 18:40:41 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'aline@example.com' LIMIT 1 /*action='create',application='RecipeManagerApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:3:in 'SessionsController#create'
+Completed 200 OK in 179ms (Views: 0.1ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2025-08-03 18:45:28 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = '' LIMIT 1 /*action='create',application='RecipeManagerApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:3:in 'SessionsController#create'
+Completed 401 Unauthorized in 2ms (Views: 0.1ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2025-08-03 18:45:51 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'aline@example.com' LIMIT 1 /*action='create',application='RecipeManagerApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:3:in 'SessionsController#create'
+Completed 200 OK in 172ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2025-08-03 18:45:53 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'aline@example.com' LIMIT 1 /*action='create',application='RecipeManagerApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:3:in 'SessionsController#create'
+Completed 200 OK in 188ms (Views: 0.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2025-08-03 18:51:49 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'aline@example.com' LIMIT 1 /*action='create',application='RecipeManagerApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:3:in 'SessionsController#create'
+Completed 200 OK in 170ms (Views: 0.1ms | ActiveRecord: 0.9ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2025-08-03 19:03:41 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'aline@example.com' LIMIT 1 /*action='create',application='RecipeManagerApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:3:in 'SessionsController#create'
+Completed 200 OK in 185ms (Views: 0.1ms | ActiveRecord: 0.9ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2025-08-03 19:04:40 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'aline@example.com' LIMIT 1 /*action='create',application='RecipeManagerApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:3:in 'SessionsController#create'
+Completed 200 OK in 174ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2025-08-03 19:06:23 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'aline@example.com' LIMIT 1 /*action='create',application='RecipeManagerApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:3:in 'SessionsController#create'
+Completed 200 OK in 188ms (Views: 0.2ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2025-08-03 19:09:28 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'aline@exmaple.com' LIMIT 1 /*action='create',application='RecipeManagerApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:3:in 'SessionsController#create'
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2025-08-03 19:09:57 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'aline@example.com' LIMIT 1 /*action='create',application='RecipeManagerApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:3:in 'SessionsController#create'
+Completed 200 OK in 184ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2025-08-03 19:11:55 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'aline@example.com' LIMIT 1 /*action='create',application='RecipeManagerApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:3:in 'SessionsController#create'
+Completed 200 OK in 170ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2025-08-03 19:23:09 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'aline@example.com' LIMIT 1 /*action='create',application='RecipeManagerApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:3:in 'SessionsController#create'
+Completed 200 OK in 187ms (Views: 0.2ms | ActiveRecord: 1.9ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2025-08-03 20:01:29 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (7.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'aline@example.com' LIMIT 1 /*action='create',application='RecipeManagerApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:3:in 'SessionsController#create'
+Completed 200 OK in 216ms (Views: 1.1ms | ActiveRecord: 7.7ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2025-08-03 20:41:43 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'aline@example.com' LIMIT 1 /*action='create',application='RecipeManagerApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:3:in 'SessionsController#create'
+Completed 401 Unauthorized in 198ms (Views: 0.5ms | ActiveRecord: 2.0ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2025-08-03 20:41:55 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'aline@example.com' LIMIT 1 /*action='create',application='RecipeManagerApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:3:in 'SessionsController#create'
+Completed 200 OK in 197ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2025-08-03 20:42:34 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'aline@example.com' LIMIT 1 /*action='create',application='RecipeManagerApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:3:in 'SessionsController#create'
+Completed 200 OK in 202ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2025-08-03 20:49:17 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'asdsa' LIMIT 1 /*action='create',application='RecipeManagerApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:3:in 'SessionsController#create'
+Completed 401 Unauthorized in 4ms (Views: 0.2ms | ActiveRecord: 1.8ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2025-08-03 20:50:22 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'saasd' LIMIT 1 /*action='create',application='RecipeManagerApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:3:in 'SessionsController#create'
+Completed 401 Unauthorized in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2025-08-03 20:51:29 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'saasd' LIMIT 1 /*action='create',application='RecipeManagerApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:3:in 'SessionsController#create'
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2025-08-03 20:52:04 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'saasd' LIMIT 1 /*action='create',application='RecipeManagerApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:3:in 'SessionsController#create'
+Completed 401 Unauthorized in 252ms (Views: 0.2ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 251.2ms)
+
+
+Started POST "/login" for ::1 at 2025-08-03 20:52:35 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'saasd' LIMIT 1 /*action='create',application='RecipeManagerApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:3:in 'SessionsController#create'
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2025-08-03 20:57:32 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'sdfsd' LIMIT 1 /*action='create',application='RecipeManagerApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:3:in 'SessionsController#create'
+Completed 401 Unauthorized in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2025-08-03 20:57:54 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'sdfsd' LIMIT 1 /*action='create',application='RecipeManagerApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:3:in 'SessionsController#create'
+Completed 401 Unauthorized in 2ms (Views: 0.1ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2025-08-03 20:58:08 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = '' LIMIT 1 /*action='create',application='RecipeManagerApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:3:in 'SessionsController#create'
+Completed 401 Unauthorized in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2025-08-03 20:58:09 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = '' LIMIT 1 /*action='create',application='RecipeManagerApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:3:in 'SessionsController#create'
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2025-08-03 20:58:24 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = '' LIMIT 1 /*action='create',application='RecipeManagerApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:3:in 'SessionsController#create'
+Completed 401 Unauthorized in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2025-08-03 20:58:46 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'ASRWEA' LIMIT 1 /*action='create',application='RecipeManagerApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:3:in 'SessionsController#create'
+Completed 401 Unauthorized in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2025-08-03 20:58:49 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'ASRWEA' LIMIT 1 /*action='create',application='RecipeManagerApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:3:in 'SessionsController#create'
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2025-08-03 20:58:56 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'WERWE' LIMIT 1 /*action='create',application='RecipeManagerApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:3:in 'SessionsController#create'
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2025-08-03 20:59:11 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = '' LIMIT 1 /*action='create',application='RecipeManagerApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:3:in 'SessionsController#create'
+Completed 401 Unauthorized in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2025-08-03 20:59:46 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = '' LIMIT 1 /*action='create',application='RecipeManagerApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:3:in 'SessionsController#create'
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2025-08-03 20:59:50 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'wweqw' LIMIT 1 /*action='create',application='RecipeManagerApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:3:in 'SessionsController#create'
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2025-08-03 21:03:55 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = '' LIMIT 1 /*action='create',application='RecipeManagerApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:3:in 'SessionsController#create'
+Completed 401 Unauthorized in 2ms (Views: 0.2ms | ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2025-08-03 21:05:13 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = '' LIMIT 1 /*action='create',application='RecipeManagerApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:3:in 'SessionsController#create'
+Completed 401 Unauthorized in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2025-08-03 21:05:19 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = '' LIMIT 1 /*action='create',application='RecipeManagerApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:3:in 'SessionsController#create'
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2025-08-03 21:05:27 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = '' LIMIT 1 /*action='create',application='RecipeManagerApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:3:in 'SessionsController#create'
+Completed 401 Unauthorized in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2025-08-03 21:14:02 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = '' LIMIT 1 /*action='create',application='RecipeManagerApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:3:in 'SessionsController#create'
+Completed 401 Unauthorized in 8ms (Views: 0.2ms | ActiveRecord: 1.4ms (1 query, 0 cached) | GC: 3.9ms)
+
+
+Started POST "/login" for ::1 at 2025-08-03 21:20:09 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'qwewqew' LIMIT 1 /*action='create',application='RecipeManagerApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:3:in 'SessionsController#create'
+Completed 401 Unauthorized in 4ms (Views: 0.2ms | ActiveRecord: 1.5ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2025-08-03 22:50:58 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "email_confirmation" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "first_name" => "", "last_name" => "", "preferred_system" => "metric", "user" => {"email" => "[FILTERED]", "email_confirmation" => "[FILTERED]", "password" => "[FILTERED]", "first_name" => "", "last_name" => "", "preferred_system" => "metric"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x00007c177f1a6360>, params: {"email" => "[FILTERED]", "email_confirmation" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "first_name" => "", "last_name" => "", "preferred_system" => "metric", "controller" => "users", "action" => "create", "user" => {"email" => "[FILTERED]", "email_confirmation" => "[FILTERED]", "password" => "[FILTERED]", "first_name" => "", "last_name" => "", "preferred_system" => "metric"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:12:in 'UsersController#create'
+  [1m[36mUser Exists? (21.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = '' LIMIT 1 /*action='create',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:12:in 'UsersController#create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK TRANSACTION /*action='create',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:12:in 'UsersController#create'
+Completed 422 Unprocessable Content in 130ms (Views: 0.4ms | ActiveRecord: 22.3ms (1 query, 0 cached) | GC: 60.1ms)
+
+
+Started POST "/users" for ::1 at 2025-08-03 22:58:23 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "email_confirmation" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "first_name" => "Batata", "last_name" => "Palha", "preferred_system" => "metric", "user" => {"email" => "[FILTERED]", "email_confirmation" => "[FILTERED]", "password" => "[FILTERED]", "first_name" => "Batata", "last_name" => "Palha", "preferred_system" => "metric"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x00007c177eb169a0>, params: {"email" => "[FILTERED]", "email_confirmation" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "first_name" => "Batata", "last_name" => "Palha", "preferred_system" => "metric", "controller" => "users", "action" => "create", "user" => {"email" => "[FILTERED]", "email_confirmation" => "[FILTERED]", "password" => "[FILTERED]", "first_name" => "Batata", "last_name" => "Palha", "preferred_system" => "metric"}} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:12:in 'UsersController#create'
+  [1m[36mUser Exists? (17.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'a@b.c' LIMIT 1 /*action='create',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:12:in 'UsersController#create'
+  [1m[36mUser Create (2.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "email_confirmation", "password", "password_digest", "first_name", "last_name", "preferred_system", "created_at", "updated_at") VALUES ('a@b.c', NULL, NULL, '$2a$12$9IQWuae43pOdWBptVoF6o.F8E1rXu9xc3lygy5.BLIE8nFxwRhvAe', 'Batata', 'Palha', 'metric', '2025-08-04 03:58:23.798735', '2025-08-04 03:58:23.798735') RETURNING "id" /*action='create',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:12:in 'UsersController#create'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:12:in 'UsersController#create'
+Completed 201 Created in 287ms (Views: 0.1ms | ActiveRecord: 21.8ms (2 queries, 0 cached) | GC: 34.3ms)
+
+
+Started POST "/login" for ::1 at 2025-08-03 22:58:29 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'a@b.c' LIMIT 1 /*action='create',application='RecipeManagerApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:3:in 'SessionsController#create'
+Completed 200 OK in 203ms (Views: 0.2ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 1.4ms)
+
+
+Started POST "/login" for ::1 at 2025-08-03 23:00:03 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'a@b.c' LIMIT 1 /*action='create',application='RecipeManagerApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:3:in 'SessionsController#create'
+Completed 200 OK in 207ms (Views: 0.2ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2025-08-03 23:17:09 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'a@b.c' LIMIT 1 /*action='create',application='RecipeManagerApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:3:in 'SessionsController#create'
+Completed 200 OK in 195ms (Views: 0.2ms | ActiveRecord: 0.9ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/recipes" for ::1 at 2025-08-04 00:51:37 -0500
+Processing by RecipesController#index as HTML
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 401 Unauthorized in 15ms (Views: 3.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/recipes" for ::1 at 2025-08-04 00:54:59 -0500
+Processing by RecipesController#index as HTML
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2025-08-04 01:04:06 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (16.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'a@b.c' LIMIT 1 /*action='create',application='RecipeManagerApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:3:in 'SessionsController#create'
+Completed 200 OK in 242ms (Views: 0.3ms | ActiveRecord: 16.6ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/recipes" for ::1 at 2025-08-04 01:05:16 -0500
+Processing by RecipesController#index as HTML
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
