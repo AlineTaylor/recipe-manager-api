@@ -6,7 +6,7 @@ class UserBlueprint < Blueprinter::Base
 
   # views
   view :normal do
-    fields :email, :first_name, :last_name, :preferred_system
+    fields :id, :email, :first_name, :last_name, :preferred_system
   end
 
 end

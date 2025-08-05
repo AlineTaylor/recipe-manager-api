@@ -33,4 +33,3 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
 
 end
-# TODO generate shoppinglist methods - maybe its own controller?
