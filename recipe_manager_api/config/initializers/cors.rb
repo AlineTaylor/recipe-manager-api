@@ -7,7 +7,12 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins 'http://localhost:4200'
+    origins [
+      'https://recipe-manager-eight-indol.vercel.app',
+      'https://recipe-manager-git-main-aline-taylors-projects.vercel.app', 
+      'https://recipe-manager-bhmbp26xl-aline-taylors-projects.vercel.app',
+      'http://localhost:4200'
+    ]
 
     resource "*",
       headers: :any,
