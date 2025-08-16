@@ -21,7 +21,6 @@ Rails.application.routes.draw do
     delete 'instructions/:instruction_id', to: 'recipes#destroy_instruction'
 
     # ingredient list endpoints
-    
     post 'ingredient_lists', to: 'recipes#create_ingredient_list', on: :member
     patch 'ingredient_lists/:ingredient_list_id', to: 'recipes#update_ingredient_list'
     delete 'ingredient_lists/:ingredient_list_id', to: 'recipes#destroy_ingredient_list'
