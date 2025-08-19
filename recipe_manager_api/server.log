@@ -1,0 +1,29 @@
+=> Booting Puma
+=> Rails 8.0.2 application starting in development 
+=> Run `bin/rails server --help` for more startup options
+Puma starting in single mode...
+* Puma version: 6.6.0 ("Return to Forever")
+* Ruby version: ruby 3.4.2 (2025-02-15 revision d2930f8e7a) +PRISM [x86_64-linux]
+*  Min threads: 3
+*  Max threads: 3
+*  Environment: development
+*          PID: 13628
+* Listening on http://127.0.0.1:3000
+* Listening on http://[::1]:3000
+Use Ctrl-C to stop
+Started POST "/users" for ::1 at 2025-08-18 23:08:01 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RecipeManagerApi'*/[0m
+Processing by UsersController#create as */*
+  Parameters: {"user" => {"name" => "Test User", "email" => "[FILTERED]", "password" => "[FILTERED]"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x000071f008c67e50>, params: {"user" => {"name" => "Test User", "email" => "[FILTERED]", "password" => "[FILTERED]"}, "controller" => "users", "action" => "create"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:12:in 'UsersController#create'
+  [1m[36mUser Exists? (2.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT 1 /*action='create',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:12:in 'UsersController#create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION /*action='create',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:12:in 'UsersController#create'
+Completed 422 Unprocessable Content in 38ms (Views: 0.5ms | ActiveRecord: 4.5ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+- Gracefully stopping, waiting for requests to finish
+Exiting
