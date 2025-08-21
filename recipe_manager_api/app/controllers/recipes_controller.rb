@@ -1,4 +1,6 @@
 class RecipesController < ApplicationController
+  include RecipeFindable
+  
   before_action :authenticate_request
   before_action :set_recipe, only: [:show, :update, :destroy]
 
@@ -12,43 +14,17 @@ class RecipesController < ApplicationController
   end
 
   def create
-    # Kay, moved ingredient processing from model to controller with Bun's help - hopefully, this'll work!
-
     recipe_data = recipe_params.deep_dup
 
-    # Preprocess ingredient_lists_attributes to handle ingredient lookup/creation
-    if recipe_data[:ingredient_lists_attributes].present?
-    ingredient_lists = recipe_data[:ingredient_lists_attributes]
+    # process ingredient lists using service object instead
+    IngredientProcessorService.process_ingredient_lists(recipe_data[:ingredient_lists_attributes])
 
-  # Handles both array-style (most common) and hash-style (Rails forms)
-      if ingredient_lists.is_a?(Array)
-        ingredient_lists.each do |list|
-          next unless list[:ingredient_attributes]&.dig(:ingredient).present?
-          ingredient_name = list[:ingredient_attributes][:ingredient].strip
-          ingredient = Ingredient.where('lower(ingredient) = ?', ingredient_name.downcase).first_or_create(ingredient: ingredient_name)
-          list[:ingredient_id] = ingredient.id
-          list.delete(:ingredient_attributes)
-        end
-      elsif ingredient_lists.is_a?(Hash)
-        ingredient_lists.each do |_key, list|
-          next unless list[:ingredient_attributes]&.dig(:ingredient).present?
-          ingredient_name = list[:ingredient_attributes][:ingredient].strip
-          ingredient = Ingredient.where('lower(ingredient) = ?', ingredient_name.downcase).first_or_create(ingredient: ingredient_name)
-          list[:ingredient_id] = ingredient.id
-          list.delete(:ingredient_attributes)
-        end
-      end
-    end
+    # extract label attributes w defaults
+    label_attributes = recipe_data.delete(:label_attributes) || default_label_attributes
 
-  label_attributes = recipe_data.delete(:label_attributes) || {
-    vegetarian: false,
-    vegan: false,
-    gluten_free: false,
-    dairy_free: false
-  }
-
-  @recipe = current_user.recipes.build(recipe_data)
-  @recipe.build_label(label_attributes)
+    @recipe = current_user.recipes.build(recipe_data)
+    @recipe.build_label(label_attributes)
+    
     if @recipe.save
       render json: RecipeBlueprint.render(@recipe, view: :normal), status: :created
     else
@@ -72,13 +48,14 @@ class RecipesController < ApplicationController
   # custom instructions endpoints
 
   def instructions
-    recipe = current_user.recipes.find(params[:id])
+    recipe = find_user_recipe
     render json: recipe.instructions
   end
 
   def create_instruction
-    recipe = current_user.recipes.find(params[:id])
+    recipe = find_user_recipe
     instruction = recipe.instructions.build(instruction_params)
+    
     if instruction.save
       render json: instruction, status: :created
     else
@@ -87,8 +64,9 @@ class RecipesController < ApplicationController
   end
 
   def update_instruction
-    recipe = current_user.recipes.find(params[:recipe_id])
+    recipe = find_user_recipe(params[:recipe_id])
     instruction = recipe.instructions.find(params[:instruction_id])
+    
     if instruction.update(instruction_params)
       render json: instruction
     else
@@ -97,7 +75,7 @@ class RecipesController < ApplicationController
   end
 
   def destroy_instruction
-    recipe = current_user.recipes.find(params[:recipe_id])
+    recipe = find_user_recipe(params[:recipe_id])
     instruction = recipe.instructions.find(params[:instruction_id])
     instruction.destroy
     head :no_content
@@ -106,23 +84,19 @@ class RecipesController < ApplicationController
   # custom ingredient list endpoints
 
   def ingredient_lists
-    recipe = current_user.recipes.find(params[:id])
+    recipe = find_user_recipe
     render json: recipe.ingredient_lists
   end
 
   def create_ingredient_list
-    recipe = current_user.recipes.find(params[:id])
+    recipe = find_user_recipe
     ingredient_list_data = ingredient_list_params.deep_dup
 
-    # Check for nested ingredient attributes
-    if ingredient_list_data[:ingredient_attributes] && ingredient_list_data[:ingredient_attributes][:ingredient].present?
-      ingredient_name = ingredient_list_data[:ingredient_attributes][:ingredient].strip
-      ingredient = Ingredient.where('lower(ingredient) = ?', ingredient_name.downcase).first_or_create(ingredient: ingredient_name)
-      ingredient_list_data[:ingredient_id] = ingredient.id
-      ingredient_list_data.delete(:ingredient_attributes)
-    end
+    # process single ingredient with service
+    IngredientProcessorService.process_single_ingredient_list(ingredient_list_data)
 
     ingredient_list = recipe.ingredient_lists.build(ingredient_list_data)
+    
     if ingredient_list.save
       render json: ingredient_list, status: :created
     else
@@ -131,8 +105,9 @@ class RecipesController < ApplicationController
   end
 
   def update_ingredient_list
-    recipe = current_user.recipes.find(params[:recipe_id])
+    recipe = find_user_recipe(params[:recipe_id])
     ingredient_list = recipe.ingredient_lists.find(params[:ingredient_list_id])
+    
     if ingredient_list.update(ingredient_list_params)
       render json: ingredient_list
     else
@@ -141,7 +116,7 @@ class RecipesController < ApplicationController
   end
 
   def destroy_ingredient_list
-    recipe = current_user.recipes.find(params[:recipe_id])
+    recipe = find_user_recipe(params[:recipe_id])
     ingredient_list = recipe.ingredient_lists.find(params[:ingredient_list_id])
     ingredient_list.destroy
     head :no_content
@@ -150,12 +125,12 @@ class RecipesController < ApplicationController
   # custom label endpoints
 
   def show_labels
-    recipe = current_user.recipes.find(params[:id])
+    recipe = find_user_recipe
     render json: recipe.label
   end
 
   def update_labels
-    recipe = current_user.recipes.find(params[:id])
+    recipe = find_user_recipe
     label = recipe.label || recipe.build_label
 
     if label.update(label_params)
@@ -169,7 +144,16 @@ class RecipesController < ApplicationController
 
   # limiting user access to their own recipes only (see before_action at the top)
   def set_recipe
-    @recipe = current_user.recipes.find(params[:id])
+    @recipe = find_user_recipe_with_associations
+  end
+
+  def default_label_attributes
+    {
+      vegetarian: false,
+      vegan: false,
+      gluten_free: false,
+      dairy_free: false
+    }
   end
 
   def recipe_params
