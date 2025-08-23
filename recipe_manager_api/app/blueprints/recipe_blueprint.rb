@@ -45,6 +45,13 @@ view :normal do
         dairy_free: recipe.label.dairy_free
       }
     end
+    field :picture_url do |recipe, _opts|
+      if recipe.picture.attached?
+        Rails.application.routes.url_helpers.rails_blob_url(recipe.picture, only_path: true)
+      else
+        nil
+      end
+    end
   end
 
   view :extended do

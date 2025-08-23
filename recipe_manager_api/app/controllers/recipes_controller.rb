@@ -22,22 +22,29 @@ class RecipesController < ApplicationController
     # extract label attributes w defaults
     label_attributes = recipe_data.delete(:label_attributes) || default_label_attributes
 
-    @recipe = current_user.recipes.build(recipe_data)
-    @recipe.build_label(label_attributes)
-    
-    if @recipe.save
-      render json: RecipeBlueprint.render(@recipe, view: :normal), status: :created
-    else
-      render json: { errors: @recipe.errors.full_messages }, status: :unprocessable_entity
-    end
+      @recipe = current_user.recipes.build(recipe_data)
+      @recipe.build_label(label_attributes)
+
+      if params[:picture].present?
+        @recipe.picture.attach(params[:picture])
+      end
+
+      if @recipe.save
+        render json: RecipeBlueprint.render(@recipe, view: :normal), status: :created
+      else
+        render json: { errors: @recipe.errors.full_messages }, status: :unprocessable_entity
+      end
   end
 
   def update
-    if @recipe.update(recipe_params)
-      render json: RecipeBlueprint.render(@recipe, view: :normal)
-    else
-      render json: { errors: @recipe.errors.full_messages }, status: :unprocessable_entity
-    end
+      if @recipe.update(recipe_params)
+        if params[:picture].present?
+          @recipe.picture.attach(params[:picture])
+        end
+        render json: RecipeBlueprint.render(@recipe, view: :normal)
+      else
+        render json: { errors: @recipe.errors.full_messages }, status: :unprocessable_entity
+      end
   end
 
   def destroy
@@ -46,7 +53,6 @@ class RecipesController < ApplicationController
   end
 
   # custom instructions endpoints
-
   def instructions
     recipe = find_user_recipe
     render json: recipe.instructions
@@ -82,7 +88,6 @@ class RecipesController < ApplicationController
   end
 
   # custom ingredient list endpoints
-
   def ingredient_lists
     recipe = find_user_recipe
     render json: recipe.ingredient_lists
@@ -123,7 +128,6 @@ class RecipesController < ApplicationController
   end
 
   # custom label endpoints
-
   def show_labels
     recipe = find_user_recipe
     render json: recipe.label
@@ -157,11 +161,11 @@ class RecipesController < ApplicationController
   end
 
   def recipe_params
-    params.require(:recipe).permit(
-      :title, :servings, :cooking_time, :favorite, :shopping_list,
-      instructions_attributes: [:id, :step_number, :step_content, :_destroy],
-      ingredient_lists_attributes: [:id, :ingredient_id, :metric_qty, :metric_unit, :imperial_qty, :imperial_unit, :_destroy, { ingredient_attributes: [:id, :ingredient] }], label_attributes: [:vegetarian, :vegan, :gluten_free, :dairy_free]
-    )
+      params.require(:recipe).permit(
+        :title, :servings, :cooking_time, :favorite, :shopping_list, :picture,
+        instructions_attributes: [:id, :step_number, :step_content, :_destroy],
+        ingredient_lists_attributes: [:id, :ingredient_id, :metric_qty, :metric_unit, :imperial_qty, :imperial_unit, :_destroy, { ingredient_attributes: [:id, :ingredient] }], label_attributes: [:vegetarian, :vegan, :gluten_free, :dairy_free]
+      )
   end
 
   def instruction_params
