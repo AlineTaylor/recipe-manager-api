@@ -12,4 +12,6 @@ class User < ApplicationRecord
 
   # associations
   has_many :recipes, dependent: :destroy
+  # using active storage for pictures after all: it's well-supported for small-scale use, allegedly.
+  has_one_attached :profile_picture
 end

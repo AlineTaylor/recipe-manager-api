@@ -3,28 +3,31 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    # render json: @user
     render json: UserBlueprint.render(@user, view: :normal), status: 200
   end
 
   def create
     @user = User.new(user_params)
-    if @user.save
-      # render json: @user
-      render json: UserBlueprint.render(@user, view: :normal), status: :created
-    else
-      render json: { error: @user.errors.full_messages }, status: :unprocessable_entity
-    end
+      if params[:profile_picture].present?
+        @user.profile_picture.attach(params[:profile_picture])
+      end
+      if @user.save
+        render json: UserBlueprint.render(@user, view: :normal), status: :created
+      else
+        render json: { error: @user.errors.full_messages }, status: :unprocessable_entity
+      end
   end
 
   def update
     @user = User.find(params[:id])
-    if @user.update(user_params)
-      # render json: @user
-      render json: UserBlueprint.render(@user, view: :normal), status: :ok
-    else
-      render json: { errors: @user.errors.full_messages }, status: :unprocessable_entity
-    end
+      if @user.update(user_params)
+        if params[:profile_picture].present?
+          @user.profile_picture.attach(params[:profile_picture])
+        end
+        render json: UserBlueprint.render(@user, view: :normal), status: :ok
+      else
+        render json: { errors: @user.errors.full_messages }, status: :unprocessable_entity
+      end
   end
 
 
@@ -37,6 +40,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.permit(:email, :email_confirmation,:password, :password_confirmation,:first_name, :last_name, :preferred_system)
+    params.permit(:email, :email_confirmation, :password, :password_confirmation, :first_name, :last_name, :preferred_system)
   end
 end

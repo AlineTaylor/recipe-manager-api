@@ -14,4 +14,6 @@ class Recipe < ApplicationRecord
   accepts_nested_attributes_for :instructions, allow_destroy: true
   accepts_nested_attributes_for :ingredient_lists, allow_destroy: true
   accepts_nested_attributes_for :label
+  # also added recipe pictures via active storage: same as user profile pictures
+  has_one_attached :picture
 end
