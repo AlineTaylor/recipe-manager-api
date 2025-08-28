@@ -6,7 +6,7 @@ class RecipeBlueprint < Blueprinter::Base
 
   # views
 view :normal do
-    fields :title, :servings, :cooking_time, :favorite, :shopping_list
+  fields :title, :servings, :cooking_time, :favorite, :shopping_list, :description
 
     # keeping nested attributes unserialized for now due to the complexity of the recipe controller's custom methods. Improvement opportunity.
 
