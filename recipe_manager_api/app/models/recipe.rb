@@ -2,6 +2,7 @@ class Recipe < ApplicationRecord
 # validations
   validates :title, presence: true,length: { maximum: 255, too_long: "%{count} characters is the maximum allowed" }
   validates :servings, :cooking_time, presence: true, numericality: { only_integer: true }, length: { maximum: 3 }
+  validates :description, length: { maximum: 1000, too_long: "%{count} characters is the maximum allowed" }, allow_blank: true
 
   # associations
   belongs_to :user

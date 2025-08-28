@@ -67,14 +67,14 @@ class RecipesController < ApplicationController
   end
 
   def recipe_params
-    params.require(:recipe).permit(
-      :title, :servings, :cooking_time, :favorite, :shopping_list, :picture,
-      instructions_attributes: [:id, :step_number, :step_content, :_destroy],
-      ingredient_lists_attributes: [
-        :id, :ingredient_id, :metric_qty, :metric_unit, :imperial_qty, :imperial_unit, :_destroy,
-        { ingredient_attributes: [:id, :ingredient] }
-      ],
-      label_attributes: [:vegetarian, :vegan, :gluten_free, :dairy_free]
-    )
+      params.require(:recipe).permit(
+        :title, :servings, :cooking_time, :favorite, :shopping_list, :picture, :description,
+        instructions_attributes: [:id, :step_number, :step_content, :_destroy],
+        ingredient_lists_attributes: [
+          :id, :ingredient_id, :metric_qty, :metric_unit, :imperial_qty, :imperial_unit, :_destroy,
+          { ingredient_attributes: [:id, :ingredient] }
+        ],
+        label_attributes: [:vegetarian, :vegan, :gluten_free, :dairy_free]
+      )
   end
 end
