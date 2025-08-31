@@ -1,15 +1,11 @@
 # frozen_string_literal: true
-
 class RecipeBlueprint < Blueprinter::Base
-
   identifier :id
 
   # views
 view :normal do
-  fields :title, :servings, :cooking_time, :favorite, :shopping_list, :description
-
+  fields :title, :servings, :cooking_time, :favorite, :shopping_list, :description, :created_at, :updated_at
     # keeping nested attributes unserialized for now due to the complexity of the recipe controller's custom methods. Improvement opportunity.
-
     field :instructions do |recipe, _opts|
       recipe.instructions.map do |inst|
         {
@@ -45,6 +41,7 @@ view :normal do
         dairy_free: recipe.label.dairy_free
       }
     end
+
     field :picture_url do |recipe, _opts|
       if recipe.picture.attached?
         Rails.application.routes.url_helpers.rails_blob_url(recipe.picture, only_path: true)
@@ -52,11 +49,5 @@ view :normal do
         nil
       end
     end
-  end
-
-  view :extended do
-    include_view :normal
-    field :created_at
-    field :updated_at
   end
 end
