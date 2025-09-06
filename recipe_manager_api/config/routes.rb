@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :update, :destroy, :create]
 
+  resources :ingredients, only: [:index]
+
   resources :recipes do
 
     # instruction endpoints
