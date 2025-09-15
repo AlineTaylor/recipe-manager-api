@@ -29,6 +29,9 @@ Rails.application.routes.draw do
     # labels
     get 'labels', to: 'recipes#show_labels', on: :member
     patch 'labels', to: 'recipes#update_labels', on: :member
+  
+    # route for sharing recipes via email
+    post '/share', to: 'share#create'
   end
 
   post '/login', to: 'sessions#create'
