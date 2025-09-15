@@ -31,7 +31,13 @@ class ShareController < ApplicationController
 
       # send the recipe via email using ShareMailer
       begin
-        ShareMailer.share_recipe(recipe: recipe, to_email: recipient_email, sender_email: sender_email, sender_name: sender_name).deliver_later
+        ShareMailer.share_recipe(
+          recipe: recipe,
+          to_email: recipient_email,
+          sender_email: sender_email,
+          sender_name: sender_name,
+          message: message
+        ).deliver_later
         render json: { success: true }, status: :ok
       rescue => e
         render json: { error: e.message }, status: :internal_server_error

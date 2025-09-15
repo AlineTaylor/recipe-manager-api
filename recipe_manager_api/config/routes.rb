@@ -15,7 +15,6 @@ Rails.application.routes.draw do
   resources :ingredients, only: [:index]
 
   resources :recipes do
-
     # instruction endpoints
     get 'instructions', on: :member
     post  'instructions',   to: 'recipes#create_instruction', on: :member
@@ -29,10 +28,10 @@ Rails.application.routes.draw do
     # labels
     get 'labels', to: 'recipes#show_labels', on: :member
     patch 'labels', to: 'recipes#update_labels', on: :member
-  
-    # route for sharing recipes via email
-    post '/share', to: 'share#create'
   end
+
+  # top-level route for all sharing (recipes, shopping lists, contact)
+  post '/share', to: 'share#create'
 
   post '/login', to: 'sessions#create'
 

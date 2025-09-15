@@ -1,4 +1,3 @@
-
 class ShareMailer < ApplicationMailer
   default from: ENV.fetch("MAIL_FROM", "no-reply@yourapp.com")
   #mailer for emails sent to user (shopping list and recipe sharing)
