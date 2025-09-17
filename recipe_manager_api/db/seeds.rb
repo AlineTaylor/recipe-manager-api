@@ -8,20 +8,26 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 #
-# Demo user
-User.where(email: 'demo@example.com').destroy_all
 
+# Clear demo user
+demo_email = "demo@example.com"
+User.where(email: demo_email).destroy_all
+puts "Demo user (if any) removed."
+
+# Create demo user
 demo_user = User.create!(
-  email: 'demo@example.com',
-  email_confirmation: 'demo@example.com',
+  email: demo_email,
+  email_confirmation: demo_email,
   password: 'demodemo',
   password_confirmation: 'demodemo',
   first_name: 'Demo',
   last_name: 'User',
   preferred_system: 'metric'
 )
+puts "Demo user created."
 
 # Sample recipes
+# Recipe 1: Pancakes
 recipe1 = demo_user.recipes.create!(
   title: 'Classic Pancakes',
   description: 'Fluffy pancakes perfect for breakfast.',
@@ -31,9 +37,19 @@ recipe1 = demo_user.recipes.create!(
   shopping_list: false
 )
 
-['Flour', 'Milk', 'Eggs', 'Baking Powder', 'Salt', 'Sugar', 'Butter'].each do |ingredient_name|
-  ingredient = Ingredient.find_or_create_by!(ingredient: ingredient_name)
-  recipe1.ingredient_lists.create!(ingredient: ingredient, metric_qty: 1, metric_unit: 'cup')
+pancake_ingredients = [
+  { name: 'Flour', metric_qty: 180, metric_unit: 'g' },
+  { name: 'Milk', metric_qty: 300, metric_unit: 'ml' },
+  { name: 'Eggs', metric_qty: 1, metric_unit: 'count' },
+  { name: 'Baking Powder', metric_qty: 3.5, metric_unit: 'tsp' },
+  { name: 'Salt', metric_qty: 0.5, metric_unit: 'tsp' },
+  { name: 'Sugar', metric_qty: 15, metric_unit: 'g' },
+  { name: 'Butter', metric_qty: 40, metric_unit: 'g' }
+]
+
+pancake_ingredients.each do |ing|
+  ingredient = Ingredient.find_or_create_by!(ingredient: ing[:name])
+  recipe1.ingredient_lists.create!(ingredient: ingredient, metric_qty: ing[:metric_qty], metric_unit: ing[:metric_unit])
 end
 
 recipe1.instructions.create!([
@@ -49,6 +65,7 @@ recipe1.create_label!(
   dairy_free: false
 )
 
+#Recipe 2: Salad
 recipe2 = demo_user.recipes.create!(
   title: 'Simple Garden Salad',
   description: 'A fresh and easy salad.',
@@ -58,9 +75,18 @@ recipe2 = demo_user.recipes.create!(
   shopping_list: true
 )
 
-['Lettuce', 'Tomato', 'Cucumber', 'Olive Oil', 'Salt', 'Pepper'].each do |ingredient_name|
-  ingredient = Ingredient.find_or_create_by!(ingredient: ingredient_name)
-  recipe2.ingredient_lists.create!(ingredient: ingredient, metric_qty: nil, metric_unit: nil)
+salad_ingredients = [
+  { name: 'Lettuce', metric_qty: 100, metric_unit: 'g' },
+  { name: 'Tomato', metric_qty: 1, metric_unit: 'count' },
+  { name: 'Cucumber', metric_qty: 0.5, metric_unit: 'count' },
+  { name: 'Olive Oil', metric_qty: 1, metric_unit: 'tbsp' },
+  { name: 'Salt', metric_qty: 0.25, metric_unit: 'tsp' },
+  { name: 'Pepper', metric_qty: 0.25, metric_unit: 'tsp' }
+]
+
+salad_ingredients.each do |ing|
+  ingredient = Ingredient.find_or_create_by!(ingredient: ing[:name])
+  recipe2.ingredient_lists.create!(ingredient: ingredient, metric_qty: ing[:metric_qty], metric_unit: ing[:metric_unit])
 end
 
 recipe2.instructions.create!([

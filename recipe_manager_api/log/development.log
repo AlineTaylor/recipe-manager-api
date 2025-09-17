@@ -4493,3 +4493,129 @@ Migrating to AddDescriptionToRecipes (20250828121000)
   [1m[36mLabel Create (0.6ms)[0m  [1m[32mINSERT INTO "labels" ("recipe_id", "vegetarian", "vegan", "gluten_free", "dairy_free", "created_at", "updated_at") VALUES (6, 1, 1, 1, 1, '2025-09-17 03:23:53.486927', '2025-09-17 03:23:53.486927') RETURNING "id" /*application='RecipeManagerApi'*/[0m
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='RecipeManagerApi'*/[0m
   [1m[36mLabel Load (0.0ms)[0m  [1m[34mSELECT "labels".* FROM "labels" WHERE "labels"."recipe_id" = 6 LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RecipeManagerApi'*/[0m
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'demo@example.com' /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mRecipe Load (0.0ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 7 /*application='RecipeManagerApi'*/[0m
+  [1m[36mInstruction Load (0.0ms)[0m  [1m[34mSELECT "instructions".* FROM "instructions" WHERE "instructions"."recipe_id" = 5 /*application='RecipeManagerApi'*/[0m
+  [1m[36mInstruction Destroy (0.0ms)[0m  [1m[31mDELETE FROM "instructions" WHERE "instructions"."id" = 14 /*application='RecipeManagerApi'*/[0m
+  [1m[36mInstruction Destroy (0.0ms)[0m  [1m[31mDELETE FROM "instructions" WHERE "instructions"."id" = 15 /*application='RecipeManagerApi'*/[0m
+  [1m[36mInstruction Destroy (0.0ms)[0m  [1m[31mDELETE FROM "instructions" WHERE "instructions"."id" = 16 /*application='RecipeManagerApi'*/[0m
+  [1m[36mLabel Load (0.0ms)[0m  [1m[34mSELECT "labels".* FROM "labels" WHERE "labels"."recipe_id" = 5 LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mLabel Destroy (0.0ms)[0m  [1m[31mDELETE FROM "labels" WHERE "labels"."id" = 4 /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredientList Load (0.1ms)[0m  [1m[34mSELECT "ingredient_lists".* FROM "ingredient_lists" WHERE "ingredient_lists"."recipe_id" = 5 /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredientList Destroy (0.0ms)[0m  [1m[31mDELETE FROM "ingredient_lists" WHERE "ingredient_lists"."id" = 11 /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredientList Destroy (0.0ms)[0m  [1m[31mDELETE FROM "ingredient_lists" WHERE "ingredient_lists"."id" = 12 /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredientList Destroy (0.0ms)[0m  [1m[31mDELETE FROM "ingredient_lists" WHERE "ingredient_lists"."id" = 13 /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredientList Destroy (0.0ms)[0m  [1m[31mDELETE FROM "ingredient_lists" WHERE "ingredient_lists"."id" = 14 /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredientList Destroy (0.0ms)[0m  [1m[31mDELETE FROM "ingredient_lists" WHERE "ingredient_lists"."id" = 15 /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredientList Destroy (0.0ms)[0m  [1m[31mDELETE FROM "ingredient_lists" WHERE "ingredient_lists"."id" = 16 /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredientList Destroy (0.0ms)[0m  [1m[31mDELETE FROM "ingredient_lists" WHERE "ingredient_lists"."id" = 17 /*application='RecipeManagerApi'*/[0m
+  [1m[36mActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 5 AND "active_storage_attachments"."record_type" = 'Recipe' AND "active_storage_attachments"."name" = 'picture' LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mRecipe Destroy (0.1ms)[0m  [1m[31mDELETE FROM "recipes" WHERE "recipes"."id" = 5 /*application='RecipeManagerApi'*/[0m
+  [1m[36mInstruction Load (0.0ms)[0m  [1m[34mSELECT "instructions".* FROM "instructions" WHERE "instructions"."recipe_id" = 6 /*application='RecipeManagerApi'*/[0m
+  [1m[36mInstruction Destroy (0.0ms)[0m  [1m[31mDELETE FROM "instructions" WHERE "instructions"."id" = 17 /*application='RecipeManagerApi'*/[0m
+  [1m[36mInstruction Destroy (0.0ms)[0m  [1m[31mDELETE FROM "instructions" WHERE "instructions"."id" = 18 /*application='RecipeManagerApi'*/[0m
+  [1m[36mInstruction Destroy (0.0ms)[0m  [1m[31mDELETE FROM "instructions" WHERE "instructions"."id" = 19 /*application='RecipeManagerApi'*/[0m
+  [1m[36mLabel Load (0.0ms)[0m  [1m[34mSELECT "labels".* FROM "labels" WHERE "labels"."recipe_id" = 6 LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mLabel Destroy (0.0ms)[0m  [1m[31mDELETE FROM "labels" WHERE "labels"."id" = 5 /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredientList Load (0.0ms)[0m  [1m[34mSELECT "ingredient_lists".* FROM "ingredient_lists" WHERE "ingredient_lists"."recipe_id" = 6 /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredientList Destroy (0.0ms)[0m  [1m[31mDELETE FROM "ingredient_lists" WHERE "ingredient_lists"."id" = 18 /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredientList Destroy (0.0ms)[0m  [1m[31mDELETE FROM "ingredient_lists" WHERE "ingredient_lists"."id" = 19 /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredientList Destroy (0.0ms)[0m  [1m[31mDELETE FROM "ingredient_lists" WHERE "ingredient_lists"."id" = 20 /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredientList Destroy (0.0ms)[0m  [1m[31mDELETE FROM "ingredient_lists" WHERE "ingredient_lists"."id" = 21 /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredientList Destroy (0.0ms)[0m  [1m[31mDELETE FROM "ingredient_lists" WHERE "ingredient_lists"."id" = 22 /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredientList Destroy (0.0ms)[0m  [1m[31mDELETE FROM "ingredient_lists" WHERE "ingredient_lists"."id" = 23 /*application='RecipeManagerApi'*/[0m
+  [1m[36mActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 6 AND "active_storage_attachments"."record_type" = 'Recipe' AND "active_storage_attachments"."name" = 'picture' LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mRecipe Destroy (0.0ms)[0m  [1m[31mDELETE FROM "recipes" WHERE "recipes"."id" = 6 /*application='RecipeManagerApi'*/[0m
+  [1m[36mActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 7 AND "active_storage_attachments"."record_type" = 'User' AND "active_storage_attachments"."name" = 'profile_picture' LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mUser Destroy (0.1ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = 7 /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (5.5ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'demo@example.com' LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "email_confirmation", "password", "password_digest", "first_name", "last_name", "preferred_system", "created_at", "updated_at") VALUES ('demo@example.com', NULL, NULL, '$2a$12$xrm783fqjFxhWzhTZ/uEn.7G0aOou2ar9/71.3uxNrJntHDXvKunq', 'Demo', 'User', 'metric', '2025-09-17 03:58:56.990485', '2025-09-17 03:58:56.990485') RETURNING "id" /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mRecipe Create (0.9ms)[0m  [1m[32mINSERT INTO "recipes" ("user_id", "title", "servings", "cooking_time", "favorite", "shopping_list", "created_at", "updated_at", "description") VALUES (8, 'Classic Pancakes', 4, 15, 1, 0, '2025-09-17 03:58:56.993102', '2025-09-17 03:58:56.993102', 'Fluffy pancakes perfect for breakfast.') RETURNING "id" /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredient Load (0.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."ingredient" = 'Flour' LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredientList Create (1.0ms)[0m  [1m[32mINSERT INTO "ingredient_lists" ("ingredient_id", "recipe_id", "metric_qty", "metric_unit", "imperial_qty", "imperial_unit", "created_at", "updated_at") VALUES (1, 7, 180.0, 'g', NULL, NULL, '2025-09-17 03:58:57.000198', '2025-09-17 03:58:57.000198') RETURNING "id" /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."ingredient" = 'Milk' LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredientList Create (1.0ms)[0m  [1m[32mINSERT INTO "ingredient_lists" ("ingredient_id", "recipe_id", "metric_qty", "metric_unit", "imperial_qty", "imperial_unit", "created_at", "updated_at") VALUES (8, 7, 300.0, 'ml', NULL, NULL, '2025-09-17 03:58:57.004462', '2025-09-17 03:58:57.004462') RETURNING "id" /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."ingredient" = 'Eggs' LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredientList Create (1.1ms)[0m  [1m[32mINSERT INTO "ingredient_lists" ("ingredient_id", "recipe_id", "metric_qty", "metric_unit", "imperial_qty", "imperial_unit", "created_at", "updated_at") VALUES (9, 7, 1.0, 'count', NULL, NULL, '2025-09-17 03:58:57.009950', '2025-09-17 03:58:57.009950') RETURNING "id" /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."ingredient" = 'Baking Powder' LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredientList Create (1.1ms)[0m  [1m[32mINSERT INTO "ingredient_lists" ("ingredient_id", "recipe_id", "metric_qty", "metric_unit", "imperial_qty", "imperial_unit", "created_at", "updated_at") VALUES (10, 7, 3.5, 'tsp', NULL, NULL, '2025-09-17 03:58:57.014001', '2025-09-17 03:58:57.014001') RETURNING "id" /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredient Load (0.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."ingredient" = 'Salt' LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredientList Create (1.0ms)[0m  [1m[32mINSERT INTO "ingredient_lists" ("ingredient_id", "recipe_id", "metric_qty", "metric_unit", "imperial_qty", "imperial_unit", "created_at", "updated_at") VALUES (11, 7, 0.5, 'tsp', NULL, NULL, '2025-09-17 03:58:57.017723', '2025-09-17 03:58:57.017723') RETURNING "id" /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredient Load (0.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."ingredient" = 'Sugar' LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredientList Create (0.9ms)[0m  [1m[32mINSERT INTO "ingredient_lists" ("ingredient_id", "recipe_id", "metric_qty", "metric_unit", "imperial_qty", "imperial_unit", "created_at", "updated_at") VALUES (3, 7, 15.0, 'g', NULL, NULL, '2025-09-17 03:58:57.021369', '2025-09-17 03:58:57.021369') RETURNING "id" /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."ingredient" = 'Butter' LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredientList Create (0.9ms)[0m  [1m[32mINSERT INTO "ingredient_lists" ("ingredient_id", "recipe_id", "metric_qty", "metric_unit", "imperial_qty", "imperial_unit", "created_at", "updated_at") VALUES (12, 7, 40.0, 'g', NULL, NULL, '2025-09-17 03:58:57.025054', '2025-09-17 03:58:57.025054') RETURNING "id" /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mInstruction Create (0.9ms)[0m  [1m[32mINSERT INTO "instructions" ("recipe_id", "step_number", "step_content", "created_at", "updated_at") VALUES (7, 1, 'Mix dry ingredients together.', '2025-09-17 03:58:57.027824', '2025-09-17 03:58:57.027824') RETURNING "id" /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mInstruction Create (0.9ms)[0m  [1m[32mINSERT INTO "instructions" ("recipe_id", "step_number", "step_content", "created_at", "updated_at") VALUES (7, 2, 'Add milk and eggs, whisk until smooth.', '2025-09-17 03:58:57.030439', '2025-09-17 03:58:57.030439') RETURNING "id" /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mInstruction Create (0.9ms)[0m  [1m[32mINSERT INTO "instructions" ("recipe_id", "step_number", "step_content", "created_at", "updated_at") VALUES (7, 3, 'Heat butter in pan, pour batter, cook until golden.', '2025-09-17 03:58:57.033009', '2025-09-17 03:58:57.033009') RETURNING "id" /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mLabel Create (0.8ms)[0m  [1m[32mINSERT INTO "labels" ("recipe_id", "vegetarian", "vegan", "gluten_free", "dairy_free", "created_at", "updated_at") VALUES (7, 0, 0, 0, 0, '2025-09-17 03:58:57.035645', '2025-09-17 03:58:57.035645') RETURNING "id" /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mLabel Load (0.0ms)[0m  [1m[34mSELECT "labels".* FROM "labels" WHERE "labels"."recipe_id" = 7 LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mRecipe Create (0.9ms)[0m  [1m[32mINSERT INTO "recipes" ("user_id", "title", "servings", "cooking_time", "favorite", "shopping_list", "created_at", "updated_at", "description") VALUES (8, 'Simple Garden Salad', 2, 0, 0, 1, '2025-09-17 03:58:57.038938', '2025-09-17 03:58:57.038938', 'A fresh and easy salad.') RETURNING "id" /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredient Load (0.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."ingredient" = 'Lettuce' LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredientList Create (0.9ms)[0m  [1m[32mINSERT INTO "ingredient_lists" ("ingredient_id", "recipe_id", "metric_qty", "metric_unit", "imperial_qty", "imperial_unit", "created_at", "updated_at") VALUES (13, 8, 100.0, 'g', NULL, NULL, '2025-09-17 03:58:57.052473', '2025-09-17 03:58:57.052473') RETURNING "id" /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."ingredient" = 'Tomato' LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredientList Create (0.7ms)[0m  [1m[32mINSERT INTO "ingredient_lists" ("ingredient_id", "recipe_id", "metric_qty", "metric_unit", "imperial_qty", "imperial_unit", "created_at", "updated_at") VALUES (14, 8, 1.0, 'count', NULL, NULL, '2025-09-17 03:58:57.055821', '2025-09-17 03:58:57.055821') RETURNING "id" /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredient Load (0.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."ingredient" = 'Cucumber' LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredientList Create (0.6ms)[0m  [1m[32mINSERT INTO "ingredient_lists" ("ingredient_id", "recipe_id", "metric_qty", "metric_unit", "imperial_qty", "imperial_unit", "created_at", "updated_at") VALUES (15, 8, 0.5, 'count', NULL, NULL, '2025-09-17 03:58:57.059634', '2025-09-17 03:58:57.059634') RETURNING "id" /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."ingredient" = 'Olive Oil' LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredientList Create (0.6ms)[0m  [1m[32mINSERT INTO "ingredient_lists" ("ingredient_id", "recipe_id", "metric_qty", "metric_unit", "imperial_qty", "imperial_unit", "created_at", "updated_at") VALUES (16, 8, 1.0, 'tbsp', NULL, NULL, '2025-09-17 03:58:57.062365', '2025-09-17 03:58:57.062365') RETURNING "id" /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredient Load (0.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."ingredient" = 'Salt' LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredientList Create (0.7ms)[0m  [1m[32mINSERT INTO "ingredient_lists" ("ingredient_id", "recipe_id", "metric_qty", "metric_unit", "imperial_qty", "imperial_unit", "created_at", "updated_at") VALUES (11, 8, 0.25, 'tsp', NULL, NULL, '2025-09-17 03:58:57.065702', '2025-09-17 03:58:57.065702') RETURNING "id" /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredient Load (0.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."ingredient" = 'Pepper' LIMIT 1 /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mIngredientList Create (1.5ms)[0m  [1m[32mINSERT INTO "ingredient_lists" ("ingredient_id", "recipe_id", "metric_qty", "metric_unit", "imperial_qty", "imperial_unit", "created_at", "updated_at") VALUES (17, 8, 0.25, 'tsp', NULL, NULL, '2025-09-17 03:58:57.068404', '2025-09-17 03:58:57.068404') RETURNING "id" /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mInstruction Create (0.7ms)[0m  [1m[32mINSERT INTO "instructions" ("recipe_id", "step_number", "step_content", "created_at", "updated_at") VALUES (8, 1, 'Chop all vegetables.', '2025-09-17 03:58:57.071380', '2025-09-17 03:58:57.071380') RETURNING "id" /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mInstruction Create (1.1ms)[0m  [1m[32mINSERT INTO "instructions" ("recipe_id", "step_number", "step_content", "created_at", "updated_at") VALUES (8, 2, 'Combine in bowl, drizzle with olive oil.', '2025-09-17 03:58:57.073368', '2025-09-17 03:58:57.073368') RETURNING "id" /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mInstruction Create (0.8ms)[0m  [1m[32mINSERT INTO "instructions" ("recipe_id", "step_number", "step_content", "created_at", "updated_at") VALUES (8, 3, 'Season with salt and pepper, toss and serve.', '2025-09-17 03:58:57.077649', '2025-09-17 03:58:57.077649') RETURNING "id" /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mLabel Create (0.6ms)[0m  [1m[32mINSERT INTO "labels" ("recipe_id", "vegetarian", "vegan", "gluten_free", "dairy_free", "created_at", "updated_at") VALUES (8, 1, 1, 1, 1, '2025-09-17 03:58:57.080154', '2025-09-17 03:58:57.080154') RETURNING "id" /*application='RecipeManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='RecipeManagerApi'*/[0m
+  [1m[36mLabel Load (0.1ms)[0m  [1m[34mSELECT "labels".* FROM "labels" WHERE "labels"."recipe_id" = 8 LIMIT 1 /*application='RecipeManagerApi'*/[0m
