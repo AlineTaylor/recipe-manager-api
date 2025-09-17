@@ -1,0 +1,15 @@
+name: Daily Render Reset
+
+on:
+  schedule:
+    - cron: "0 9 * * *"  # every day at 9am UTC (default time zone) or 3am CST
+  workflow_dispatch:      # allows manual trigger
+
+jobs:
+  redeploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Render Deploy
+        run: curl -X POST "$RENDER_DEPLOY_HOOK"
+        env:
+          RENDER_DEPLOY_HOOK: ${{ secrets.RENDER_DEPLOY_HOOK }}
