@@ -21,20 +21,25 @@ class ApplicationController < ActionController::API
   private
 
   def protect_demo_credentials!
-    return unless ENV["DEMO_MODE"] == "true"
+    # Only active when demo mode flag is enabled
+    return unless ENV["DEMO_MODE"]&.downcase == "true"
+    # Only enforce for the demo account
     return unless current_user&.email == "demo@example.com"
 
-    # prevent demo user deletion
-    if request.path.match?(/\/api\/v1\/users\/\d+$/)
+    # Match current routes: /users/:id (no /api/v1 prefix presently)
+    if request.path.match?(/^\/users\/\d+$/)
+      # Block deletion
       if request.delete?
         return render json: { error: "Demo user cannot be deleted." }, status: :forbidden
       end
 
+      # Block sensitive credential or identity changes
       if request.patch? || request.put?
-        blocked = %w[email password password_confirmation]
-        incoming_keys = params.keys + Array(params[:user]&.keys)
+        blocked = %w[email password password_confirmation first_name last_name]
+        # parameters could come either top-level or nested under :user
+        incoming_keys = params.keys.map(&:to_s) + Array(params[:user]&.keys).map(&:to_s)
         if (incoming_keys & blocked).any?
-          return render json: { error: "Demo user's  credentials cannot be changed." }, status: :forbidden
+          return render json: { error: "Demo user's credentials/profile cannot be changed." }, status: :forbidden
         end
       end
     end

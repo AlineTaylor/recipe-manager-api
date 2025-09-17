@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  # Allow unauthenticated access to create (login)
+  skip_before_action :authenticate_request, only: [:create]
   def create
     user = User.find_by(email: params[:email])
     if user&.authenticate(params[:password])
