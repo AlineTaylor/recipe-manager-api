@@ -26,6 +26,26 @@ demo_user = User.create!(
 )
 puts "Demo user created."
 
+# Attach default profile picture if not present
+begin
+  # Hard-set the demo user's profile picture to a known asset so the demo account remains identical
+  demo_asset = Rails.root.join('app', 'assets', 'images', 'demo-user-pfp.png')
+  if File.exist?(demo_asset)
+    # Remove any existing attachment and attach the canonical demo image
+    if demo_user.profile_picture.attached?
+      # Use synchronous purge in seeds to ensure the previous blob is removed immediately
+      demo_user.profile_picture.purge
+      puts "Purged existing demo profile picture."
+    end
+    demo_user.profile_picture.attach(io: File.open(demo_asset, 'rb'), filename: 'demo-user-pfp.png', content_type: 'image/png')
+    puts "Attached canonical demo-user-pfp.png to demo user."
+  else
+    puts "Warning: demo-user-pfp.png not found at #{demo_asset}; no profile picture attached."
+  end
+rescue => e
+  puts "Error attaching demo profile picture: #{e.message}"
+end
+
 # Sample recipes
 # Recipe 1: Pancakes
 recipe1 = demo_user.recipes.create!(

@@ -5076,3 +5076,740 @@ FOREIGN KEY ("user_id")
   [1m[36mLabel Create (0.7ms)[0m  [1m[32mINSERT INTO "labels" ("recipe_id", "vegetarian", "vegan", "gluten_free", "dairy_free", "created_at", "updated_at") VALUES (12, 1, 1, 1, 1, '2025-09-17 04:17:20.710295', '2025-09-17 04:17:20.710295') RETURNING "id" /*application='RecipeManagerApi'*/[0m
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='RecipeManagerApi'*/[0m
   [1m[36mLabel Load (0.1ms)[0m  [1m[34mSELECT "labels".* FROM "labels" WHERE "labels"."recipe_id" = 12 LIMIT 1 /*application='RecipeManagerApi'*/[0m
+Started POST "/login" for ::1 at 2025-09-17 01:39:15 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RecipeManagerApi'*/[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2025-09-17 01:45:17 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RecipeManagerApi'*/[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'demo@example.com' LIMIT 1 /*action='create',application='RecipeManagerApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:5:in 'SessionsController#create'
+Completed 200 OK in 202ms (Views: 0.2ms | ActiveRecord: 2.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/10" for ::1 at 2025-09-17 01:45:18 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1 /*action='show',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in 'ApplicationController#authenticate_request'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:5:in 'UsersController#show'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 10 AND "active_storage_attachments"."record_type" = 'User' AND "active_storage_attachments"."name" = 'profile_picture' LIMIT 1 /*action='show',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/blueprints/user_blueprint.rb:12:in 'block (2 levels) in <class:UserBlueprint>'
+Completed 200 OK in 40ms (Views: 0.1ms | ActiveRecord: 0.8ms (3 queries, 1 cached) | GC: 0.0ms)
+
+
+Started GET "/recipes?favorite=true" for ::1 at 2025-09-17 01:45:18 -0500
+Started GET "/users/10" for ::1 at 2025-09-17 01:45:18 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1 /*action='show',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in 'ApplicationController#authenticate_request'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:5:in 'UsersController#show'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 10 AND "active_storage_attachments"."record_type" = 'User' AND "active_storage_attachments"."name" = 'profile_picture' LIMIT 1 /*action='show',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/blueprints/user_blueprint.rb:12:in 'block (2 levels) in <class:UserBlueprint>'
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.3ms (3 queries, 1 cached) | GC: 0.0ms)
+
+
+Processing by RecipesController#index as HTML
+  Parameters: {"favorite" => "true"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in 'ApplicationController#authenticate_request'
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 10 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:12:in 'RecipesController#index'
+  [1m[36mLabel Load (0.2ms)[0m  [1m[34mSELECT "labels".* FROM "labels" WHERE "labels"."recipe_id" IN (11, 12) /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:12:in 'RecipesController#index'
+  [1m[36mIngredientList Load (0.1ms)[0m  [1m[34mSELECT "ingredient_lists".* FROM "ingredient_lists" WHERE "ingredient_lists"."recipe_id" IN (11, 12) /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:12:in 'RecipesController#index'
+  [1m[36mInstruction Load (0.1ms)[0m  [1m[34mSELECT "instructions".* FROM "instructions" WHERE "instructions"."recipe_id" IN (11, 12) /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:12:in 'RecipesController#index'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 1 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 8 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 9 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 10 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 11 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 3 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 12 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 11 AND "active_storage_attachments"."record_type" = 'Recipe' AND "active_storage_attachments"."name" = 'picture' LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:46:in 'block (2 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 13 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 14 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 15 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 16 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mCACHE Ingredient Load (0.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 11 LIMIT 1[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 17 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 12 AND "active_storage_attachments"."record_type" = 'Recipe' AND "active_storage_attachments"."name" = 'picture' LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:46:in 'block (2 levels) in <class:RecipeBlueprint>'
+Completed 200 OK in 94ms (Views: 0.1ms | ActiveRecord: 3.6ms (20 queries, 1 cached) | GC: 19.5ms)
+
+
+Started GET "/recipes?favorite=true" for ::1 at 2025-09-17 01:45:18 -0500
+Processing by RecipesController#index as HTML
+  Parameters: {"favorite" => "true"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in 'ApplicationController#authenticate_request'
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 10 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:12:in 'RecipesController#index'
+  [1m[36mLabel Load (0.3ms)[0m  [1m[34mSELECT "labels".* FROM "labels" WHERE "labels"."recipe_id" IN (11, 12) /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:12:in 'RecipesController#index'
+  [1m[36mIngredientList Load (0.5ms)[0m  [1m[34mSELECT "ingredient_lists".* FROM "ingredient_lists" WHERE "ingredient_lists"."recipe_id" IN (11, 12) /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:12:in 'RecipesController#index'
+  [1m[36mInstruction Load (0.1ms)[0m  [1m[34mSELECT "instructions".* FROM "instructions" WHERE "instructions"."recipe_id" IN (11, 12) /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:12:in 'RecipesController#index'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 1 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 8 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 9 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.6ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 10 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.6ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 11 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 3 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 12 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 11 AND "active_storage_attachments"."record_type" = 'Recipe' AND "active_storage_attachments"."name" = 'picture' LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:46:in 'block (2 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 13 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 14 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 15 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 16 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mCACHE Ingredient Load (0.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 11 LIMIT 1[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 17 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 12 AND "active_storage_attachments"."record_type" = 'Recipe' AND "active_storage_attachments"."name" = 'picture' LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:46:in 'block (2 levels) in <class:RecipeBlueprint>'
+Completed 200 OK in 50ms (Views: 0.1ms | ActiveRecord: 3.5ms (20 queries, 1 cached) | GC: 28.0ms)
+
+
+Started GET "/users/10" for ::1 at 2025-09-17 01:45:32 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "10"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1 /*action='show',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in 'ApplicationController#authenticate_request'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:5:in 'UsersController#show'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 10 AND "active_storage_attachments"."record_type" = 'User' AND "active_storage_attachments"."name" = 'profile_picture' LIMIT 1 /*action='show',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/blueprints/user_blueprint.rb:12:in 'block (2 levels) in <class:UserBlueprint>'
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 0.6ms (3 queries, 1 cached) | GC: 1.1ms)
+
+
+Started PATCH "/users/10" for ::1 at 2025-09-17 01:45:41 -0500
+Processing by UsersController#update as HTML
+  Parameters: {"first_name" => "Demo", "last_name" => "User", "email" => "[FILTERED]", "email_confirmation" => "[FILTERED]", "preferred_system" => "metric", "id" => "10", "user" => {"email" => "[FILTERED]", "email_confirmation" => "[FILTERED]", "first_name" => "Demo", "last_name" => "User", "preferred_system" => "metric"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1 /*action='update',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in 'ApplicationController#authenticate_request'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:22:in 'UsersController#update'
+[31mUnpermitted parameters: :id, :user. Context: { controller: UsersController, action: update, request: #<ActionDispatch::Request:0x00007b6a52bc0d30>, params: {"first_name" => "Demo", "last_name" => "User", "email" => "[FILTERED]", "email_confirmation" => "[FILTERED]", "preferred_system" => "metric", "controller" => "users", "action" => "update", "id" => "10", "user" => {"email" => "[FILTERED]", "email_confirmation" => "[FILTERED]", "first_name" => "Demo", "last_name" => "User", "preferred_system" => "metric"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='update',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:23:in 'UsersController#update'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'demo@example.com' AND "users"."id" != 10 LIMIT 1 /*action='update',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:23:in 'UsersController#update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='update',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:23:in 'UsersController#update'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 10 AND "active_storage_attachments"."record_type" = 'User' AND "active_storage_attachments"."name" = 'profile_picture' LIMIT 1 /*action='update',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/blueprints/user_blueprint.rb:12:in 'block (2 levels) in <class:UserBlueprint>'
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 2.0ms (4 queries, 1 cached) | GC: 0.7ms)
+
+
+Started GET "/users/10" for ::1 at 2025-09-17 01:45:41 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "10"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1 /*action='show',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in 'ApplicationController#authenticate_request'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:5:in 'UsersController#show'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 10 AND "active_storage_attachments"."record_type" = 'User' AND "active_storage_attachments"."name" = 'profile_picture' LIMIT 1 /*action='show',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/blueprints/user_blueprint.rb:12:in 'block (2 levels) in <class:UserBlueprint>'
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 0.5ms (3 queries, 1 cached) | GC: 0.7ms)
+
+
+Started PATCH "/users/10" for ::1 at 2025-09-17 01:45:51 -0500
+Processing by UsersController#update as HTML
+  Parameters: {"first_name" => "Demo", "last_name" => "test", "email" => "[FILTERED]", "email_confirmation" => "[FILTERED]", "preferred_system" => "metric", "id" => "10", "user" => {"email" => "[FILTERED]", "email_confirmation" => "[FILTERED]", "first_name" => "Demo", "last_name" => "test", "preferred_system" => "metric"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1 /*action='update',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in 'ApplicationController#authenticate_request'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:22:in 'UsersController#update'
+[31mUnpermitted parameters: :id, :user. Context: { controller: UsersController, action: update, request: #<ActionDispatch::Request:0x00007b6a52a608c8>, params: {"first_name" => "Demo", "last_name" => "test", "email" => "[FILTERED]", "email_confirmation" => "[FILTERED]", "preferred_system" => "metric", "controller" => "users", "action" => "update", "id" => "10", "user" => {"email" => "[FILTERED]", "email_confirmation" => "[FILTERED]", "first_name" => "Demo", "last_name" => "test", "preferred_system" => "metric"}} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='update',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:23:in 'UsersController#update'
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'demo@example.com' AND "users"."id" != 10 LIMIT 1 /*action='update',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:23:in 'UsersController#update'
+  [1m[36mUser Update (1.8ms)[0m  [1m[33mUPDATE "users" SET "last_name" = 'test', "updated_at" = '2025-09-17 06:45:51.145971' WHERE "users"."id" = 10 /*action='update',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:23:in 'UsersController#update'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='update',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:23:in 'UsersController#update'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 10 AND "active_storage_attachments"."record_type" = 'User' AND "active_storage_attachments"."name" = 'profile_picture' LIMIT 1 /*action='update',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/blueprints/user_blueprint.rb:12:in 'block (2 levels) in <class:UserBlueprint>'
+Completed 200 OK in 14ms (Views: 0.1ms | ActiveRecord: 5.5ms (5 queries, 1 cached) | GC: 0.2ms)
+
+
+Started GET "/users/10" for ::1 at 2025-09-17 01:45:51 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1 /*action='show',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in 'ApplicationController#authenticate_request'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:5:in 'UsersController#show'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 10 AND "active_storage_attachments"."record_type" = 'User' AND "active_storage_attachments"."name" = 'profile_picture' LIMIT 1 /*action='show',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/blueprints/user_blueprint.rb:12:in 'block (2 levels) in <class:UserBlueprint>'
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.3ms (3 queries, 1 cached) | GC: 0.0ms)
+
+
+Started PATCH "/users/10" for ::1 at 2025-09-17 01:46:22 -0500
+Processing by UsersController#update as HTML
+  Parameters: {"first_name" => "Demo", "last_name" => "test", "email" => "[FILTERED]", "email_confirmation" => "[FILTERED]", "preferred_system" => "metric", "id" => "10", "user" => {"email" => "[FILTERED]", "email_confirmation" => "[FILTERED]", "first_name" => "Demo", "last_name" => "test", "preferred_system" => "metric"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1 /*action='update',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in 'ApplicationController#authenticate_request'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:22:in 'UsersController#update'
+[31mUnpermitted parameters: :id, :user. Context: { controller: UsersController, action: update, request: #<ActionDispatch::Request:0x00007b6a549b98a0>, params: {"first_name" => "Demo", "last_name" => "test", "email" => "[FILTERED]", "email_confirmation" => "[FILTERED]", "preferred_system" => "metric", "controller" => "users", "action" => "update", "id" => "10", "user" => {"email" => "[FILTERED]", "email_confirmation" => "[FILTERED]", "first_name" => "Demo", "last_name" => "test", "preferred_system" => "metric"}} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='update',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:23:in 'UsersController#update'
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'demo@example.com' AND "users"."id" != 10 LIMIT 1 /*action='update',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:23:in 'UsersController#update'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='update',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:23:in 'UsersController#update'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 10 AND "active_storage_attachments"."record_type" = 'User' AND "active_storage_attachments"."name" = 'profile_picture' LIMIT 1 /*action='update',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/blueprints/user_blueprint.rb:12:in 'block (2 levels) in <class:UserBlueprint>'
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 1.0ms (4 queries, 1 cached) | GC: 1.0ms)
+
+
+Started GET "/users/10" for ::1 at 2025-09-17 01:46:22 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "10"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1 /*action='show',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in 'ApplicationController#authenticate_request'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:5:in 'UsersController#show'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 10 AND "active_storage_attachments"."record_type" = 'User' AND "active_storage_attachments"."name" = 'profile_picture' LIMIT 1 /*action='show',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/blueprints/user_blueprint.rb:12:in 'block (2 levels) in <class:UserBlueprint>'
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 0.6ms (3 queries, 1 cached) | GC: 0.0ms)
+
+
+Started GET "/users/10" for ::1 at 2025-09-17 02:28:49 -0500
+Started GET "/recipes?favorite=true" for ::1 at 2025-09-17 02:28:49 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "10"}
+  [1m[36mUser Load (8.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1 /*action='show',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in 'ApplicationController#authenticate_request'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:5:in 'UsersController#show'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 10 AND "active_storage_attachments"."record_type" = 'User' AND "active_storage_attachments"."name" = 'profile_picture' LIMIT 1 /*action='show',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/blueprints/user_blueprint.rb:12:in 'block (2 levels) in <class:UserBlueprint>'
+Completed 200 OK in 34ms (Views: 0.1ms | ActiveRecord: 8.2ms (3 queries, 1 cached) | GC: 0.3ms)
+
+
+Processing by RecipesController#index as HTML
+  Parameters: {"favorite" => "true"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in 'ApplicationController#authenticate_request'
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 10 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:12:in 'RecipesController#index'
+  [1m[36mLabel Load (0.3ms)[0m  [1m[34mSELECT "labels".* FROM "labels" WHERE "labels"."recipe_id" IN (11, 12) /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:12:in 'RecipesController#index'
+  [1m[36mIngredientList Load (0.1ms)[0m  [1m[34mSELECT "ingredient_lists".* FROM "ingredient_lists" WHERE "ingredient_lists"."recipe_id" IN (11, 12) /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:12:in 'RecipesController#index'
+  [1m[36mInstruction Load (0.1ms)[0m  [1m[34mSELECT "instructions".* FROM "instructions" WHERE "instructions"."recipe_id" IN (11, 12) /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:12:in 'RecipesController#index'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 1 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 8 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 9 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 10 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 11 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 3 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 12 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 11 AND "active_storage_attachments"."record_type" = 'Recipe' AND "active_storage_attachments"."name" = 'picture' LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:46:in 'block (2 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 13 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 14 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 15 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 16 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mCACHE Ingredient Load (0.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 11 LIMIT 1[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 17 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 12 AND "active_storage_attachments"."record_type" = 'Recipe' AND "active_storage_attachments"."name" = 'picture' LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:46:in 'block (2 levels) in <class:RecipeBlueprint>'
+Completed 200 OK in 58ms (Views: 0.1ms | ActiveRecord: 1.8ms (20 queries, 1 cached) | GC: 9.6ms)
+
+
+Started GET "/recipes?favorite=true" for ::1 at 2025-09-17 02:28:50 -0500
+Processing by RecipesController#index as HTML
+  Parameters: {"favorite" => "true"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in 'ApplicationController#authenticate_request'
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 10 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:12:in 'RecipesController#index'
+  [1m[36mLabel Load (0.1ms)[0m  [1m[34mSELECT "labels".* FROM "labels" WHERE "labels"."recipe_id" IN (11, 12) /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:12:in 'RecipesController#index'
+  [1m[36mIngredientList Load (0.3ms)[0m  [1m[34mSELECT "ingredient_lists".* FROM "ingredient_lists" WHERE "ingredient_lists"."recipe_id" IN (11, 12) /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:12:in 'RecipesController#index'
+  [1m[36mInstruction Load (0.2ms)[0m  [1m[34mSELECT "instructions".* FROM "instructions" WHERE "instructions"."recipe_id" IN (11, 12) /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:12:in 'RecipesController#index'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 1 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 8 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 9 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 10 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 11 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 3 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 12 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 11 AND "active_storage_attachments"."record_type" = 'Recipe' AND "active_storage_attachments"."name" = 'picture' LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:46:in 'block (2 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 13 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 14 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 15 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 16 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mCACHE Ingredient Load (0.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 11 LIMIT 1[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 17 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 12 AND "active_storage_attachments"."record_type" = 'Recipe' AND "active_storage_attachments"."name" = 'picture' LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:46:in 'block (2 levels) in <class:RecipeBlueprint>'
+Completed 200 OK in 22ms (Views: 0.1ms | ActiveRecord: 1.7ms (20 queries, 1 cached) | GC: 1.1ms)
+
+
+Started GET "/users/10" for ::1 at 2025-09-17 02:28:52 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "10"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1 /*action='show',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in 'ApplicationController#authenticate_request'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:5:in 'UsersController#show'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 10 AND "active_storage_attachments"."record_type" = 'User' AND "active_storage_attachments"."name" = 'profile_picture' LIMIT 1 /*action='show',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/blueprints/user_blueprint.rb:12:in 'block (2 levels) in <class:UserBlueprint>'
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 0.6ms (3 queries, 1 cached) | GC: 0.0ms)
+
+
+Started GET "/users/10" for ::1 at 2025-09-17 02:28:55 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "10"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1 /*action='show',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in 'ApplicationController#authenticate_request'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:5:in 'UsersController#show'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 10 AND "active_storage_attachments"."record_type" = 'User' AND "active_storage_attachments"."name" = 'profile_picture' LIMIT 1 /*action='show',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/blueprints/user_blueprint.rb:12:in 'block (2 levels) in <class:UserBlueprint>'
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.3ms (3 queries, 1 cached) | GC: 0.0ms)
+
+
+Started GET "/users/10" for ::1 at 2025-09-17 02:28:55 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "10"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1 /*action='show',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in 'ApplicationController#authenticate_request'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:5:in 'UsersController#show'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 10 AND "active_storage_attachments"."record_type" = 'User' AND "active_storage_attachments"."name" = 'profile_picture' LIMIT 1 /*action='show',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/blueprints/user_blueprint.rb:12:in 'block (2 levels) in <class:UserBlueprint>'
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.3ms (3 queries, 1 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2025-09-17 02:29:11 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'demo@example.com' LIMIT 1 /*action='create',application='RecipeManagerApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:5:in 'SessionsController#create'
+Completed 200 OK in 201ms (Views: 0.2ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/10" for ::1 at 2025-09-17 02:29:11 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1 /*action='show',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in 'ApplicationController#authenticate_request'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:5:in 'UsersController#show'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 10 AND "active_storage_attachments"."record_type" = 'User' AND "active_storage_attachments"."name" = 'profile_picture' LIMIT 1 /*action='show',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/blueprints/user_blueprint.rb:12:in 'block (2 levels) in <class:UserBlueprint>'
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.3ms (3 queries, 1 cached) | GC: 0.0ms)
+
+
+Started GET "/users/10" for ::1 at 2025-09-17 02:29:11 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1 /*action='show',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in 'ApplicationController#authenticate_request'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:5:in 'UsersController#show'
+Started GET "/recipes?favorite=true" for ::1 at 2025-09-17 02:29:11 -0500
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 10 AND "active_storage_attachments"."record_type" = 'User' AND "active_storage_attachments"."name" = 'profile_picture' LIMIT 1 /*action='show',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/blueprints/user_blueprint.rb:12:in 'block (2 levels) in <class:UserBlueprint>'
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.3ms (3 queries, 1 cached) | GC: 0.0ms)
+
+
+Processing by RecipesController#index as HTML
+  Parameters: {"favorite" => "true"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in 'ApplicationController#authenticate_request'
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 10 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:12:in 'RecipesController#index'
+  [1m[36mLabel Load (0.2ms)[0m  [1m[34mSELECT "labels".* FROM "labels" WHERE "labels"."recipe_id" IN (11, 12) /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:12:in 'RecipesController#index'
+  [1m[36mIngredientList Load (0.1ms)[0m  [1m[34mSELECT "ingredient_lists".* FROM "ingredient_lists" WHERE "ingredient_lists"."recipe_id" IN (11, 12) /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:12:in 'RecipesController#index'
+  [1m[36mInstruction Load (0.1ms)[0m  [1m[34mSELECT "instructions".* FROM "instructions" WHERE "instructions"."recipe_id" IN (11, 12) /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:12:in 'RecipesController#index'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 1 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 8 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 9 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 10 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 11 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 3 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 12 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 11 AND "active_storage_attachments"."record_type" = 'Recipe' AND "active_storage_attachments"."name" = 'picture' LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:46:in 'block (2 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 13 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 14 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 15 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 16 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mCACHE Ingredient Load (0.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 11 LIMIT 1[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 17 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 12 AND "active_storage_attachments"."record_type" = 'Recipe' AND "active_storage_attachments"."name" = 'picture' LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:46:in 'block (2 levels) in <class:RecipeBlueprint>'
+Completed 200 OK in 22ms (Views: 0.1ms | ActiveRecord: 1.7ms (20 queries, 1 cached) | GC: 0.0ms)
+
+
+Started GET "/recipes?favorite=true" for ::1 at 2025-09-17 02:29:11 -0500
+Processing by RecipesController#index as HTML
+  Parameters: {"favorite" => "true"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in 'ApplicationController#authenticate_request'
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 10 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:12:in 'RecipesController#index'
+  [1m[36mLabel Load (0.2ms)[0m  [1m[34mSELECT "labels".* FROM "labels" WHERE "labels"."recipe_id" IN (11, 12) /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:12:in 'RecipesController#index'
+  [1m[36mIngredientList Load (0.2ms)[0m  [1m[34mSELECT "ingredient_lists".* FROM "ingredient_lists" WHERE "ingredient_lists"."recipe_id" IN (11, 12) /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:12:in 'RecipesController#index'
+  [1m[36mInstruction Load (0.3ms)[0m  [1m[34mSELECT "instructions".* FROM "instructions" WHERE "instructions"."recipe_id" IN (11, 12) /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:12:in 'RecipesController#index'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 1 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 8 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 9 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 10 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 11 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 3 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 12 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 11 AND "active_storage_attachments"."record_type" = 'Recipe' AND "active_storage_attachments"."name" = 'picture' LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:46:in 'block (2 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 13 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 14 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 15 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 16 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mCACHE Ingredient Load (0.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 11 LIMIT 1[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 17 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 12 AND "active_storage_attachments"."record_type" = 'Recipe' AND "active_storage_attachments"."name" = 'picture' LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:46:in 'block (2 levels) in <class:RecipeBlueprint>'
+Completed 200 OK in 25ms (Views: 0.1ms | ActiveRecord: 2.3ms (20 queries, 1 cached) | GC: 0.0ms)
+
+
+Started GET "/users/10" for ::1 at 2025-09-17 02:29:14 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1 /*action='show',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in 'ApplicationController#authenticate_request'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:5:in 'UsersController#show'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 10 AND "active_storage_attachments"."record_type" = 'User' AND "active_storage_attachments"."name" = 'profile_picture' LIMIT 1 /*action='show',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/blueprints/user_blueprint.rb:12:in 'block (2 levels) in <class:UserBlueprint>'
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.3ms (3 queries, 1 cached) | GC: 0.0ms)
+
+
+Started GET "/users/10" for ::1 at 2025-09-17 02:29:36 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RecipeManagerApi'*/[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "10"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1 /*action='show',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in 'ApplicationController#authenticate_request'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:5:in 'UsersController#show'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 10 AND "active_storage_attachments"."record_type" = 'User' AND "active_storage_attachments"."name" = 'profile_picture' LIMIT 1 /*action='show',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/blueprints/user_blueprint.rb:12:in 'block (2 levels) in <class:UserBlueprint>'
+Completed 200 OK in 49ms (Views: 0.1ms | ActiveRecord: 1.7ms (3 queries, 1 cached) | GC: 0.0ms)
+
+
+Started GET "/users/10" for ::1 at 2025-09-17 02:29:37 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "10"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1 /*action='show',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in 'ApplicationController#authenticate_request'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:5:in 'UsersController#show'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 10 AND "active_storage_attachments"."record_type" = 'User' AND "active_storage_attachments"."name" = 'profile_picture' LIMIT 1 /*action='show',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/blueprints/user_blueprint.rb:12:in 'block (2 levels) in <class:UserBlueprint>'
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.2ms (3 queries, 1 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2025-09-17 02:29:54 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'demo@example.com' LIMIT 1 /*action='create',application='RecipeManagerApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:5:in 'SessionsController#create'
+Completed 200 OK in 185ms (Views: 0.2ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/10" for ::1 at 2025-09-17 02:29:54 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "10"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1 /*action='show',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in 'ApplicationController#authenticate_request'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:5:in 'UsersController#show'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 10 AND "active_storage_attachments"."record_type" = 'User' AND "active_storage_attachments"."name" = 'profile_picture' LIMIT 1 /*action='show',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/blueprints/user_blueprint.rb:12:in 'block (2 levels) in <class:UserBlueprint>'
+Completed 200 OK in 8ms (Views: 0.1ms | ActiveRecord: 0.4ms (3 queries, 1 cached) | GC: 0.0ms)
+
+
+Started GET "/users/10" for ::1 at 2025-09-17 02:29:54 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "10"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1 /*action='show',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in 'ApplicationController#authenticate_request'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:5:in 'UsersController#show'
+Started GET "/recipes?favorite=true" for ::1 at 2025-09-17 02:29:54 -0500
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 10 AND "active_storage_attachments"."record_type" = 'User' AND "active_storage_attachments"."name" = 'profile_picture' LIMIT 1 /*action='show',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/blueprints/user_blueprint.rb:12:in 'block (2 levels) in <class:UserBlueprint>'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 0.3ms (3 queries, 1 cached) | GC: 0.0ms)
+
+
+Processing by RecipesController#index as HTML
+  Parameters: {"favorite" => "true"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in 'ApplicationController#authenticate_request'
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 10 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:12:in 'RecipesController#index'
+  [1m[36mLabel Load (0.1ms)[0m  [1m[34mSELECT "labels".* FROM "labels" WHERE "labels"."recipe_id" IN (11, 12) /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:12:in 'RecipesController#index'
+  [1m[36mIngredientList Load (0.2ms)[0m  [1m[34mSELECT "ingredient_lists".* FROM "ingredient_lists" WHERE "ingredient_lists"."recipe_id" IN (11, 12) /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:12:in 'RecipesController#index'
+  [1m[36mInstruction Load (0.1ms)[0m  [1m[34mSELECT "instructions".* FROM "instructions" WHERE "instructions"."recipe_id" IN (11, 12) /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:12:in 'RecipesController#index'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 1 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 8 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 9 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 10 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 11 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 3 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 12 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 11 AND "active_storage_attachments"."record_type" = 'Recipe' AND "active_storage_attachments"."name" = 'picture' LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:46:in 'block (2 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 13 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 14 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 15 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 16 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mCACHE Ingredient Load (0.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 11 LIMIT 1[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 17 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 12 AND "active_storage_attachments"."record_type" = 'Recipe' AND "active_storage_attachments"."name" = 'picture' LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:46:in 'block (2 levels) in <class:RecipeBlueprint>'
+Completed 200 OK in 69ms (Views: 0.1ms | ActiveRecord: 3.2ms (20 queries, 1 cached) | GC: 0.0ms)
+
+
+Started GET "/recipes?favorite=true" for ::1 at 2025-09-17 02:29:54 -0500
+Processing by RecipesController#index as HTML
+  Parameters: {"favorite" => "true"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in 'ApplicationController#authenticate_request'
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = 10 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:12:in 'RecipesController#index'
+  [1m[36mLabel Load (0.1ms)[0m  [1m[34mSELECT "labels".* FROM "labels" WHERE "labels"."recipe_id" IN (11, 12) /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:12:in 'RecipesController#index'
+  [1m[36mIngredientList Load (0.1ms)[0m  [1m[34mSELECT "ingredient_lists".* FROM "ingredient_lists" WHERE "ingredient_lists"."recipe_id" IN (11, 12) /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:12:in 'RecipesController#index'
+  [1m[36mInstruction Load (0.2ms)[0m  [1m[34mSELECT "instructions".* FROM "instructions" WHERE "instructions"."recipe_id" IN (11, 12) /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/controllers/recipes_controller.rb:12:in 'RecipesController#index'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 1 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 8 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 9 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 10 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 11 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 3 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 12 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 11 AND "active_storage_attachments"."record_type" = 'Recipe' AND "active_storage_attachments"."name" = 'picture' LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:46:in 'block (2 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 13 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 14 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 15 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 16 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mCACHE Ingredient Load (0.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 11 LIMIT 1[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mIngredient Load (0.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 17 LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:27:in 'block (3 levels) in <class:RecipeBlueprint>'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 12 AND "active_storage_attachments"."record_type" = 'Recipe' AND "active_storage_attachments"."name" = 'picture' LIMIT 1 /*action='index',application='RecipeManagerApi',controller='recipes'*/[0m
+  ↳ app/blueprints/recipe_blueprint.rb:46:in 'block (2 levels) in <class:RecipeBlueprint>'
+Completed 200 OK in 39ms (Views: 0.1ms | ActiveRecord: 1.7ms (20 queries, 1 cached) | GC: 18.2ms)
+
+
+Started GET "/users/10" for ::1 at 2025-09-17 02:29:57 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1 /*action='show',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in 'ApplicationController#authenticate_request'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:5:in 'UsersController#show'
+  [1m[36mActiveStorage::Attachment Load (0.7ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 10 AND "active_storage_attachments"."record_type" = 'User' AND "active_storage_attachments"."name" = 'profile_picture' LIMIT 1 /*action='show',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/blueprints/user_blueprint.rb:12:in 'block (2 levels) in <class:UserBlueprint>'
+Completed 200 OK in 16ms (Views: 0.3ms | ActiveRecord: 0.6ms (3 queries, 1 cached) | GC: 0.0ms)
+
+
+Started GET "/users/10" for ::1 at 2025-09-17 02:30:33 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "10"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1 /*action='show',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in 'ApplicationController#authenticate_request'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:5:in 'UsersController#show'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 10 AND "active_storage_attachments"."record_type" = 'User' AND "active_storage_attachments"."name" = 'profile_picture' LIMIT 1 /*action='show',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/blueprints/user_blueprint.rb:12:in 'block (2 levels) in <class:UserBlueprint>'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 0.5ms (3 queries, 1 cached) | GC: 1.0ms)
+
+
+Started GET "/users/10" for ::1 at 2025-09-17 02:30:36 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "10"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1 /*action='show',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in 'ApplicationController#authenticate_request'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:5:in 'UsersController#show'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 10 AND "active_storage_attachments"."record_type" = 'User' AND "active_storage_attachments"."name" = 'profile_picture' LIMIT 1 /*action='show',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/blueprints/user_blueprint.rb:12:in 'block (2 levels) in <class:UserBlueprint>'
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.2ms (3 queries, 1 cached) | GC: 0.0ms)
+
+
+Started GET "/users/10" for ::1 at 2025-09-17 02:30:36 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1 /*action='show',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in 'ApplicationController#authenticate_request'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:5:in 'UsersController#show'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 10 AND "active_storage_attachments"."record_type" = 'User' AND "active_storage_attachments"."name" = 'profile_picture' LIMIT 1 /*action='show',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/blueprints/user_blueprint.rb:12:in 'block (2 levels) in <class:UserBlueprint>'
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.3ms (3 queries, 1 cached) | GC: 0.0ms)
+
+
+Started GET "/users/10" for ::1 at 2025-09-17 02:30:37 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "10"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1 /*action='show',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in 'ApplicationController#authenticate_request'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:5:in 'UsersController#show'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 10 AND "active_storage_attachments"."record_type" = 'User' AND "active_storage_attachments"."name" = 'profile_picture' LIMIT 1 /*action='show',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/blueprints/user_blueprint.rb:12:in 'block (2 levels) in <class:UserBlueprint>'
+Completed 200 OK in 8ms (Views: 2.4ms | ActiveRecord: 0.3ms (3 queries, 1 cached) | GC: 2.1ms)
+
+
+Started GET "/users/10" for ::1 at 2025-09-17 02:30:37 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1 /*action='show',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in 'ApplicationController#authenticate_request'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:5:in 'UsersController#show'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 10 AND "active_storage_attachments"."record_type" = 'User' AND "active_storage_attachments"."name" = 'profile_picture' LIMIT 1 /*action='show',application='RecipeManagerApi',controller='users'*/[0m
+  ↳ app/blueprints/user_blueprint.rb:12:in 'block (2 levels) in <class:UserBlueprint>'
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.3ms (3 queries, 1 cached) | GC: 0.0ms)
+
+
