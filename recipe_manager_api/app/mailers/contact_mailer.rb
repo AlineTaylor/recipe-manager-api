@@ -1,6 +1,6 @@
 class ContactMailer < ApplicationMailer
-   default to: ENV.fetch("SUPPORT_EMAIL", "alineyui.taylor@gmail.com"),
-          from: ENV.fetch("MAIL_FROM", "no-reply@my-recipe-manager.com")
+  default to: ENV.fetch("SUPPORT_EMAIL"),
+          from: ENV.fetch("MAIL_FROM") { ENV.fetch("GMAIL_USERNAME") }
 
   def contact_message(name:, email:, subject:, message:, user_id: nil)
     @name = name
