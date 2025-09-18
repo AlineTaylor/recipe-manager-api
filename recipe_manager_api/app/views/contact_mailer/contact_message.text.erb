@@ -1,0 +1,9 @@
+New Contact Message
+
+From: <%= @name %> (<%= @email %>)
+<% if @user_id.present? %>
+User ID: <%= @user_id %>
+<% end %>
+
+Message:
+<%= @message %>

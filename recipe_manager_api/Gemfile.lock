@@ -187,6 +187,11 @@ GEM
     parser (3.3.8.0)
       ast (~> 2.4.1)
       racc
+    pg (1.6.2)
+    pg (1.6.2-aarch64-linux)
+    pg (1.6.2-aarch64-linux-musl)
+    pg (1.6.2-x86_64-linux)
+    pg (1.6.2-x86_64-linux-musl)
     pp (0.6.2)
       prettyprint
     prettyprint (0.2.0)
@@ -362,6 +367,7 @@ DEPENDENCIES
   jwt (~> 3.1)
   kamal
   letter_opener
+  pg
   puma (>= 5.0)
   rack-cors
   rails (~> 8.0.2)

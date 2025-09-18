@@ -1,9 +1,13 @@
 class IngredientList < ApplicationRecord
   # unit validation (matches frontend)
-  VALID_UNITS = %w[g kg ml l oz lb fl oz cups tsp tbsp count].freeze
+  # use explicit string array so multi-word units like "fl oz" are preserved
+  VALID_UNITS = [
+    'g', 'kg', 'ml', 'l', 'oz', 'lb', 'fl oz', 'cups', 'tsp', 'tbsp', 'count'
+  ].freeze
 
-  validates :metric_unit, inclusion: { in: VALID_UNITS, allow_nil: true, message: "%{value} is not a valid unit" }
-  validates :imperial_unit, inclusion: { in: VALID_UNITS, allow_nil: true, message: "%{value} is not a valid unit" }
+  # units now optional (nil or blank allowed). When present, must be a valid unit!
+  validates :metric_unit, inclusion: { in: VALID_UNITS, allow_nil: true, allow_blank: true, message: "%{value} is not a valid unit" }
+  validates :imperial_unit, inclusion: { in: VALID_UNITS, allow_nil: true, allow_blank: true, message: "%{value} is not a valid unit" }
 
   # associations
   belongs_to :ingredient

@@ -1,0 +1,27 @@
+<h1><%= @recipe&.title || 'A Recipe' %></h1>
+
+<% if @sender_name.present? %>
+  <p><strong><%= @sender_name %></strong> (<%= @sender_email %>) has shared a recipe with you.</p>
+<% elsif @sender_email.present? %>
+  <p><strong><%= @sender_email %></strong> has shared a recipe with you.</p>
+<% else %>
+  <p>A recipe was shared with you.</p>
+<% end %>
+
+<% if @message.present? %>
+  <blockquote><em><%= @message %></em></blockquote>
+<% end %>
+
+<p>
+  Servings: <%= @recipe&.servings %><br/>
+  Cooking Time: <%= @recipe&.cooking_time %> min
+</p>
+
+<% if @recipe&.instructions&.any? %>
+  <h3>Instructions</h3>
+  <ol>
+    <% @recipe.instructions.each do |step| %>
+      <li><%= step.step_content %></li>
+    <% end %>
+  </ol>
+<% end %>

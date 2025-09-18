@@ -37,7 +37,7 @@ class ShareController < ApplicationController
           sender_email: sender_email,
           sender_name: sender_name,
           message: message
-        ).deliver_later
+        ).deliver_now
         render json: { success: true }, status: :ok
       rescue => e
         render json: { error: e.message }, status: :internal_server_error
@@ -58,7 +58,7 @@ class ShareController < ApplicationController
 
       # send the shopping list via email using ShareMailer
       begin
-        ShareMailer.share_shopping_list(ingredients: ingredients, to_email: recipient_email, sender_email: sender_email, sender_name: sender_name).deliver_later
+  ShareMailer.share_shopping_list(ingredients: ingredients, to_email: recipient_email, sender_email: sender_email, sender_name: sender_name).deliver_now
         render json: { success: true }, status: :ok
       rescue => e
         render json: { error: e.message }, status: :internal_server_error
@@ -80,7 +80,7 @@ class ShareController < ApplicationController
 
       # send the contact message via ContactMailer
       begin
-        ContactMailer.contact_message(name: name, email: email, subject: subject, message: message, user_id: user_id).deliver_later
+  ContactMailer.contact_message(name: name, email: email, subject: subject, message: message, user_id: user_id).deliver_now
         render json: { success: true }, status: :ok
       rescue => e
         render json: { error: e.message }, status: :internal_server_error
