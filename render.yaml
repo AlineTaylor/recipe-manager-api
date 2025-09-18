@@ -23,3 +23,5 @@ services:
         sync: false
       - key: WEB_CURRENCY
         value: 2 # class notes: sensible default
+      - key: DEMO_MODE
+        value: "true"
