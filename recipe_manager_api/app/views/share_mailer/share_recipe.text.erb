@@ -1,0 +1,17 @@
+<%= @sender_name.presence || @sender_email.presence || 'Someone' %> shared a recipe with you: <%= @recipe&.title || 'A Recipe' %>
+
+<% if @message.present? %>
+"<%= @message %>"
+<% end %>
+
+Servings: <%= @recipe&.servings %>
+Cooking Time: <%= @recipe&.cooking_time %> min
+
+Instructions:
+<% if @recipe&.instructions&.any? %>
+<% @recipe.instructions.each do |step| %>
+- <%= step.step_content %>
+<% end %>
+<% else %>
+(none provided)
+<% end %>

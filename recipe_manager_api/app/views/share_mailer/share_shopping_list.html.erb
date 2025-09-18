@@ -1,0 +1,23 @@
+<h2>Your Shopping List</h2>
+
+<% if @sender_name.present? %>
+  <p>Shared by <strong><%= @sender_name %></strong> (<%= @sender_email %>)</p>
+<% elsif @sender_email.present? %>
+  <p>Shared by <strong><%= @sender_email %></strong></p>
+<% end %>
+
+<ul>
+  <% Array(@ingredients).each do |ing| %>
+    <%# If an ingredient is a hash from the frontend, try some common keys %>
+    <li>
+      <% if ing.respond_to?(:[]) %>
+        <%= (ing['metric_qty'] || ing[:metric_qty] || ing['qty'] || ing[:qty]).to_s %>
+        <%= (ing['metric_unit'] || ing[:metric_unit] || ing['unit'] || ing[:unit]).to_s %>
+        —
+        <%= (ing.dig('ingredient','ingredient') || ing.dig(:ingredient,:ingredient) || ing['name'] || ing[:name] || ing['ingredient'] || ing[:ingredient]).to_s %>
+      <% else %>
+        <%= ing.to_s %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

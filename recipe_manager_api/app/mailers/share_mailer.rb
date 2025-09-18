@@ -1,5 +1,4 @@
 class ShareMailer < ApplicationMailer
-  default from: ENV.fetch("MAIL_FROM", "GMAIL_USERNAME")
   #mailer for emails sent to user (shopping list and recipe sharing)
 
   # recipe sharing
