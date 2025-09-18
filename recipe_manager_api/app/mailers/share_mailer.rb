@@ -1,12 +1,13 @@
 class ShareMailer < ApplicationMailer
-  default from: ENV.fetch("MAIL_FROM", "no-reply@yourapp.com")
+  default from: ENV.fetch("MAIL_FROM", "GMAIL_USERNAME")
   #mailer for emails sent to user (shopping list and recipe sharing)
 
   # recipe sharing
-  def share_recipe(recipe:, to_email:, sender_email: nil, sender_name: nil)
+  def share_recipe(recipe:, to_email:, sender_email: nil, sender_name: nil, message: nil)
     @recipe = recipe
     @sender_email = sender_email
     @sender_name = sender_name
+    # optional message content from the frontend), default to nil
     @message = message
     subject = if @sender_name.present?
       "#{@sender_name} shared a recipe: #{@recipe&.title || 'A Recipe'}"
