@@ -1,0 +1,7 @@
+<h2>New Contact Message</h2>
+<p><strong>From:</strong> <%= @name %> &lt;<%= @email %>&gt;</p>
+<% if @user_id.present? %>
+  <p><strong>User ID:</strong> <%= @user_id %></p>
+<% end %>
+<h3>Message</h3>
+<p><%= simple_format(@message) %></p>

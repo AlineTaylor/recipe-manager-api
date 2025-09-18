@@ -80,7 +80,7 @@ class ShareController < ApplicationController
 
       # send the contact message via ContactMailer
       begin
-        ContactMailer.contact_message(name: name, email: email, subject: subject, message: message, user_id: user_id).deliver_later
+  ContactMailer.contact_message(name: name, email: email, subject: subject, message: message, user_id: user_id).deliver_now
         render json: { success: true }, status: :ok
       rescue => e
         render json: { error: e.message }, status: :internal_server_error
