@@ -6,6 +6,8 @@ class Recipe < ApplicationRecord
             presence: true,
             numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 999 }
   validates :description, length: { maximum: 1000, too_long: "%{count} characters is the maximum allowed" }, allow_blank: true
+  # image validation
+  validate :acceptable_picture
 
   # associations
   belongs_to :user
@@ -20,4 +22,22 @@ class Recipe < ApplicationRecord
   accepts_nested_attributes_for :label
   # also added recipe pictures via active storage: same as user profile pictures
   has_one_attached :picture
+
+  # --finally-- implementing file type restrictions to most common image formats
+  ALLOWED_IMAGE_CONTENT_TYPES = %w(image/jpeg image/png image/webp).freeze
+  MAX_IMAGE_BYTES = 5.megabytes
+
+  private
+
+  def acceptable_picture
+    return unless picture.attached?
+
+    unless picture.content_type.in?(ALLOWED_IMAGE_CONTENT_TYPES)
+      errors.add(:picture, "must be a JPEG, PNG, or WebP image")
+    end
+
+    if picture.byte_size > MAX_IMAGE_BYTES
+      errors.add(:picture, "is too large (max 5 MB)")
+    end
+  end
 end

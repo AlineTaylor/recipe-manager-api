@@ -35,10 +35,10 @@ class RecipesController < ApplicationController
   end
 
   def update
-      if @recipe.update(recipe_params)
-        if params[:picture].present?
-          @recipe.picture.attach(params[:picture])
-        end
+      @recipe.assign_attributes(recipe_params)
+      @recipe.picture.attach(params[:picture]) if params[:picture].present?
+
+      if @recipe.save
         render json: RecipeBlueprint.render(@recipe, view: :normal)
       else
         render json: { errors: @recipe.errors.full_messages }, status: :unprocessable_entity

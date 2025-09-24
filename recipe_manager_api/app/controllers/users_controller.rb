@@ -22,10 +22,10 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-      if @user.update(user_params)
-        if params[:profile_picture].present?
-          @user.profile_picture.attach(params[:profile_picture])
-        end
+      @user.assign_attributes(user_params)
+      @user.profile_picture.attach(params[:profile_picture]) if params[:profile_picture].present?
+
+      if @user.save
         render json: UserBlueprint.render(@user, view: :normal), status: :ok
       else
         render json: { errors: @user.errors.full_messages }, status: :unprocessable_entity
